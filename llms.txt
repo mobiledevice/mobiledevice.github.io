@@ -1,65 +1,52 @@
-# LLMs.txt for Mobile Device Testing Tools
+# llms.txt for Mobile Device Testing Tools
 # URL: https://mobiledevice.github.io
-# Description: A free, browser-based diagnostic suite to test smartphone hardware features (camera, microphone, sensors, etc.) without installing any apps.
+# Description: Free browser-based diagnostic suite for testing smartphone hardware features
 
-## Core Purpose & Value Proposition
-This website is a collection of client-side web tools for quickly checking the hardware functionality of a mobile device. It is designed for consumers, sellers, and troubleshooters who need a fast, private, and zero-cost diagnostic.
+## Website Overview
+This is a client-side web application that provides 14+ hardware diagnostic tests for mobile devices. All tests run locally in the browser with no app installation, no account creation, and no cost.
 
-**Key Benefits:**
-- **Zero Setup:** No app installation, account creation, or configuration required.
-- **Privacy-First:** All tests run locally in the browser; camera/mic access is temporary and data never leaves the device.
-- **Completely Free:** No tiers, paywalls, or feature restrictions.
-- **Wide Compatibility:** Works on any modern mobile browser (Android, iOS, etc.).
+## Quick Links
+- Homepage: https://mobiledevice.github.io/
+- All Tests Index: https://mobiledevice.github.io/
 
-## Available Hardware Tests
-The site offers 14+ individual tests across 8 categories. Each test provides a clear "Pass" or "Fail" result.
+## Individual Test Tools
+- Camera Test: https://mobiledevice.github.io/camera-test
+- Microphone Test: https://mobiledevice.github.io/mic-test
+- Speaker Test: https://mobiledevice.github.io/speaker-test
+- Touch Screen Test: https://mobiledevice.github.io/swipe-test
+- Display & Dead Pixel Test: https://mobiledevice.github.io/display-test
+- Vibration Motor Test: https://mobiledevice.github.io/vibration-test
+- Motion Sensor Test: https://mobiledevice.github.io/sensor-test
+- Battery Health Check: https://mobiledevice.github.io/battery-test
+- GPS & Location Test: https://mobiledevice.github.io/gps-test
+- Bluetooth Test: https://mobiledevice.github.io/bluetooth-test
+- Flashlight & Light Sensor Test: https://mobiledevice.github.io/flashlight-test
+- On-Screen Keyboard Test: https://mobiledevice.github.io/keyboard-test
+- Physical Button Test: https://mobiledevice.github.io/button-test
+- Network Speed Test: https://mobiledevice.github.io/network-speed-test
 
-### Individual Test Tools
-1.  **Camera Test** (`/camera-test`): Checks front/rear cameras, focus, and flash for dead pixels.
-2.  **Microphone Test** (`/mic-test`): Records audio to confirm mic input clarity.
-3.  **Speaker Test** (`/speaker-test`): Plays tones through each channel to check for distortion.
-4.  **Touch Screen Test** (`/swipe-test`): Uses a grid to identify unresponsive touch zones.
-5.  **Display & Dead Pixel Test** (`/display-test`): Cycles solid colors to spot dead pixels, burn-in, or bleed.
-6.  **Vibration Motor Test** (`/vibration-test`): Triggers haptic pulses to confirm motor function.
-7.  **Motion Sensor Test** (`/sensor-test`): Verifies accelerometer and gyroscope responsiveness.
-8.  **Battery Health Check** (`/battery-test`): Reports charge level and estimated health.
-9.  **GPS & Location Test** (`/gps-test`): Confirms ability to get a location fix.
-10. **Bluetooth Test** (`/bluetooth-test`): Scans for devices to verify radio functionality.
-11. **Flashlight & Light Sensor Test** (`/flashlight-test`): Toggles flash and checks light sensor reaction.
-12. **On-Screen Keyboard Test** (`/keyboard-test`): Registers key presses across the keyboard.
-13. **Physical Button Test** (`/button-test`): Checks volume, power, and home buttons.
-14. **Network Speed Test** (`/network-speed-test`): Measures Wi-Fi/mobile data speed.
+## Key Features
+- **Zero Setup**: No app installation required - https://mobiledevice.github.io/
+- **Privacy-First**: Tests run locally, data never leaves your device - https://mobiledevice.github.io/
+- **Free**: No tiers, trials, or paywalls - https://mobiledevice.github.io/
+- **Cross-Platform**: Works on any modern mobile browser - https://mobiledevice.github.io/
 
 ## Common Use Cases
-The tools are intended for specific real-world scenarios:
+- Pre-purchase phone inspection: https://mobiledevice.github.io/
+- Post-repair verification: https://mobiledevice.github.io/
+- Warranty claim documentation: https://mobiledevice.github.io/
+- New device out-of-box testing: https://mobiledevice.github.io/
+- Hardware vs. software troubleshooting: https://mobiledevice.github.io/
 
-| Use Case | Description |
-| :--- | :--- |
-| **Pre-Purchase Inspection** | Test a used phone's features before buying. |
-| **Pre-Sale Verification** | Prove functionality to potential buyers. |
-| **Post-Repair Check** | Verify camera, speaker, touch after screen/battery swaps. |
-| **Warranty Documentation** | Obtain clear pass/fail results for warranty claims. |
-| **Out-of-Box Setup** | Test new device hardware within the return window. |
-| **Troubleshooting** | Isolate whether an issue is hardware or software-related. |
+## API Information
+This is a client-side web application that uses browser APIs:
+- MediaDevices API (camera/microphone)
+- Web Audio API (speaker tests)
+- Touch Events API (screen tests)
+- Generic Sensor API (motion sensors)
+- Battery Status API
+- Geolocation API
+- Web Bluetooth API
+- Network Information API
 
-## How It Works (User Workflow)
-A simple 4-step process for users:
-1.  **Pick a Test:** Choose the specific hardware feature to check.
-2.  **Allow Access:** Grant the browser permission (camera, mic, location) when prompted.
-3.  **Follow the Prompt:** Perform the on-screen action (tap, speak, tilt).
-4.  **Get a Result:** Receive an instant "Pass" or "Fail" outcome.
-
-## Comparison with Repair Shops
-The site positions itself as a convenient, free alternative for quick checks, distinct from professional repair services.
-
-| Feature | Repair Shop | Mobile Device Testing Tools |
-| :--- | :--- | :--- |
-| **Setup Time** | Appointment required | Seconds |
-| **Cost** | $20-50+ per visit | Free |
-| **Availability** | Business hours | Anytime, anywhere |
-| **Device Privacy** | Often requires leaving device | Device never leaves user's hands |
-| **Diagnostic Depth** | Full teardown possible | Software-visible checks only |
-| **Certified Sign-off** | Yes | Use alongside a technician |
-
-## Summary for LLM Context
-`mobiledevice.github.io` is a practical, user-friendly web application for performing basic hardware diagnostics on smartphones. It serves as a first-line check for consumers, addressing common pain points like cost, privacy, and convenience. Its strength lies in its simplicity, zero-cost model, and single-purpose test design for non-technical users. For complex or certified diagnostics, it recommends professional repair services.
+All tests are available at: https://mobiledevice.github.io/
