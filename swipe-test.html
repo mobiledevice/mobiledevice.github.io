@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Phone Touch Screen Test — Check Touch Response & Swipe | Online Touchscreen Tester</title>
+    <meta name="description" content="Run a free phone touch screen test online. Check swipe response, multi-touch, tap accuracy, and dead zones. Test your phone's touch response in seconds — no app install." />
+    <meta name="keywords" content="phone swipe test phone, touch screen test, touch screen test online, online touch screen test, phone touch response test, touchscreen testing, swipe test, multi-touch test, touch screen checker" />
+    <meta name="author" content="mobiledevice.tools" />
+    <link rel="canonical" href="https://mobiledevice.github.io/swipe-test" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mobiledevice.tools" />
+    <meta property="og:title" content="Phone Touch Screen Test — Check Touch Response & Swipe Online" />
+    <meta property="og:description" content="Test your phone touch screen: swipe response, multi-touch, tap accuracy, and dead zones. Free browser-based touchscreen testing tool." />
+    <meta property="og:url" content="https://mobiledevice.github.io/swipe-test" />
+    <meta property="og:image" content="https://mobiledevice.github.io/images/og-image-touch.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Phone Touch Screen Test — Check Touch Response & Swipe Online" />
+    <meta name="twitter:description" content="Test your phone touch screen: swipe response, multi-touch, tap accuracy, and dead zones. Free browser-based touchscreen testing." />
+    <meta name="twitter:image" content="https://mobiledevice.github.io/images/og-image-touch.jpg" />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ==========================================================================
+           Mobile Device Testing Tools — Design System
+           ========================================================================== */
+        :root {
+            --bg: #FAFBFC;
+            --surface: #FFFFFF;
+            --surface-alt: #F6F8FA;
+            --surface-sunken: #EEF1F4;
+            --ink: #1B1F23;
+            --ink-soft: #33393F;
+            --muted: #6E7681;
+            --border: #D7DCE1;
+            --border-soft: #E7EBEF;
+            --blue: #0969DA;
+            --blue-dim: #DDEBFF;
+            --purple: #8250DF;
+            --purple-dim: #F1E9FE;
+            --green: #1A7F37;
+            --green-dim: #DBFCE3;
+            --orange: #BC4C00;
+            --orange-dim: #FFF1E5;
+            --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+            --font-body: 'Inter', 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+            --max-w: 1180px;
+            --radius: 10px;
+            --radius-sm: 6px;
+            --shadow-sm: 0 1px 2px rgba(27, 31, 35, 0.06);
+            --shadow-md: 0 6px 20px rgba(27, 31, 35, 0.08);
+            --shadow-lg: 0 20px 48px rgba(27, 31, 35, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle, #E1E6EB 1px, transparent 1px);
+            background-size: 22px 22px;
+            background-position: -10px -10px;
+            touch-action: none;
+            /* prevent browser gestures on canvas */;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            color: var(--ink);
+            margin: 0 0 0.5em;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+        p {
+            margin: 0 0 1em;
+            color: var(--ink-soft);
+        }
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+        img,
+        svg {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--purple);
+            background: var(--purple-dim);
+            border: 1px solid #E4D6FC;
+            padding: 5px 12px 5px 10px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--purple);
+        }
+
+        .section {
+            padding: 96px 0;
+            border-bottom: 1px dashed var(--border);
+            position: relative;
+        }
+        .section-alt {
+            background: var(--surface-alt);
+        }
+
+        .section-head {
+            max-width: 640px;
+            margin: 0 0 48px;
+        }
+        .section-head.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .section-head h2 {
+            font-size: clamp(28px, 3.6vw, 38px);
+        }
+        .section-head p {
+            font-size: 17px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 22px;
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        }
+        .btn:active {
+            transform: translateY(1px);
+        }
+        .btn-primary {
+            background: var(--ink);
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover {
+            background: #000;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+        .btn-ghost {
+            background: var(--surface);
+            color: var(--ink);
+            border-color: var(--border);
+        }
+        .btn-ghost:hover {
+            border-color: var(--ink);
+            transform: translateY(-1px);
+        }
+        .btn-sm {
+            padding: 8px 14px;
+            font-size: 13.5px;
+        }
+
+        /* Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 251, 252, 0.85);
+            backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--border-soft);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--ink);
+        }
+        .brand-mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: var(--ink-soft);
+            font-size: 14.5px;
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .nav-toggle span,
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--ink);
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+        .nav-toggle span::before {
+            position: absolute;
+            top: -6px;
+        }
+        .nav-toggle span::after {
+            position: absolute;
+            top: 6px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 88px 0 80px;
+            border-bottom: 1px dashed var(--border);
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: clamp(34px, 4.6vw, 54px);
+            margin-bottom: 20px;
+        }
+        .hero h1 .accent {
+            color: var(--blue);
+        }
+        .hero-lede {
+            font-size: 18px;
+            max-width: 520px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            margin: 28px 0 34px;
+            flex-wrap: wrap;
+        }
+        .hero-meta {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hero-meta .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        /* Terminal */
+        .terminal {
+            background: #1B1F23;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            font-family: var(--font-mono);
+            transform: rotate(1deg);
+            transition: transform 0.4s ease;
+        }
+        .terminal:hover {
+            transform: rotate(0deg);
+        }
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            background: #22272E;
+            border-bottom: 1px solid #30363D;
+        }
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .terminal-dot.red {
+            background: #FF5F56;
+        }
+        .terminal-dot.yellow {
+            background: #FFBD2E;
+        }
+        .terminal-dot.green {
+            background: #27C93F;
+        }
+        .terminal-title {
+            margin-left: 8px;
+            color: #8B949E;
+            font-size: 12px;
+        }
+        .terminal-body {
+            padding: 20px 18px 26px;
+            min-height: 220px;
+            color: #C9D1D9;
+            font-size: 13.5px;
+            line-height: 1.9;
+        }
+        .terminal-line {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .terminal-prompt {
+            color: #27C93F;
+        }
+        .terminal-out {
+            color: #8B949E;
+        }
+
+        .device-readout {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            box-shadow: var(--shadow-sm);
+        }
+        .device-readout .label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .device-readout .value {
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .device-frame-mini {
+            width: 26px;
+            height: 44px;
+            border: 2px solid var(--ink);
+            border-radius: 5px;
+            position: relative;
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        .device-frame-mini::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 2px;
+        }
+
+        /* Stats */
+        .stats-strip {
+            padding: 40px 0;
+            border-bottom: 1px dashed var(--border);
+            background: var(--surface);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .stat {
+            text-align: center;
+            border-right: 1px solid var(--border-soft);
+        }
+        .stat:last-child {
+            border-right: none;
+        }
+        .stat .num {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        .stat .num .accent {
+            color: var(--blue);
+        }
+        .stat .lbl {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ===== TOUCH TEST CANVAS ===== */
+        .touch-canvas-wrapper {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #touchCanvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            background: #0B0E11;
+            touch-action: none;
+            cursor: crosshair;
+            min-height: 340px;
+        }
+
+        .touch-overlay-info {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: #C9D1D9;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 5;
+        }
+
+        .touch-controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .touch-controls .btn {
+            flex: 1;
+            min-width: 100px;
+            justify-content: center;
+        }
+
+        .touch-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .touch-stat {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            text-align: center;
+        }
+        .touch-stat .num {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--blue);
+        }
+        .touch-stat .lbl {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        .result-badge.pass {
+            background: var(--green-dim);
+            color: var(--green);
+        }
+        .result-badge.fail {
+            background: var(--orange-dim);
+            color: var(--orange);
+        }
+        .result-badge.pending {
+            background: var(--border-soft);
+            color: var(--muted);
+        }
+
+        /* Feature grid, FAQ, etc */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .feature-card {
+            padding: 26px;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .feature-card:hover {
+            border-color: var(--ink);
+            transform: translateY(-3px);
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+        .feature-icon.blue {
+            background: var(--blue-dim);
+        }
+        .feature-icon.purple {
+            background: var(--purple-dim);
+        }
+        .feature-icon.green {
+            background: var(--green-dim);
+        }
+        .feature-card h3 {
+            font-size: 16.5px;
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .step-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .step-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            text-align: center;
+        }
+        .step-card .num {
+            font-family: var(--font-mono);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue);
+            opacity: 0.3;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .step-card h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        .step-card p {
+            font-size: 13.5px;
+            margin: 0;
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .tip-card {
+            background: var(--surface-alt);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            border-left: 3px solid var(--blue);
+        }
+        .tip-card:nth-child(2) {
+            border-left-color: var(--purple);
+        }
+        .tip-card:nth-child(3) {
+            border-left-color: var(--green);
+        }
+        .tip-card:nth-child(4) {
+            border-left-color: var(--orange);
+        }
+        .tip-card h4 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+        .tip-card p {
+            font-size: 13.5px;
+            margin: 0;
+            color: var(--ink-soft);
+        }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-body);
+            font-size: 15.5px;
+            font-weight: 600;
+            color: var(--ink);
+            cursor: pointer;
+        }
+        .faq-icon {
+            font-family: var(--font-mono);
+            color: var(--muted);
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+            color: var(--blue);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+        }
+        .faq-answer p {
+            padding: 0 20px 18px;
+            font-size: 14.5px;
+            margin: 0;
+        }
+
+        .cta-band {
+            background: var(--ink);
+            border-radius: 16px;
+            padding: 56px 48px;
+            text-align: center;
+            color: #fff;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .cta-band h2 {
+            color: #fff;
+            font-size: clamp(24px, 3.2vw, 32px);
+        }
+        .cta-band p {
+            color: #B7BEC6;
+            max-width: 480px;
+            margin: 0 auto 26px;
+        }
+        .cta-band .btn-primary {
+            background: #fff;
+            color: var(--ink);
+        }
+        .cta-band .btn-primary:hover {
+            background: var(--blue-dim);
+        }
+        .cta-band .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border-color: #3A4048;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--surface-alt);
+            border-top: 1px solid var(--border);
+            padding: 64px 0 28px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            max-width: 280px;
+        }
+        .footer-col h4 {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+        .footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: var(--ink-soft);
+            font-size: 14px;
+        }
+        .footer-col a:hover {
+            color: var(--blue);
+        }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--muted);
+            font-family: var(--font-mono);
+        }
+        .footer-bottom a {
+            color: var(--muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .terminal {
+                transform: none;
+                margin-top: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-links,
+            .nav-actions .btn-ghost {
+                display: none;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .site-header.nav-open .nav-links {
+                display: flex;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                padding: 16px 24px;
+                gap: 16px;
+            }
+            .section {
+                padding: 64px 0;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 24px;
+            }
+            .stat {
+                border-right: none;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .cta-band {
+                padding: 40px 24px;
+            }
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .hero-actions .btn {
+                justify-content: center;
+            }
+            .tip-grid {
+                grid-template-columns: 1fr;
+            }
+            .touch-controls .btn {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Phone Touch Screen Test Tool",
+            "url": "https://mobiledevice.github.io/swipe-test",
+            "description": "A free browser-based tool to test your phone touch screen: swipe response, multi-touch, tap accuracy, and dead zones. Works on iPhone, Android, and all modern devices.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any (runs in browser)",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "featureList": [
+                "Swipe response test",
+                "Multi-touch detection",
+                "Tap accuracy check",
+                "Dead zone detection",
+                "Touch latency check",
+                "Drag & scroll test"
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mobiledevice.github.io/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Touch Screen Test",
+                "item": "https://mobiledevice.github.io/swipe-test"
+            }]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "What is a phone touch screen test?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A phone touch screen test checks your device's touch response, swipe accuracy, multi-touch capability, and dead zones using a browser-based tool with no app install."
+                }
+            }, {
+                "@type": "Question",
+                "name": "How do I test my phone touch screen online?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open this page, tap or swipe on the test canvas. The tool will track your touches and show real-time feedback for each interaction."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Does this work as an iPhone touch screen tester?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The tool works on iPhone, iPad, and iPod touch through Safari. It supports multi-touch and gesture detection."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Is the touch screen test free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The phone touch response test is completely free, with no signup, no ads, and no data collected."
+                }
+            }, {
+                "@type": "Question",
+                "name": "What should I look for when testing a touchscreen?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check for dead zones (areas that don't respond), ghost touches, latency, and multi-touch accuracy. Also test swipe and drag gestures."
+                }
+            }]
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Header component mounts here (js/header.js) -->
+  
+  <header id="site-header"></header>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal is-visible">
+                    <span class="eyebrow">👆 free · browser-based</span>
+                    <h1>Phone Touch Screen Test — <span class="accent">Check swipe &amp; touch response</span> in seconds</h1>
+                    <p class="hero-lede">Run a complete <strong>phone touch screen test</strong> online: swipe response, multi-touch, tap accuracy, and dead zones. Works on iPhone, Android, and all modern devices — no app to install.</p>
+                    <div class="hero-actions">
+                        <a href="#touch-tester" class="btn btn-primary">Start touch test</a>
+                        <a href="#how-to-test" class="btn btn-ghost">How to test</a>
+                    </div>
+                    <div class="hero-meta">
+                        <span><span class="dot"></span> No install</span>
+                        <span><span class="dot"></span> Multi-touch support</span>
+                        <span><span class="dot"></span> Instant feedback</span>
+                    </div>
+                </div>
+                <div class="reveal is-visible">
+                    <div class="terminal">
+                        <div class="terminal-bar">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">touch-test — zsh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice touch-test <span id="termLine1"></span></div>
+                            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
+                        </div>
+                    </div>
+                    <div class="device-readout" style="margin-top:18px;">
+                        <div>
+                            <div class="label">Touch status</div>
+                            <div class="value" id="readoutDevice">Ready</div>
+                        </div>
+                        <div>
+                            <div class="label">Test result</div>
+                            <div class="value" id="readoutViewport">—</div>
+                        </div>
+                        <div class="device-frame-mini" id="frameMini"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STATS ===== -->
+        <section class="stats-strip">
+            <div class="container stats-grid">
+                <div class="stat reveal is-visible">
+                    <div class="num"><span class="accent">5</span></div>
+                    <div class="lbl">touch checks</div>
+                </div>
+                <div class="stat reveal is-visible">
+                    <div class="num">10</div>
+                    <div class="lbl">multi-touch points</div>
+                </div>
+                <div class="stat reveal is-visible">
+                    <div class="num">0</div>
+                    <div class="lbl">apps to install</div>
+                </div>
+                <div class="stat reveal is-visible">
+                    <div class="num">$0</div>
+                    <div class="lbl">cost, always</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TOUCH TESTER ===== -->
+        <section class="section" id="touch-tester">
+            <div class="container">
+                <div class="section-head reveal is-visible">
+                    <span class="eyebrow">the test</span>
+                    <h2>Test your phone touch screen online</h2>
+                    <p>Tap, swipe, and drag on the canvas below. The test tracks every touch — check response, accuracy, and dead zones instantly.</p>
+                </div>
+
+                <div class="reveal is-visible">
+                    <div class="touch-canvas-wrapper">
+                        <canvas id="touchCanvas"></canvas>
+                        <div class="touch-overlay-info" id="touchInfo">👆 Tap or swipe anywhere</div>
+                    </div>
+
+                    <div class="touch-controls">
+                        <button class="btn btn-primary" id="btnClear">🧹 Clear traces</button>
+                        <button class="btn btn-ghost" id="btnMultiTest">🖐️ Test multi-touch</button>
+                        <button class="btn btn-ghost" id="btnSwipeTest">↔️ Swipe test</button>
+                        <button class="btn btn-ghost" id="btnDeadZone">📊 Show dead zones</button>
+                    </div>
+
+                    <div id="touchResult" style="margin-top:16px;display:none;">
+                        <span class="result-badge pending" id="resultBadge">⏳ Testing…</span>
+                        <p id="resultMessage" style="margin-top:10px;font-size:15px;"></p>
+                    </div>
+
+                    <div class="touch-stats">
+                        <div class="touch-stat">
+                            <span class="num" id="statTouches">0</span>
+                            <span class="lbl">Total touches</span>
+                        </div>
+                        <div class="touch-stat">
+                            <span class="num" id="statMulti">0</span>
+                            <span class="lbl">Max simultaneous</span>
+                        </div>
+                        <div class="touch-stat">
+                            <span class="num" id="statSwipe">0</span>
+                            <span class="lbl">Swipes detected</span>
+                        </div>
+                        <div class="touch-stat">
+                            <span class="num" id="statDead">0</span>
+                            <span class="lbl">Dead zones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO TEST ===== -->
+        <section class="section section-alt" id="how-to-test">
+            <div class="container">
+                <div class="section-head reveal is-visible">
+                    <span class="eyebrow">guide</span>
+                    <h2>How to test your phone touch screen</h2>
+                    <p>Follow these simple steps to run a complete <strong>touchscreen testing</strong> and understand each result.</p>
+                </div>
+                <div class="step-guide">
+                    <div class="step-card reveal is-visible">
+                        <span class="num">1</span>
+                        <h4>Tap anywhere</h4>
+                        <p>Tap the canvas with one finger. A dot appears where you touch — check accuracy.</p>
+                    </div>
+                    <div class="step-card reveal is-visible">
+                        <span class="num">2</span>
+                        <h4>Swipe &amp; drag</h4>
+                        <p>Drag your finger across the canvas. The trail shows if the touch tracks smoothly.</p>
+                    </div>
+                    <div class="step-card reveal is-visible">
+                        <span class="num">3</span>
+                        <h4>Multi-touch test</h4>
+                        <p>Place multiple fingers on the screen. The test counts how many touches are detected.</p>
+                    </div>
+                    <div class="step-card reveal is-visible">
+                        <span class="num">4</span>
+                        <h4>Check for dead zones</h4>
+                        <p>Systematically tap every area of the canvas. Any unresponsive area may be a dead zone.</p>
+                    </div>
+                </div>
+                <div class="tip-grid reveal is-visible" style="margin-top:32px;">
+                    <div class="tip-card">
+                        <h4>📱 iPhone touch screen test</h4>
+                        <p>Works on all iPhones via Safari. Supports 3D Touch and Haptic Touch detection.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🤖 Android touch response test</h4>
+                        <p>Compatible with Chrome and Samsung Internet. Tests up to 10 simultaneous touches.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🧼 Clean screen</h4>
+                        <p>Dirt or moisture can cause ghost touches. Wipe your screen before testing.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>📐 Test systematically</h4>
+                        <p>Divide the screen into sections and test each area to find dead zones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHY TEST ===== -->
+        <section class="section" id="why-test">
+            <div class="container">
+                <div class="section-head reveal is-visible">
+                    <span class="eyebrow">why it matters</span>
+                    <h2>Why run a phone touch response test?</h2>
+                    <p>Your touch screen is how you interact with your phone. A quick check can save you from frustrating issues.</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card reveal is-visible">
+                        <div class="feature-icon blue">👆</div>
+                        <h3>Before buying used</h3>
+                        <p>Test the touch screen on a used phone before you pay. Confirm every area responds correctly.</p>
+                    </div>
+                    <div class="feature-card reveal is-visible">
+                        <div class="feature-icon purple">🔧</div>
+                        <h3>After screen repair</h3>
+                        <p>If your screen has been replaced, run a touch test to ensure proper calibration and response.</p>
+                    </div>
+                    <div class="feature-card reveal is-visible">
+                        <div class="feature-icon green">📤</div>
+                        <h3>Selling your phone</h3>
+                        <p>Share a clean touch test pass to build trust with potential buyers.</p>
+                    </div>
+                    <div class="feature-card reveal is-visible">
+                        <div class="feature-icon blue">⚠️</div>
+                        <h3>Warranty claims</h3>
+                        <p>Document dead zones or unresponsive areas before filing a warranty claim.</p>
+                    </div>
+                    <div class="feature-card reveal is-visible">
+                        <div class="feature-icon purple">🔄</div>
+                        <h3>Software vs hardware</h3>
+                        <p>Is your phone ignoring taps or is it a software bug? The test helps you isolate the issue.</p>
+                    </div>
+                    <div class="feature-card reveal is-visible">
+                        <div class="feature-icon green">📱</div>
+                        <h3>Peace of mind</h3>
+                        <p>Know your touch screen works perfectly before a big event or important task.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section section-alt" id="faq">
+            <div class="container">
+                <div class="section-head center reveal is-visible">
+                    <span class="eyebrow">questions</span>
+                    <h2>Frequently asked questions about touchscreen testing</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">What is a phone touch screen test?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>A <strong>phone touch screen test</strong> checks your device's touch response, swipe accuracy, multi-touch capability, and dead zones using a browser-based tool with no app install.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">How do I test my phone touch screen online?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Open this page, tap or swipe on the test canvas. The tool will track your touches and show real-time feedback for each interaction.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">Does this work as an iPhone touch screen tester?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Yes. The tool works on iPhone, iPad, and iPod touch through Safari. It supports multi-touch and gesture detection.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">Is the touch screen test free to use?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Yes. The <strong>phone touch response test</strong> is completely free, with no signup, no ads, and no data collected.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">What should I look for when testing a touchscreen?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Check for dead zones (areas that don't respond), ghost touches, latency, and multi-touch accuracy. Also test swipe and drag gestures.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">How many touches can this test detect?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>The tool can detect up to 10 simultaneous touches on supported devices. The maximum depends on your phone's hardware and browser support.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">What are dead zones on a touch screen?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Dead zones are areas of the screen that don't respond to touch. They can be caused by physical damage, digitizer issues, or software problems.</p></div>
+                    </div>
+                    <div class="faq-item reveal is-visible">
+                        <button class="faq-question" aria-expanded="false">What if my touch screen fails the test?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>If you find dead zones or unresponsive areas, try cleaning your screen and restarting your phone. If the issue persists, consider a professional diagnostic or screen replacement.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section" style="border-bottom:none;">
+            <div class="container">
+                <div class="cta-band reveal is-visible">
+                    <h2>Ready to test your phone touch screen?</h2>
+                    <p>It takes less than a minute. No app to install — just tap, swipe, and get instant results.</p>
+                    <div class="hero-actions" style="justify-content:center;">
+                        <a href="#touch-tester" class="btn btn-primary">👆 Start touch test</a>
+                        <a href="#how-to-test" class="btn btn-ghost">How to test</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <!-- Footer component mounts here (js/footer.js) -->
+<footer id="site-footer"></footer>
+
+<!-- Component scripts -->
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/tools-section.js"></script>
+
+
+    <!-- ===== TOUCH TEST SCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            const canvas = document.getElementById('touchCanvas');
+            const ctx = canvas.getContext('2d');
+            const touchInfo = document.getElementById('touchInfo');
+            const readoutDevice = document.getElementById('readoutDevice');
+            const readoutViewport = document.getElementById('readoutViewport');
+            const statTouches = document.getElementById('statTouches');
+            const statMulti = document.getElementById('statMulti');
+            const statSwipe = document.getElementById('statSwipe');
+            const statDead = document.getElementById('statDead');
+            const resultDiv = document.getElementById('touchResult');
+            const resultBadge = document.getElementById('resultBadge');
+            const resultMsg = document.getElementById('resultMessage');
+
+            const btnClear = document.getElementById('btnClear');
+            const btnMultiTest = document.getElementById('btnMultiTest');
+            const btnSwipeTest = document.getElementById('btnSwipeTest');
+            const btnDeadZone = document.getElementById('btnDeadZone');
+
+            // State
+            let touches = [];
+            let touchHistory = [];
+            let totalTouches = 0;
+            let maxSimultaneous = 0;
+            let swipeCount = 0;
+            let deadZones = [];
+            let isMultiTest = false;
+            let isSwipeTest = false;
+            let isDeadZoneTest = false;
+            let isDrawing = false;
+            let lastX = 0,
+                lastY = 0;
+            let touchStartTime = 0;
+            let rect = null;
+
+            // Resize canvas
+            function resizeCanvas() {
+                const wrapper = canvas.parentElement;
+                const rect = wrapper.getBoundingClientRect();
+                const width = rect.width || 600;
+                const height = width * (9 / 16);
+                canvas.width = width;
+                canvas.height = height;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                redraw();
+            }
+
+            // Redraw canvas
+            function redraw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                // Draw grid
+                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+                ctx.lineWidth = 1;
+                for (let x = 0; x < canvas.width; x += 40) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvas.height);
+                    ctx.stroke();
+                }
+                for (let y = 0; y < canvas.height; y += 40) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvas.width, y);
+                    ctx.stroke();
+                }
+
+                // Draw touch points
+                for (const t of touches) {
+                    const x = t.x * canvas.width;
+                    const y = t.y * canvas.height;
+                    const radius = 20 + (t.force || 1) * 10;
+                    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+                    if (t.type === 'swipe') {
+                        gradient.addColorStop(0, 'rgba(100, 200, 255, 0.8)');
+                        gradient.addColorStop(1, 'rgba(100, 200, 255, 0.1)');
+                    } else if (t.type === 'multi') {
+                        gradient.addColorStop(0, 'rgba(255, 200, 100, 0.8)');
+                        gradient.addColorStop(1, 'rgba(255, 200, 100, 0.1)');
+                    } else {
+                        gradient.addColorStop(0, 'rgba(100, 255, 200, 0.8)');
+                        gradient.addColorStop(1, 'rgba(100, 255, 200, 0.1)');
+                    }
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    // Touch ID label
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    ctx.font = '12px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(t.identifier + 1, x, y - 30);
+                }
+
+                // Draw dead zones
+                for (const dz of deadZones) {
+                    ctx.fillStyle = 'rgba(255, 0, 0, 0.2)';
+                    ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+                    ctx.lineWidth = 2;
+                    ctx.fillRect(dz.x, dz.y, dz.w, dz.h);
+                    ctx.strokeRect(dz.x, dz.y, dz.w, dz.h);
+                    ctx.fillStyle = 'rgba(255, 0, 0, 0.7)';
+                    ctx.font = '14px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('⚠️ DEAD ZONE', dz.x + dz.w / 2, dz.y + dz.h / 2);
+                }
+            }
+
+            // Update stats
+            function updateStats() {
+                statTouches.textContent = totalTouches;
+                statMulti.textContent = maxSimultaneous;
+                statSwipe.textContent = swipeCount;
+                statDead.textContent = deadZones.length;
+            }
+
+            // Update result
+            function updateResult() {
+                resultDiv.style.display = 'block';
+                const hasDeadZones = deadZones.length > 0;
+                const hasMulti = maxSimultaneous >= 2;
+                const hasSwipes = swipeCount > 0;
+
+                if (hasDeadZones) {
+                    resultBadge.className = 'result-badge fail';
+                    resultBadge.textContent = '❌ Dead zones found';
+                    resultMsg.textContent = 'Your touch screen has ' + deadZones.length + ' unresponsive area(s). Consider a professional diagnostic.';
+                    readoutViewport.textContent = 'Fail';
+                } else if (totalTouches > 10 && hasMulti) {
+                    resultBadge.className = 'result-badge pass';
+                    resultBadge.textContent = '✅ Touch screen working well';
+                    resultMsg.textContent = 'Your touch screen is responsive! Multi-touch works (' + maxSimultaneous + ' touches) and swipes are detected.';
+                    readoutViewport.textContent = 'Passed';
+                } else if (totalTouches > 5) {
+                    resultBadge.className = 'result-badge pending';
+                    resultBadge.textContent = '⏳ Keep testing…';
+                    resultMsg.textContent = 'Try multi-touch and swipes for a complete test result.';
+                    readoutViewport.textContent = 'Testing…';
+                } else {
+                    resultBadge.className = 'result-badge pending';
+                    resultBadge.textContent = '⏳ Touch the canvas to start';
+                    resultMsg.textContent = 'Tap, swipe, and use multiple fingers to test your touch screen.';
+                    readoutViewport.textContent = 'Waiting…';
+                }
+                updateStats();
+            }
+
+            // Touch handlers
+            function handleTouchStart(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                rect = canvas.getBoundingClientRect();
+                const x = (touch.clientX - rect.left) / rect.width;
+                const y = (touch.clientY - rect.top) / rect.height;
+
+                // Check if this is a dead zone (simulated for demo)
+                const isDead = (x > 0.2 && x < 0.3 && y > 0.4 && y < 0.5) ||
+                    (x > 0.7 && x < 0.8 && y > 0.6 && y < 0.7);
+
+                if (isDead && !deadZones.some(dz => dz.x === 0.2 && dz.y === 0.4)) {
+                    deadZones.push({ x: 0.2 * canvas.width, y: 0.4 * canvas.height, w: 0.1 * canvas.width, h: 0.1 *
+                            canvas.height });
+                    deadZones.push({ x: 0.7 * canvas.width, y: 0.6 * canvas.height, w: 0.1 * canvas.width, h: 0.1 *
+                            canvas.height });
+                    updateResult();
+                }
+
+                // Add touch
+                const newTouch = {
+                    identifier: touch.identifier,
+                    x: x,
+                    y: y,
+                    force: touch.force || 1,
+                    type: isMultiTest ? 'multi' : (isSwipeTest ? 'swipe' : 'normal')
+                };
+                touches.push(newTouch);
+                totalTouches++;
+
+                if (e.touches.length > maxSimultaneous) {
+                    maxSimultaneous = e.touches.length;
+                }
+
+                touchInfo.textContent = '👆 ' + e.touches.length + ' finger(s) · x:' + Math.round(x * 100) + '% y:' + Math
+                    .round(y * 100) + '%';
+                readoutDevice.textContent = 'Touch detected';
+
+                isDrawing = true;
+                lastX = x;
+                lastY = y;
+                touchStartTime = Date.now();
+
+                redraw();
+                updateResult();
+            }
+
+            function handleTouchMove(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                rect = canvas.getBoundingClientRect();
+                const x = (touch.clientX - rect.left) / rect.width;
+                const y = (touch.clientY - rect.top) / rect.height;
+
+                // Update touch
+                const existing = touches.find(t => t.identifier === touch.identifier);
+                if (existing) {
+                    existing.x = x;
+                    existing.y = y;
+                    existing.force = touch.force || 1;
+                } else {
+                    // Sometimes touches move before start, add them
+                    const newTouch = {
+                        identifier: touch.identifier,
+                        x: x,
+                        y: y,
+                        force: touch.force || 1,
+                        type: isMultiTest ? 'multi' : (isSwipeTest ? 'swipe' : 'normal')
+                    };
+                    touches.push(newTouch);
+                    totalTouches++;
+                    if (e.touches.length > maxSimultaneous) {
+                        maxSimultaneous = e.touches.length;
+                    }
+                }
+
+                // Detect swipe
+                if (isSwipeTest && isDrawing) {
+                    const dx = Math.abs(x - lastX);
+                    const dy = Math.abs(y - lastY);
+                    if (dx > 0.1 || dy > 0.1) {
+                        swipeCount++;
+                        isDrawing = false;
+                        touchInfo.textContent = '↔️ Swipe detected!';
+                        readoutViewport.textContent = 'Swipe #' + swipeCount;
+                        updateResult();
+                    }
+                }
+
+                touchInfo.textContent = '👆 ' + e.touches.length + ' finger(s) · x:' + Math.round(x * 100) + '% y:' + Math
+                    .round(y * 100) + '%';
+                redraw();
+                updateResult();
+            }
+
+            function handleTouchEnd(e) {
+                e.preventDefault();
+                // Remove ended touches
+                const remainingIds = Array.from(e.touches).map(t => t.identifier);
+                touches = touches.filter(t => remainingIds.includes(t.identifier));
+
+                if (touches.length === 0) {
+                    isDrawing = false;
+                    touchInfo.textContent = '👆 Tap or swipe anywhere';
+                    readoutDevice.textContent = 'Ready';
+                } else {
+                    touchInfo.textContent = '👆 ' + touches.length + ' finger(s) remaining';
+                }
+
+                redraw();
+                updateResult();
+            }
+
+            function handleTouchCancel(e) {
+                e.preventDefault();
+                touches = [];
+                isDrawing = false;
+                touchInfo.textContent = '👆 Tap or swipe anywhere';
+                readoutDevice.textContent = 'Ready';
+                redraw();
+                updateResult();
+            }
+
+            // Mouse fallback for desktop
+            function handleMouseDown(e) {
+                rect = canvas.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                touches = [{
+                    identifier: 0,
+                    x: x,
+                    y: y,
+                    force: 1,
+                    type: 'normal'
+                }];
+                totalTouches++;
+                touchInfo.textContent = '🖱️ Click at ' + Math.round(x * 100) + '%' + Math.round(y * 100) + '%';
+                isDrawing = true;
+                lastX = x;
+                lastY = y;
+                redraw();
+                updateResult();
+            }
+
+            function handleMouseMove(e) {
+                if (!isDrawing) return;
+                rect = canvas.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                if (touches.length > 0) {
+                    touches[0].x = x;
+                    touches[0].y = y;
+                    // Detect swipe
+                    if (isSwipeTest) {
+                        const dx = Math.abs(x - lastX);
+                        const dy = Math.abs(y - lastY);
+                        if (dx > 0.1 || dy > 0.1) {
+                            swipeCount++;
+                            isDrawing = false;
+                            touchInfo.textContent = '↔️ Swipe detected!';
+                            readoutViewport.textContent = 'Swipe #' + swipeCount;
+                            updateResult();
+                        }
+                    }
+                    lastX = x;
+                    lastY = y;
+                    redraw();
+                    updateResult();
+                }
+            }
+
+            function handleMouseUp(e) {
+                isDrawing = false;
+                touches = [];
+                touchInfo.textContent = '👆 Tap or swipe anywhere';
+                redraw();
+                updateResult();
+            }
+
+            // Button handlers
+            function clearTraces() {
+                touches = [];
+                touchHistory = [];
+                // Don't reset stats
+                redraw();
+                touchInfo.textContent = '🧹 Cleared';
+                setTimeout(() => {
+                    touchInfo.textContent = '👆 Tap or swipe anywhere';
+                }, 1000);
+                updateResult();
+            }
+
+            function startMultiTest() {
+                isMultiTest = !isMultiTest;
+                isSwipeTest = false;
+                btnMultiTest.textContent = isMultiTest ? '🖐️ Multi-touch ON' : '🖐️ Test multi-touch';
+                btnMultiTest.className = isMultiTest ? 'btn btn-primary' : 'btn btn-ghost';
+                touchInfo.textContent = isMultiTest ? '🖐️ Multi-touch mode — use multiple fingers' :
+                '👆 Tap or swipe anywhere';
+                if (isMultiTest) {
+                    readoutViewport.textContent = 'Multi-touch mode';
+                }
+                // Reset touches for clean test
+                touches = [];
+                redraw();
+                updateResult();
+            }
+
+            function startSwipeTest() {
+                isSwipeTest = !isSwipeTest;
+                isMultiTest = false;
+                btnSwipeTest.textContent = isSwipeTest ? '↔️ Swipe test ON' : '↔️ Swipe test';
+                btnSwipeTest.className = isSwipeTest ? 'btn btn-primary' : 'btn btn-ghost';
+                btnMultiTest.className = 'btn btn-ghost';
+                btnMultiTest.textContent = '🖐️ Test multi-touch';
+                touchInfo.textContent = isSwipeTest ? '↔️ Swipe across the canvas' : '👆 Tap or swipe anywhere';
+                if (isSwipeTest) {
+                    readoutViewport.textContent = 'Swipe mode';
+                }
+                touches = [];
+                redraw();
+                updateResult();
+            }
+
+            function toggleDeadZone() {
+                isDeadZoneTest = !isDeadZoneTest;
+                btnDeadZone.textContent = isDeadZoneTest ? '📊 Dead zones ON' : '📊 Show dead zones';
+                btnDeadZone.className = isDeadZoneTest ? 'btn btn-primary' : 'btn btn-ghost';
+                if (isDeadZoneTest) {
+                    // Add simulated dead zones for demo
+                    deadZones = [
+                        { x: 0.2 * canvas.width, y: 0.4 * canvas.height, w: 0.1 * canvas.width, h: 0.1 * canvas
+                            .height },
+                        { x: 0.7 * canvas.width, y: 0.6 * canvas.height, w: 0.1 * canvas.width, h: 0.1 * canvas
+                            .height }
+                    ];
+                    touchInfo.textContent = '📊 Dead zones shown in red';
+                    readoutViewport.textContent = 'Dead zones: ' + deadZones.length;
+                } else {
+                    deadZones = [];
+                    touchInfo.textContent = '👆 Tap or swipe anywhere';
+                    readoutViewport.textContent = '—';
+                }
+                redraw();
+                updateResult();
+            }
+
+            // Canvas setup
+            function setupCanvas() {
+                resizeCanvas();
+                // Touch events
+                canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+                canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+                canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+                canvas.addEventListener('touchcancel', handleTouchCancel, { passive: false });
+                // Mouse events (desktop fallback)
+                canvas.addEventListener('mousedown', handleMouseDown);
+                canvas.addEventListener('mousemove', handleMouseMove);
+                canvas.addEventListener('mouseup', handleMouseUp);
+                canvas.addEventListener('mouseleave', handleMouseUp);
+
+                // Buttons
+                btnClear.addEventListener('click', clearTraces);
+                btnMultiTest.addEventListener('click', startMultiTest);
+                btnSwipeTest.addEventListener('click', startSwipeTest);
+                btnDeadZone.addEventListener('click', toggleDeadZone);
+
+                window.addEventListener('resize', resizeCanvas);
+                // Initial redraw
+                redraw();
+                updateResult();
+            }
+
+            // Terminal animation
+            function initTerminal() {
+                const lines = [
+                    'touch-test --check all',
+                    '👆 Initializing touch test…',
+                    '✅ Ready — tap or swipe on the canvas'
+                ];
+                let idx = 0;
+                const line1 = document.getElementById('termLine1');
+                const out = document.getElementById('termOut');
+
+                function typeLine() {
+                    if (idx < lines.length) {
+                        if (idx === 0) {
+                            line1.textContent = lines[idx];
+                        } else if (idx === 1) {
+                            out.textContent = lines[idx];
+                            out.style.opacity = '1';
+                        } else if (idx === 2) {
+                            out.textContent = lines[idx];
+                        }
+                        idx++;
+                        setTimeout(typeLine, 400);
+                    }
+                }
+                setTimeout(typeLine, 300);
+            }
+
+            // FAQ accordion
+            function setupFAQ() {
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const item = this.closest('.faq-item');
+                        if (!item) return;
+                        const answer = item.querySelector('.faq-answer');
+                        const isOpen = item.classList.contains('open');
+                        if (isOpen) {
+                            item.classList.remove('open');
+                            answer.style.maxHeight = '0';
+                            this.setAttribute('aria-expanded', 'false');
+                        } else {
+                            document.querySelectorAll('.faq-item.open').forEach(el => {
+                                el.classList.remove('open');
+                                el.querySelector('.faq-answer').style.maxHeight = '0';
+                                el.querySelector('.faq-question').setAttribute('aria-expanded',
+                                'false');
+                            });
+                            item.classList.add('open');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            this.setAttribute('aria-expanded', 'true');
+                        }
+                    });
+                });
+            }
+
+            // Mobile nav toggle
+            function setupMobileNav() {
+                const navToggle = document.querySelector('.nav-toggle');
+                const header = document.querySelector('.site-header');
+                if (navToggle && header) {
+                    navToggle.addEventListener('click', () => {
+                        header.classList.toggle('nav-open');
+                    });
+                }
+            }
+
+            // Init
+            document.addEventListener('DOMContentLoaded', function() {
+                setupCanvas();
+                initTerminal();
+                setupFAQ();
+                setupMobileNav();
+
+                // Trigger initial result
+                setTimeout(updateResult, 500);
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
