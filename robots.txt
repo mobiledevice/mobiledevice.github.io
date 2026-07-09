@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://mobiledevice.github.io/sitemap.xml
