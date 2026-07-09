@@ -4,7 +4,7 @@
 # Lines starting with # are ignored by the parser.
 
 camera-test|Camera Test|📷|Camera|Check front and rear cameras for dead pixels, focus, and flash.|/camera-test/|live
-microphone-test|Microphone Test|🎤|Audio|Record a few seconds of audio to confirm your mic picks up sound clearly.|/microphone-test/|live
+microphone-test|Microphone Test|🎤|Audio|Record a few seconds of audio to confirm your mic picks up sound clearly.|/mic-test/|live
 speaker-test|Speaker Test|🔊|Audio|Play tones through each speaker channel to catch rattling or dead speakers.|/speaker-test/|live
 touch-screen-test|Touch Screen Test|👆|Display|Drag your finger across a grid to reveal unresponsive or dead touch zones.|/touch-screen-test/|live
 display-test|Display &amp; Dead Pixel Test|🖥️|Display|Cycle through solid colors to spot dead pixels, burn-in, or backlight bleed.|/display-test/|live
