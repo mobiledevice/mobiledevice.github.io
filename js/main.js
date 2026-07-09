@@ -8,7 +8,7 @@
     { check: 'camera', label: 'Camera', result: 'front OK · rear OK · flash OK' },
     { check: 'microphone', label: 'Microphone', result: 'input level OK · no clipping' },
     { check: 'touchscreen', label: 'Touch Screen', result: 'all zones responsive' },
-    { check: 'sensors', label: 'Motion Sensors', result: 'accelerometer OK · gyroscope OK' },
+    { check: 'sensors', label: 'Motion Sensors', result: 'accelerometer OK · gyroscope OK' }, 
     { check: 'battery', label: 'Battery', result: '94% health · charging normally' }
   ];
 
