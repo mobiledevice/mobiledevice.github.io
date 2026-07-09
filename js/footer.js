@@ -14,18 +14,18 @@
           <div class="footer-brand">
             <a href="/" class="brand" aria-label="Mobile Device Testing Tools home">
               <span class="brand-mark">&lt;/&gt;</span>
-              <span>mobiledevice<span style="color:var(--blue)">.tools</span></span>
+              <span>Mobile Device<span style="color:var(--blue)">.Tools</span></span>
             </a>
-            <p>A free, client-side toolkit for testing how your site behaves on real mobile devices &mdash; viewports, gestures, networks, and more.</p>
+            <p>A free, browser-based diagnostic suite for testing your own phone &mdash; camera, mic, touch screen, sensors, battery, and more.</p>
           </div>
 
           <div class="footer-col">
             <h4>Tools</h4>
             <ul>
-              <li><a href="#tools">Viewport Simulator</a></li>
-              <li><a href="#tools">Touch Event Tester</a></li>
-              <li><a href="#tools">Breakpoint Inspector</a></li>
-              <li><a href="#tools">All tools</a></li>
+              <li><a href="/camera-test">Camera Test</a></li>
+              <li><a href="/microphone-test">Microphone Test</a></li>
+              <li><a href="/touch-screen-test">Touch Screen Test</a></li>
+              <li><a href="/#tools">All tools</a></li>
             </ul>
           </div>
 
@@ -44,7 +44,8 @@
             <ul>
               <li><a href="/blog/">Blog</a></li>
               <li><a href="/about/">About</a></li>
-              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Use</a></li>
               <li><a href="/contact/">Contact</a></li>
             </ul>
           </div>
