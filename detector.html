@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Phone Am I Using Right Now? Mobile Device Detector</title>
+<meta name="description" content="What mobile phone is this? Our free device detector instantly identifies what phone you're using right now — model, OS, browser, and hardware features, no app required.">
+<meta name="keywords" content="what mobile phone is this, what type of phone is this, what phone do i have, what phone am i using right now, which phone am i using right now, mobile device detector, phone model checker">
+<meta name="author" content="mobiledevice.tools">
+<link rel="canonical" href="https://mobiledevice.github.io/detector">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mobiledevice.tools">
+<meta property="og:title" content="What Phone Am I Using Right Now? Mobile Device Detector">
+<meta property="og:description" content="Find out what phone you're using right now. Detects your exact device model, OS, browser, and hardware features instantly, free.">
+<meta property="og:url" content="https://mobiledevice.github.io/detector">
+<meta property="og:image" content="https://mobiledevice.github.io/assets/og-detector.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Phone Am I Using Right Now? Mobile Device Detector">
+<meta name="twitter:description" content="Find out what phone you're using right now. Detects your exact device model, OS, browser, and hardware features instantly, free.">
+<meta name="twitter:image" content="https://mobiledevice.github.io/assets/og-detector.png">
+
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/detector.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DH0NXE4ME3');
+</script>
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-9759808041159779">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
+
+<!-- JSON-LD: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Mobile Device Detector",
+  "url": "https://mobiledevice.github.io/detector",
+  "description": "A free browser tool that detects what phone you're using right now, including device model, operating system, browser, and hardware-visible features.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Device model detection",
+    "Operating system and version detection",
+    "Browser and version detection",
+    "Screen resolution and pixel ratio detection",
+    "Touch, connection, and hardware feature detection"
+  ]
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mobiledevice.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Mobile Device Detector",
+      "item": "https://mobiledevice.github.io/detector"
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What mobile phone is this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Load this page on the phone you want to identify and the detector reads your browser's device signals — user agent, screen size, and client hints — to show the model, operating system, and browser right at the top of the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What type of phone is this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The result card shows whether your device is a phone, tablet, or desktop, along with its operating system (iOS, Android, Windows, macOS, or Linux) and browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What phone do I have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On Android with a Chromium-based browser, the detector can usually show your exact marketing model name. On iPhone, Apple hides the exact model from browsers, so the tool estimates it from your screen size and lists the likely matches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What phone am I using right now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The detector runs automatically when the page loads and displays the phone you're currently browsing on within a couple of seconds — no need to enter anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which phone am I using right now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scroll to the result card at the top of this page after it finishes scanning; it names the device you're currently using along with its OS, browser, and screen details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the detector show more than one possible iPhone model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Several iPhone generations share the exact same screen resolution and pixel ratio, and Apple's browsers don't expose the model name, so the tool lists every iPhone that matches your screen as a likely result instead of guessing a single one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is any of my data sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Detection runs entirely in your browser using JavaScript. Nothing about your device is uploaded or stored remotely."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Header component mounts here (js/header.js) -->
+<header id="site-header"></header>
+
+<main>
+
+  <!-- 1. DETECTOR HERO / RESULT -->
+  <section class="detector-hero" id="detector">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">device detector</span>
+        <h1>What phone am I using right now?</h1>
+        <p>This tool answers "what mobile phone is this" by reading your browser and device signals &mdash; instantly, with nothing to install.</p>
+      </div>
+
+      <div class="terminal scan-terminal reveal" id="scanTerminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">detector — scanning this device</span>
+        </div>
+        <div class="terminal-body" id="scanTerminalBody"></div>
+      </div>
+
+      <div class="result-card reveal" id="resultCard" hidden></div>
+    </div>
+  </section>
+
+  <!-- 2. SPEC GRID -->
+  <section class="section" id="specs">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">full readout</span>
+        <h2>Everything detected about this device</h2>
+        <p>Beyond the model name, here's every hardware and browser signal this page can read from your device right now.</p>
+      </div>
+
+      <div class="spec-grid" id="specGrid">
+        <div class="spec-item"><div class="spec-label">Loading…</div><div class="spec-value">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. HOW DETECTION WORKS -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">methodology</span>
+        <h2>How this detector figures out what phone this is</h2>
+        <p>No app, camera, or account needed &mdash; just signals your browser already shares with any website you visit.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Reads the user agent</h3>
+          <p>Your browser sends a string identifying its OS, version, and browser build on every page load.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">02</span>
+          <h3>Queries client hints</h3>
+          <p>On supported Android browsers, a Client Hints API request returns your exact marketing model name.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">03</span>
+          <h3>Checks screen data</h3>
+          <p>Resolution and pixel ratio narrow down the model further, especially useful for identifying iPhones.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">04</span>
+          <h3>Reads hardware features</h3>
+          <p>Touch points, CPU cores, memory, and connection type fill out the rest of the profile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ACCURACY & LIMITATIONS -->
+  <section class="section" id="accuracy">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">good to know</span>
+        <h2>How accurate is this?</h2>
+        <p>Browser-based detection is reliable for most everyday questions, but it has real limits worth knowing about.</p>
+      </div>
+
+      <div class="callout reveal">
+        <h3>⚠️ Where results can be off</h3>
+        <ul>
+          <li><strong>iPhone models are estimated.</strong> Apple's browsers never reveal the exact model, so the tool matches your screen size against known iPhones and may list more than one candidate.</li>
+          <li><strong>Some Android browsers hide the model.</strong> Firefox and privacy-focused browsers may not support the Client Hints API, so detection falls back to a generic Android result.</li>
+          <li><strong>Spoofed user agents change the result.</strong> Developer tools, some VPN apps, and privacy browsers can deliberately alter what your browser reports.</li>
+          <li><strong>The exact device name is always in Settings.</strong> For a guaranteed answer, check Settings &gt; General &gt; About (iPhone) or Settings &gt; About phone (Android).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">What mobile phone is this?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Load this page on the phone you want to identify and the detector reads your browser's device signals &mdash; user agent, screen size, and client hints &mdash; to show the model, operating system, and browser right at the top of the page.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">What type of phone is this?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>The result card shows whether your device is a phone, tablet, or desktop, along with its operating system (iOS, Android, Windows, macOS, or Linux) and browser.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">What phone do I have?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>On Android with a Chromium-based browser, the detector can usually show your exact marketing model name. On iPhone, Apple hides the exact model from browsers, so the tool estimates it from your screen size and lists the likely matches.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">What phone am I using right now?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>The detector runs automatically when the page loads and displays the phone you're currently browsing on within a couple of seconds &mdash; no need to enter anything.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Which phone am I using right now?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Scroll to the result card at the top of this page after it finishes scanning; it names the device you're currently using along with its OS, browser, and screen details.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Why does the detector show more than one possible iPhone model?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Several iPhone generations share the exact same screen resolution and pixel ratio, and Apple's browsers don't expose the model name, so the tool lists every iPhone that matches your screen as a likely result instead of guessing a single one.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Is any of my data sent to a server?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>No. Detection runs entirely in your browser using JavaScript. Nothing about your device is uploaded or stored remotely.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. EXPLORE OTHER TOOLS -->
+  <section class="section" style="border-bottom:none;">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Want to test more than just your model?</h2>
+        <p>Check your camera, mic, touch screen, sensors, and battery with the rest of the toolkit.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="index#tools" class="btn btn-primary">Browse all tests</a>
+          <a href="index" class="btn btn-ghost">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer component mounts here (js/footer.js) -->
+<footer id="site-footer"></footer>
+
+<div class="toast" id="detectorToast">Copied to clipboard</div>
+
+<!-- Component scripts -->
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/detector.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
