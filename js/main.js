@@ -5,11 +5,11 @@
 (function () {
   /* ---------- Hero terminal typing loop ---------- */
   const commands = [
-    { device: 'iPhone 15 Pro', viewport: '393 × 852', dpr: '3x' },
-    { device: 'Pixel 8', viewport: '412 × 915', dpr: '2.6x' },
-    { device: 'Galaxy S24', viewport: '360 × 780', dpr: '3x' },
-    { device: 'iPad Mini', viewport: '744 × 1133', dpr: '2x' },
-    { device: 'iPhone SE', viewport: '375 × 667', dpr: '2x' }
+    { check: 'camera', label: 'Camera', result: 'front OK · rear OK · flash OK' },
+    { check: 'microphone', label: 'Microphone', result: 'input level OK · no clipping' },
+    { check: 'touchscreen', label: 'Touch Screen', result: 'all zones responsive' },
+    { check: 'sensors', label: 'Motion Sensors', result: 'accelerometer OK · gyroscope OK' },
+    { check: 'battery', label: 'Battery', result: '94% health · charging normally' }
   ];
 
   function typeLine(el, text, speed, cb) {
@@ -43,22 +43,18 @@
 
     function cycle() {
       const cmd = commands[idx % commands.length];
-      const text = `test --device="${cmd.device}" --viewport=${cmd.viewport.replace(' ', '')}`;
+      const text = `run --check=${cmd.check}`;
 
       out.style.opacity = '0';
       typeLine(line1, text, 28, function () {
-        out.innerHTML =
-          '<span class="ok">✓</span> viewport ready &nbsp; ' +
-          '<span class="ok">✓</span> DPR ' + cmd.dpr + ' &nbsp; ' +
-          '<span class="ok">✓</span> touch emulation on';
+        out.innerHTML = '<span class="ok">✓</span> ' + cmd.result;
         out.style.opacity = '1';
 
-        if (readoutDevice) readoutDevice.textContent = cmd.device;
-        if (readoutViewport) readoutViewport.textContent = cmd.viewport + ' px';
+        if (readoutDevice) readoutDevice.textContent = cmd.label;
+        if (readoutViewport) readoutViewport.textContent = 'Passed';
         if (frameMini) {
-          const isTablet = cmd.device.toLowerCase().includes('ipad');
-          frameMini.style.width = isTablet ? '40px' : '26px';
-          frameMini.style.height = isTablet ? '40px' : '44px';
+          frameMini.style.borderColor = 'var(--green)';
+          setTimeout(function () { frameMini.style.borderColor = 'var(--ink)'; }, 900);
         }
 
         idx++;
