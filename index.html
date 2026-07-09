@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Device Testing Tools — Free Browser-Based Suite for Developers</title>
-<meta name="description" content="A free, client-side toolkit for testing your site on real mobile devices: viewport simulation, touch events, breakpoints, network throttling, and more. No install, no signup.">
-<meta name="keywords" content="mobile device testing tools, viewport simulator, responsive testing, touch event tester, breakpoint inspector, mobile QA tools, device emulator, mobile web testing">
+<title>Mobile Device Testing Tools — Check Your Phone's Camera, Mic, Sensors &amp; More</title>
+<meta name="description" content="Free browser-based tools to test your phone's camera, microphone, touch screen, sensors, battery, and more. No app to install — run a full hardware check in your browser.">
+<meta name="keywords" content="mobile device testing tools, phone hardware test, camera test, microphone test, touch screen test, sensor test, battery health check, test my phone, used phone check">
 <meta name="author" content="mobiledevice.tools">
 <link rel="canonical" href="https://mobiledevice.github.io/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mobiledevice.tools">
-<meta property="og:title" content="Mobile Device Testing Tools — Free Browser-Based Suite for Developers">
-<meta property="og:description" content="Test viewports, touch gestures, breakpoints, and network conditions on real device specs — free, client-side, and open in your browser.">
+<meta property="og:title" content="Mobile Device Testing Tools — Check Your Phone's Camera, Mic, Sensors & More">
+<meta property="og:description" content="Test your phone's camera, mic, touch screen, sensors, and battery — free, browser-based, and no app to install.">
 <meta property="og:url" content="https://mobiledevice.github.io/">
-<meta property="og:image" content="https://mobiledevice.github.io/assets/og-image.png">
+<meta property="og:image" content="https://mobiledevice.github.io/images/og-image.png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mobile Device Testing Tools — Free Browser-Based Suite for Developers">
-<meta name="twitter:description" content="Test viewports, touch gestures, breakpoints, and network conditions on real device specs — free, client-side, and open in your browser.">
-<meta name="twitter:image" content="https://mobiledevice.github.io/assets/og-image.png">
+<meta name="twitter:title" content="Mobile Device Testing Tools — Check Your Phone's Camera, Mic, Sensors & More">
+<meta name="twitter:description" content="Test your phone's camera, mic, touch screen, sensors, and battery — free, browser-based, and no app to install.">
+<meta name="twitter:image" content="https://mobiledevice.github.io/images/og-image.png">
 
 <meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
@@ -31,20 +31,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="/css/styles.css">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DH0NXE4ME3');
-</script>
-
-<!-- Google AdSense -->
-<meta name="google-adsense-account" content="ca-pub-9759808041159779">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
 
 <!-- JSON-LD: WebApplication -->
 <script type="application/ld+json">
@@ -53,8 +41,8 @@
   "@type": "WebApplication",
   "name": "Mobile Device Testing Tools",
   "url": "https://mobiledevice.github.io/",
-  "description": "A free, client-side suite of browser tools for testing websites on real mobile device viewports, touch events, breakpoints, and network conditions.",
-  "applicationCategory": "DeveloperApplication",
+  "description": "A free, browser-based suite of diagnostic tools for testing your phone's own hardware and features: camera, microphone, touch screen, sensors, battery, and connectivity.",
+  "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": {
     "@type": "Offer",
@@ -62,12 +50,13 @@
     "priceCurrency": "USD"
   },
   "featureList": [
-    "Viewport simulation across real device sizes",
-    "Touch and gesture event visualization",
-    "CSS breakpoint inspection",
-    "Network throttle simulation",
-    "Device frame screenshot generation",
-    "Mobile SEO and safe-area checks"
+    "Camera and flash test",
+    "Microphone and audio input test",
+    "Touch screen responsiveness test",
+    "Display and dead pixel test",
+    "Motion sensor (accelerometer/gyroscope) test",
+    "Battery health check",
+    "GPS, Bluetooth, and network speed test"
   ]
 }
 </script>
@@ -118,26 +107,26 @@
     },
     {
       "@type": "Question",
-      "name": "Does this replace testing on a real physical device?",
+      "name": "Does this replace a professional repair diagnostic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It covers the majority of day-to-day checks — layout, touch behavior, and network conditions — but a final pass on a real device is still recommended before shipping critical releases."
+        "text": "It covers most common checks — camera, mic, touch, sensors, and battery — but for warranty claims or suspected repairs, a certified technician's diagnosis is still recommended."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my data or code sent to a server?",
+      "name": "Does this access my camera, microphone, or location?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The tools process everything locally in your browser using JavaScript, so nothing you test is uploaded or stored remotely."
+        "text": "Only for the specific test you run, and only while that tab is open. Nothing is uploaded or stored on a server."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use these tools on my phone?",
+      "name": "Can I use this before buying or selling a used phone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, the site itself is fully responsive, though for viewport and breakpoint tools you'll get the most value working from a desktop browser."
+        "text": "Yes — running the full test suite before a used-phone purchase or sale is one of the most common ways people use this site."
       }
     }
   ]
@@ -155,19 +144,19 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="reveal is-visible">
-        <span class="eyebrow">12 tools · client-side · free</span>
-        <h1>Test your site on <span class="accent">every mobile device</span>,<br>without owning one.</h1>
-        <p class="hero-lede">A browser-based toolkit built for developers: simulate viewports, watch touch events fire, inspect breakpoints, and throttle networks — all before you ship.</p>
+        <span class="eyebrow">14 tests · runs on your phone · free</span>
+        <h1>Check every feature on <span class="accent">your own phone</span>,<br>in a few taps.</h1>
+        <p class="hero-lede">A browser-based diagnostic suite: test your camera, microphone, touch screen, sensors, and battery — no app to install, no technician needed.</p>
 
         <div class="hero-actions">
-          <a href="#tools" class="btn btn-primary">Browse the tools</a>
+          <a href="#tools" class="btn btn-primary">Run a test</a>
           <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
         </div>
 
         <div class="hero-meta">
           <span><span class="dot"></span> No install</span>
           <span><span class="dot"></span> No signup</span>
-          <span><span class="dot"></span> Runs 100% in-browser</span>
+          <span><span class="dot"></span> Runs on your own device</span>
         </div>
       </div>
 
@@ -187,12 +176,12 @@
 
         <div class="device-readout">
           <div>
-            <div class="label">Simulating</div>
-            <div class="value" id="readoutDevice">iPhone 15 Pro</div>
+            <div class="label">Now checking</div>
+            <div class="value" id="readoutDevice">Camera</div>
           </div>
           <div>
-            <div class="label">Viewport</div>
-            <div class="value" id="readoutViewport">393 × 852 px</div>
+            <div class="label">Result</div>
+            <div class="value" id="readoutViewport">Passed</div>
           </div>
           <div class="device-frame-mini" id="frameMini"></div>
         </div>
@@ -204,16 +193,16 @@
   <section class="stats-strip">
     <div class="container stats-grid">
       <div class="stat reveal">
-        <div class="num"><span class="accent" id="toolsCount">12</span>+</div>
-        <div class="lbl">testing tools</div>
+        <div class="num"><span class="accent" id="toolsCount">14</span>+</div>
+        <div class="lbl">hardware tests</div>
       </div>
       <div class="stat reveal">
-        <div class="num">6</div>
-        <div class="lbl">tool categories</div>
+        <div class="num">8</div>
+        <div class="lbl">test categories</div>
       </div>
       <div class="stat reveal">
-        <div class="num">0ms</div>
-        <div class="lbl">server round-trip</div>
+        <div class="num">0</div>
+        <div class="lbl">apps to install</div>
       </div>
       <div class="stat reveal">
         <div class="num">$0</div>
@@ -227,8 +216,8 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">the toolkit</span>
-        <h2>Mobile testing tools</h2>
-        <p>Each tool focuses on one job and does it well. Pick one below, or filter by category to find what you need.</p>
+        <h2>Test your phone's hardware</h2>
+        <p>Each test checks one feature and gives you a clear pass or fail. Pick one below, or filter by category to find what you need.</p>
       </div>
 
       <div class="tools-toolbar reveal">
@@ -249,29 +238,29 @@
       <div class="section-head reveal">
         <span class="eyebrow">workflow</span>
         <h2>How it works</h2>
-        <p>No accounts, no extensions to install. Open a tool, point it at your page, and read the results.</p>
+        <p>No accounts, no apps to install. Open a test right on the phone you want to check, and read the result.</p>
       </div>
 
       <div class="steps">
         <div class="step reveal">
           <span class="step-num">01</span>
-          <h3>Pick a tool</h3>
-          <p>Choose the test you need — viewport, touch, network, or layout.</p>
+          <h3>Pick a test</h3>
+          <p>Choose the feature you want to check — camera, mic, touch, or sensors.</p>
         </div>
         <div class="step reveal">
           <span class="step-num">02</span>
-          <h3>Point it at your page</h3>
-          <p>Paste a URL or run it against your local dev server.</p>
+          <h3>Allow access</h3>
+          <p>Grant camera, mic, or location permission when prompted — only for that test.</p>
         </div>
         <div class="step reveal">
           <span class="step-num">03</span>
-          <h3>Read the results</h3>
-          <p>See exactly how your layout, gestures, or load times behave.</p>
+          <h3>Follow the prompt</h3>
+          <p>Tap, tilt, or speak as instructed so the test can read your device's response.</p>
         </div>
         <div class="step reveal">
           <span class="step-num">04</span>
-          <h3>Fix and re-run</h3>
-          <p>Adjust your CSS or JS, then re-test in seconds — right in the tab.</p>
+          <h3>Get a pass or fail</h3>
+          <p>See an instant result for that feature, right in the tab.</p>
         </div>
       </div>
     </div>
@@ -281,41 +270,41 @@
   <section class="section" id="why">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">why developers use it</span>
-        <h2>Built the way developers actually test</h2>
-        <p>No bloated dashboards or paywalled features — just focused tools that answer one question at a time.</p>
+        <span class="eyebrow">why people use it</span>
+        <h2>A faster way to know what's actually wrong</h2>
+        <p>No repair shop appointment or paywalled app — just focused tests that answer one question at a time.</p>
       </div>
 
       <div class="feature-grid">
         <div class="feature-card reveal">
           <div class="feature-icon blue">⚡</div>
           <h3>Zero setup</h3>
-          <p>Every tool loads instantly in a browser tab. Nothing to install or configure.</p>
+          <p>Every test loads instantly in a browser tab. Nothing to install or configure.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon purple">🔒</div>
           <h3>Privacy-first</h3>
-          <p>Testing happens client-side. Your URLs and code never touch a server.</p>
+          <p>Camera, mic, and location access is used only for the test you run, and never leaves your device.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon green">🧩</div>
-          <h3>Single-purpose tools</h3>
-          <p>Each tool does one job well, so you spend less time hunting through menus.</p>
+          <h3>Single-purpose tests</h3>
+          <p>Each test checks one feature well, so you get a clear answer fast.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon blue">📱</div>
-          <h3>Real device specs</h3>
-          <p>Viewport, DPR, and safe-area data pulled from actual shipping devices.</p>
+          <h3>Uses real hardware</h3>
+          <p>Tests talk directly to your browser's camera, mic, and sensor APIs — not a simulation.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon purple">🆓</div>
           <h3>Actually free</h3>
-          <p>No tiers, trials, or feature walls. The full toolkit is free to use.</p>
+          <p>No tiers, trials, or feature walls. The full test suite is free to use.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon green">🌐</div>
-          <h3>Works anywhere</h3>
-          <p>Any modern browser on desktop or mobile — no platform lock-in.</p>
+          <h3>Works on any phone</h3>
+          <p>Any modern mobile browser — no app store, no account, no platform lock-in.</p>
         </div>
       </div>
     </div>
@@ -326,40 +315,40 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">real scenarios</span>
-        <h2>Where these tools fit into your day</h2>
-        <p>Common moments where a quick check saves you from a bad release.</p>
+        <h2>Where these tests fit into your day</h2>
+        <p>Common moments where a quick check saves you money or hassle later.</p>
       </div>
 
       <div class="usecase-grid">
         <div class="usecase-card reveal">
-          <span class="tag mono">Before a launch</span>
-          <h3>Pre-release QA pass</h3>
-          <p>Run through breakpoints, safe areas, and touch targets before you tag a release.</p>
+          <span class="tag mono">Buying used</span>
+          <h3>Before you hand over cash</h3>
+          <p>Run the full suite on a used phone to confirm every feature actually works.</p>
         </div>
         <div class="usecase-card reveal">
-          <span class="tag mono">Debugging a report</span>
-          <h3>"It's broken on my phone"</h3>
-          <p>Reproduce a customer's exact device and viewport without owning that hardware.</p>
+          <span class="tag mono">Selling your phone</span>
+          <h3>Prove it's in good shape</h3>
+          <p>Share a clean pass on every test so a buyer trusts the listing.</p>
         </div>
         <div class="usecase-card reveal">
-          <span class="tag mono">Slow connections</span>
-          <h3>Testing on a bad network</h3>
-          <p>Throttle to 3G to see how your loading states actually feel in the field.</p>
+          <span class="tag mono">After a drop or repair</span>
+          <h3>Did anything break?</h3>
+          <p>Check the camera, speaker, and touch screen after a screen or battery swap.</p>
         </div>
         <div class="usecase-card reveal">
-          <span class="tag mono">Design handoff</span>
-          <h3>Checking a new component</h3>
-          <p>Confirm a new UI holds up across device sizes before it reaches review.</p>
+          <span class="tag mono">Warranty claim</span>
+          <h3>Document the fault</h3>
+          <p>Get a clear pass/fail result to reference when you file a claim.</p>
         </div>
         <div class="usecase-card reveal">
-          <span class="tag mono">PWA work</span>
-          <h3>Install and manifest checks</h3>
-          <p>Verify your app is installable and behaves correctly once added to a home screen.</p>
+          <span class="tag mono">New phone setup</span>
+          <h3>Check it out of the box</h3>
+          <p>Run through every hardware feature before your return window closes.</p>
         </div>
         <div class="usecase-card reveal">
-          <span class="tag mono">Content marketing</span>
-          <h3>Screenshots for docs</h3>
-          <p>Generate clean, framed device screenshots for changelogs and presentations.</p>
+          <span class="tag mono">Troubleshooting</span>
+          <h3>Hardware or software?</h3>
+          <p>Isolate whether an issue is a broken part or just a misbehaving app.</p>
         </div>
       </div>
     </div>
@@ -370,8 +359,8 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">the alternative</span>
-        <h2>Versus manual device testing</h2>
-        <p>Owning a device lab is the gold standard, but it isn't always practical.</p>
+        <h2>Versus a repair shop diagnostic</h2>
+        <p>A certified technician is the gold standard for repairs, but for a quick check, it isn't always practical.</p>
       </div>
 
       <div class="reveal" style="overflow-x:auto;">
@@ -379,40 +368,40 @@
           <thead>
             <tr>
               <th>Capability</th>
-              <th>Physical device lab</th>
+              <th>Repair shop</th>
               <th>mobiledevice.tools</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Setup time</td>
-              <td>Hours to days</td>
+              <td>Appointment required</td>
               <td class="check">Seconds</td>
             </tr>
             <tr>
               <td>Cost</td>
-              <td>Hardware + upkeep</td>
+              <td>$20&ndash;50+ per visit</td>
               <td class="check">Free</td>
             </tr>
             <tr>
-              <td>Viewport coverage</td>
-              <td>Limited to owned devices</td>
-              <td class="check">Dozens of presets</td>
+              <td>Availability</td>
+              <td>Business hours</td>
+              <td class="check">Anytime, anywhere</td>
             </tr>
             <tr>
-              <td>Network throttling</td>
-              <td>Manual, inconsistent</td>
-              <td class="check">One click</td>
+              <td>Your device leaves your hands</td>
+              <td>Often, yes</td>
+              <td class="check">Never</td>
             </tr>
             <tr>
-              <td>Physical touch fidelity</td>
-              <td class="check">Exact</td>
-              <td class="cross">Emulated</td>
+              <td>Internal component diagnosis</td>
+              <td class="check">Full teardown possible</td>
+              <td class="cross">Software-visible checks only</td>
             </tr>
             <tr>
-              <td>Final release sign-off</td>
-              <td class="check">Recommended</td>
-              <td class="cross">Use alongside a real device</td>
+              <td>Certified repair sign-off</td>
+              <td class="check">Yes</td>
+              <td class="cross">Use alongside a technician</td>
             </tr>
           </tbody>
         </table>
@@ -438,16 +427,16 @@
           <div class="faq-answer"><p>No. All tools are client-side web apps that run directly in your browser tab, so there's nothing to download or configure.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">Does this replace testing on a real physical device?<span class="faq-icon mono">+</span></button>
-          <div class="faq-answer"><p>It covers most day-to-day checks — layout, touch behavior, and network conditions — but a final pass on a real device is still recommended before shipping critical releases.</p></div>
+          <button class="faq-question" aria-expanded="false">Does this replace a professional repair diagnostic?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>It covers most common checks — camera, mic, touch, sensors, and battery — but for warranty claims or suspected repairs, a certified technician's diagnosis is still recommended.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">Is my data or code sent to a server?<span class="faq-icon mono">+</span></button>
-          <div class="faq-answer"><p>No. The tools process everything locally in your browser using JavaScript, so nothing you test is uploaded or stored remotely.</p></div>
+          <button class="faq-question" aria-expanded="false">Does this access my camera, microphone, or location?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Only for the specific test you run, and only while that tab is open. Nothing is uploaded or stored on a server.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">Can I use these tools on my phone?<span class="faq-icon mono">+</span></button>
-          <div class="faq-answer"><p>Yes, the site itself is fully responsive, though for viewport and breakpoint tools you'll get the most value working from a desktop browser.</p></div>
+          <button class="faq-question" aria-expanded="false">Can I use this before buying or selling a used phone?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Yes — running the full test suite before a used-phone purchase or sale is one of the most common ways people use this site.</p></div>
         </div>
       </div>
     </div>
@@ -457,10 +446,10 @@
   <section class="section" style="border-bottom:none;">
     <div class="container">
       <div class="cta-band reveal">
-        <h2>Pick a tool. Test in seconds.</h2>
-        <p>No account, no download — just open a tool and start testing your site the way real users will see it.</p>
+        <h2>Pick a test. Know in seconds.</h2>
+        <p>No account, no download — just open a test and find out if that feature actually works.</p>
         <div class="hero-actions" style="justify-content:center;">
-          <a href="#tools" class="btn btn-primary">Browse the tools</a>
+          <a href="#tools" class="btn btn-primary">Run a test</a>
           <a href="#how-it-works" class="btn btn-ghost">How it works</a>
         </div>
       </div>
@@ -473,10 +462,10 @@
 <footer id="site-footer"></footer>
 
 <!-- Component scripts -->
-<script src="js/header.js"></script>
-<script src="js/footer.js"></script>
-<script src="js/tools-section.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/tools-section.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
