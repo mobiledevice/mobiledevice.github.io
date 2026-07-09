@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Mobile Device Testing Tools</title>
+<meta name="description" content="Learn about the philosophy behind Mobile Device Testing Tools, engineered for fast, client-side browser diagnostics.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  .about-layout { max-width: 800px; margin: 0 auto; padding: 64px 0; }
+  .founder-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-top: 48px;
+    box-shadow: var(--shadow-sm);
+    display: table;
+    width: 100%;
+  }
+  .founder-avatar {
+    display: table-cell;
+    vertical-align: top;
+    width: 80px;
+  }
+  .avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--blue-dim);
+    color: var(--blue);
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--blue);
+  }
+  .founder-info {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 24px;
+  }
+  .founder-info h3 { margin: 0 0 4px 0; font-size: 20px; }
+  .founder-title { font-family: var(--font-mono); font-size: 13px; color: var(--purple); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main class="container">
+  <div class="about-layout">
+    <div class="section-head reveal is-visible">
+      <span class="eyebrow">our mission</span>
+      <h2>Zero-friction hardware diagnostics</h2>
+      <p class="hero-lede">We believe testing your phone shouldn't require bloating your storage with heavy apps or paying bench fees at a repair shop shop.</p>
+    </div>
+
+    <div class="reveal is-visible">
+      <p>Mobile Device Testing Tools was born out of a simple frustration: trying to verify if a device works reliably before buying or selling it without compromising personal privacy. Most modern testing suites demand unnecessary app permissions, serve intrusive pop-up trackers, or lock basic sensor readouts behind paywalls.</p>
+      
+      <p>Our toolkit relies entirely on high-performance native Web APIs. When you trigger a camera grid, microphone sampler, or gyroscope coordinate matrix, our scripts hook directly into your browser sandbox, compile the hardware response locally, and output a strict binary Pass/Fail result instantly. Nothing leaves your phone.</p>
+    </div>
+
+    <div class="founder-card reveal is-visible">
+      <div class="founder-avatar">
+        <div class="avatar-placeholder">G</div>
+      </div>
+      <div class="founder-info">
+        <h3>Gullu</h3>
+        <div class="founder-title">CEO & Founder, mobiledevice.tools</div>
+        <p style="margin: 0; font-size: 14.5px;">"By exposing low-level device attributes cleanly through browser modules, we aim to standardize hardware transparency. Whether you are validating a secondhand market deal or testing a fresh screen replacement, you shouldn't have to sacrifice your personal data footprint to know your hardware status."</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
