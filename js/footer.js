@@ -14,7 +14,7 @@
           <div class="footer-brand">
             <a href="/" class="brand" aria-label="Mobile Device Testing Tools home">
               <span class="brand-mark">&lt;/&gt;</span>
-              <span>Mobile Device<span style="color:var(--blue)">.Tools</span></span>
+              <span>Mobile Device<span style="color:var(--blue)">.Test</span></span>
             </a>
             <p>A free, browser-based diagnostic suite for testing your own phone &mdash; camera, mic, touch screen, sensors, battery, and more.</p>
           </div>
