@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mobile Device Testing Tools</title>
+<meta name="description" content="Reach out to the development team for inquiries, API bug reporting, or feature suggestions.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  .contact-layout {
+    display: table;
+    width: 100%;
+    padding: 64px 0;
+    table-layout: fixed;
+  }
+  .contact-info-col, .contact-form-col {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .contact-info-col { width: 40%; padding-right: 48px; }
+  .contact-form-col { width: 60%; }
+  
+  .contact-method { margin-top: 32px; }
+  .contact-method label { display: block; font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
+  .contact-method a { font-family: var(--font-mono); font-size: 16px; font-weight: 600; color: var(--ink); }
+  .contact-method a:hover { color: var(--blue); }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-family: var(--font-mono); font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--ink-soft); }
+  .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 15px;
+    background: var(--surface);
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+  .form-control:focus { outline: none; border-color: var(--ink); }
+  textarea.form-control { resize: vertical; min-height: 120px; }
+
+  @media (max-width: 720px) {
+    .contact-layout { display: block; }
+    .contact-info-col, .contact-form-col { display: block; width: 100%; padding: 0; }
+    .contact-info-col { margin-bottom: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main class="container">
+  <div class="contact-layout">
+    
+    <!-- Info Column -->
+    <div class="contact-info-col reveal is-visible">
+      <div class="section-head" style="margin-bottom: 24px;">
+        <span class="eyebrow">ping us</span>
+        <h2>Get in touch</h2>
+        <p>Encountered an anomalous Web API permission response loop? Or scaling an optimization report? Drop us a diagnostic trace file.</p>
+      </div>
+
+      <div class="contact-method">
+        <label>Direct Line</label>
+        <a href="mailto:waqas.pccp@gmail.com">waqas.pccp@gmail.com</a>
+      </div>
+      <div class="contact-method">
+        <label>Operational Hours</label>
+        <p class="mono" style="font-size: 14px; margin: 0;">Mon - Fri // 09:00 - 18:00 UTC</p>
+      </div>
+    </div>
+
+    <!-- Form Column -->
+    <div class="contact-form-col reveal is-visible">
+      <form action="https://formspree.io/f/your-form-id" method="POST" style="background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Gullu Dev" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="_replyto" class="form-control" placeholder="name@domain.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="device">Device Model Under Evaluation (Optional)</label>
+          <input type="text" id="device" name="device" class="form-control" placeholder="e.g. iPhone 15 Pro, Pixel 8">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message Terminal</label>
+          <textarea id="message" name="message" class="form-control" placeholder="Describe the hardware behavior or feedback logs here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Dispatch Message</button>
+      </form>
+    </div>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
