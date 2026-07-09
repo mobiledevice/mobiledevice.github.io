@@ -7,22 +7,22 @@
 (function () {
   // 1. Complete list of tools from mobiledevice.github.io
   const toolsList = [
-    { name: "Device Detector", icon: "📱", url: "/detector.html", desc: "Identify your exact phone model, OS, and browser." },
-    { name: "Camera Test", icon: "📷", url: "/camera-test.html", desc: "Test front & rear cameras with live preview." },
-    { name: "Microphone Test", icon: "🎤", url: "/mic-test.html", desc: "Check microphone input and audio levels." },
-    { name: "Speaker Test", icon: "🔊", url: "/speaker-test.html", desc: "Test speakers and audio output." },
-    { name: "Battery Test", icon: "🔋", url: "/battery-test.html", desc: "Detailed battery health and status." },
-    { name: "Display Test", icon: "🖥️", url: "/display-test.html", desc: "Screen resolution, touch, brightness, dead pixels." },
-    { name: "Swipe / Touch Test", icon: "👆", url: "/swipe-test.html", desc: "Test multi-touch and swipe gestures." },
-    { name: "Sensor Test", icon: "📡", url: "/sensor-test.html", desc: "Accelerometer, gyroscope, proximity, etc." },
-    { name: "GPS Test", icon: "📍", url: "/gps-test.html", desc: "Location accuracy and GPS functionality." },
-    { name: "Bluetooth Test", icon: "📶", url: "/bluetooth-test.html", desc: "Bluetooth connectivity and device scanning." },
-    { name: "Network Speed Test", icon: "🌐", url: "/network-speed-test.html", desc: "Internet speed, latency, and connection quality." },
-    { name: "Vibration Test", icon: "📳", url: "/vibration-test.html", desc: "Test device vibration motor." },
-    { name: "About", icon: "ℹ️", url: "/about.html", desc: "Learn more about Mobile Device Testing Tools." },
-    { name: "Contact", icon: "✉️", url: "/contact.html", desc: "Get in touch with the team." },
-    { name: "Privacy", icon: "🔒", url: "/privacy.html", desc: "How we protect your data and privacy." },
-    { name: "Terms", icon: "📋", url: "/terms.html", desc: "Read our terms and conditions." }
+    { name: "Device Detector", icon: "📱", url: "/detectorl", desc: "Identify your exact phone model, OS, and browser." },
+    { name: "Camera Test", icon: "📷", url: "/camera-testl", desc: "Test front & rear cameras with live preview." },
+    { name: "Microphone Test", icon: "🎤", url: "/mic-testl", desc: "Check microphone input and audio levels." },
+    { name: "Speaker Test", icon: "🔊", url: "/speaker-testl", desc: "Test speakers and audio output." },
+    { name: "Battery Test", icon: "🔋", url: "/battery-testl", desc: "Detailed battery health and status." },
+    { name: "Display Test", icon: "🖥️", url: "/display-testl", desc: "Screen resolution, touch, brightness, dead pixels." },
+    { name: "Swipe / Touch Test", icon: "👆", url: "/swipe-testl", desc: "Test multi-touch and swipe gestures." },
+    { name: "Sensor Test", icon: "📡", url: "/sensor-testl", desc: "Accelerometer, gyroscope, proximity, etc." },
+    { name: "GPS Test", icon: "📍", url: "/gps-testl", desc: "Location accuracy and GPS functionality." },
+    { name: "Bluetooth Test", icon: "📶", url: "/bluetooth-testl", desc: "Bluetooth connectivity and device scanning." },
+    { name: "Network Speed Test", icon: "🌐", url: "/network-speed-testl", desc: "Internet speed, latency, and connection quality." },
+    { name: "Vibration Test", icon: "📳", url: "/vibration-testl", desc: "Test device vibration motor." },
+    { name: "About", icon: "ℹ️", url: "/aboutl", desc: "Learn more about Mobile Device Testing Tools." },
+    { name: "Contact", icon: "✉️", url: "/contactl", desc: "Get in touch with the team." },
+    { name: "Privacy", icon: "🔒", url: "/privacyl", desc: "How we protect your data and privacy." },
+    { name: "Terms", icon: "📋", url: "/termsl", desc: "Read our terms and conditions." }
   ];
 
   // 2. Inject CSS Styles (kept original aesthetic but updated header/title)
