@@ -3,15 +3,17 @@
 # status: live | soon
 # Lines starting with # are ignored by the parser.
 
-viewport-simulator|Viewport Simulator|📐|Layout|Preview any page across real device viewport sizes side by side.|tools/viewport-simulator/|soon
-user-agent-switcher|User Agent Switcher|🔀|Network|Spoof user agent strings for iOS, Android, and tablet browsers.|tools/user-agent-switcher/|soon
-touch-event-tester|Touch Event Tester|👆|Interaction|Watch tap, swipe, pinch, and multi-touch events fire in real time.|tools/touch-event-tester/|soon
-breakpoint-inspector|Breakpoint Inspector|📏|Layout|Find and debug CSS breakpoints on a live, resizable preview frame.|tools/breakpoint-inspector/|soon
-device-frame-generator|Device Frame Generator|🖼️|Design|Wrap screenshots in accurate device bezels for docs and decks.|tools/device-frame-generator/|soon
-network-throttle-simulator|Network Throttle Simulator|📶|Network|Simulate 3G, 4G, and offline conditions to test load performance.|tools/network-throttle-simulator/|soon
-safe-area-inspector|Safe Area Inspector|🛡️|Layout|Check notch, home indicator, and safe-area-inset handling.|tools/safe-area-inspector/|soon
-orientation-tester|Orientation Tester|🔄|Interaction|Test how layouts react to portrait and landscape changes.|tools/orientation-tester/|soon
-pwa-install-tester|PWA Install Tester|📲|Performance|Audit manifest, service worker, and installability of your app.|tools/pwa-install-tester/|soon
-mobile-seo-checker|Mobile SEO Checker|🔍|SEO|Scan for mobile-friendliness signals like tap targets and viewport tags.|tools/mobile-seo-checker/|soon
-font-scaling-checker|Font Scaling Checker|🔤|Design|Preview text legibility across device font sizes and zoom levels.|tools/font-scaling-checker/|soon
-pixel-ratio-checker|Pixel Ratio Checker|🎯|Design|Inspect device pixel ratio and retina asset rendering side by side.|tools/pixel-ratio-checker/|soon
+camera-test|Camera Test|📷|Camera|Check front and rear cameras for dead pixels, focus, and flash.|/camera-test/|live
+microphone-test|Microphone Test|🎤|Audio|Record a few seconds of audio to confirm your mic picks up sound clearly.|/microphone-test/|live
+speaker-test|Speaker Test|🔊|Audio|Play tones through each speaker channel to catch rattling or dead speakers.|/speaker-test/|live
+touch-screen-test|Touch Screen Test|👆|Display|Drag your finger across a grid to reveal unresponsive or dead touch zones.|/touch-screen-test/|live
+display-test|Display &amp; Dead Pixel Test|🖥️|Display|Cycle through solid colors to spot dead pixels, burn-in, or backlight bleed.|/display-test/|live
+vibration-test|Vibration Motor Test|📳|Haptics|Trigger haptic pulses to confirm the vibration motor is working.|/vibration-test/|live
+sensor-test|Motion Sensor Test|🧭|Sensors|Tilt and rotate your phone to verify the accelerometer and gyroscope respond.|/sensor-test/|live
+battery-test|Battery Health Check|🔋|Battery|Check charge level, charging status, and estimated battery health.|/battery-test/|live
+gps-test|GPS &amp; Location Test|📍|Connectivity|Confirm your device can get an accurate GPS fix and location lock.|/gps-test/|live
+bluetooth-test|Bluetooth Test|📡|Connectivity|Scan for nearby Bluetooth devices to confirm your radio is working.|/bluetooth-test/|live
+flashlight-test|Flashlight &amp; Light Sensor Test|🔦|Sensors|Toggle the flash and check how the ambient light sensor reacts.|/flashlight-test/|live
+keyboard-test|On-Screen Keyboard Test|⌨️|Input|Type across every key to confirm your on-screen keyboard registers input.|/keyboard-test/|live
+button-test|Physical Button Test|🔘|Input|Press volume, power, and home buttons to confirm each one still works.|/button-test/|live
+network-speed-test|Network Speed Test|📶|Connectivity|Measure your current Wi-Fi or mobile data download and upload speed.|/network-speed-test/|live
