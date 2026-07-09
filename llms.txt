@@ -20,10 +20,8 @@ This is a client-side web application that provides 14+ hardware diagnostic test
 - Battery Health Check: https://mobiledevice.github.io/battery-test
 - GPS & Location Test: https://mobiledevice.github.io/gps-test
 - Bluetooth Test: https://mobiledevice.github.io/bluetooth-test
-- Flashlight & Light Sensor Test: https://mobiledevice.github.io/flashlight-test
-- On-Screen Keyboard Test: https://mobiledevice.github.io/keyboard-test
-- Physical Button Test: https://mobiledevice.github.io/button-test
 - Network Speed Test: https://mobiledevice.github.io/network-speed-test
+- Mobile Device Detector: https://mobiledevice.github.io/detector
 
 ## Key Features
 - **Zero Setup**: No app installation required - https://mobiledevice.github.io/
