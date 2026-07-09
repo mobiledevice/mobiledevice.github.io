@@ -7,7 +7,7 @@
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Mobile Device Testing Tools home">
         <span class="brand-mark">&lt;/&gt;</span>
-        <span>mobiledevice<span style="color:var(--blue)"> Test</span></span>
+        <span>Mobile Device<span style="color:var(--blue)"> Test</span></span>
       </a>
 
       <ul class="nav-links">
@@ -19,7 +19,7 @@
       </ul>
 
       <div class="nav-actions">
-        <a href="#tools" class="btn btn-ghost btn-sm">Browse tools</a>
+        <a href="/#tools" class="btn btn-ghost btn-sm">Browse tools</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
         </button>
