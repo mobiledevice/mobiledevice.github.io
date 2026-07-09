@@ -1,5 +1,5 @@
 # Mobile Device Testing Tools — data source
-# Format: id|name|icon|category|description|url|status
+# Format: id|name|icon|category|description|url|status|detector
 # status: live | soon
 # Lines starting with # are ignored by the parser.
 
@@ -14,3 +14,4 @@ battery-test|Battery Health Check|🔋|Battery|Check charge level, charging stat
 gps-test|GPS &amp; Location Test|📍|Connectivity|Confirm your device can get an accurate GPS fix and location lock.|/gps-test|live
 bluetooth-test|Bluetooth Test|📡|Connectivity|Scan for nearby Bluetooth devices to confirm your radio is working.|/bluetooth-test|live
 network-speed-test|Network Speed Test|📶|Connectivity|Measure your current Wi-Fi or mobile data download and upload speed.|/network-speed-test|live
+detector | Phone Detector|📳|Detect|What Phone Do I have.|/detector|live
