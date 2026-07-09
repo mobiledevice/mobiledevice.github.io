@@ -7,7 +7,7 @@
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Mobile Device Testing Tools home">
         <span class="brand-mark">&lt;/&gt;</span>
-        <span>mobiledevice<span style="color:var(--blue)">.tools</span></span>
+        <span>mobiledevice<span style="color:var(--blue)">.Test</span></span>
       </a>
 
       <ul class="nav-links">
