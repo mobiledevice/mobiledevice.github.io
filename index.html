@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Device Testing Tools — Free Browser-Based Suite for Developers</title>
+<meta name="description" content="A free, client-side toolkit for testing your site on real mobile devices: viewport simulation, touch events, breakpoints, network throttling, and more. No install, no signup.">
+<meta name="keywords" content="mobile device testing tools, viewport simulator, responsive testing, touch event tester, breakpoint inspector, mobile QA tools, device emulator, mobile web testing">
+<meta name="author" content="mobiledevice.tools">
+<link rel="canonical" href="https://mobiledevice.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mobiledevice.tools">
+<meta property="og:title" content="Mobile Device Testing Tools — Free Browser-Based Suite for Developers">
+<meta property="og:description" content="Test viewports, touch gestures, breakpoints, and network conditions on real device specs — free, client-side, and open in your browser.">
+<meta property="og:url" content="https://mobiledevice.github.io/">
+<meta property="og:image" content="https://mobiledevice.github.io/assets/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mobile Device Testing Tools — Free Browser-Based Suite for Developers">
+<meta name="twitter:description" content="Test viewports, touch gestures, breakpoints, and network conditions on real device specs — free, client-side, and open in your browser.">
+<meta name="twitter:image" content="https://mobiledevice.github.io/assets/og-image.png">
+
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DH0NXE4ME3');
+</script>
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-9759808041159779">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
+
+<!-- JSON-LD: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Mobile Device Testing Tools",
+  "url": "https://mobiledevice.github.io/",
+  "description": "A free, client-side suite of browser tools for testing websites on real mobile device viewports, touch events, breakpoints, and network conditions.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Viewport simulation across real device sizes",
+    "Touch and gesture event visualization",
+    "CSS breakpoint inspection",
+    "Network throttle simulation",
+    "Device frame screenshot generation",
+    "Mobile SEO and safe-area checks"
+  ]
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mobiledevice.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Mobile Testing Tools",
+      "item": "https://mobiledevice.github.io/#tools"
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Mobile Device Testing Tools free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every tool runs entirely in your browser and is free to use, with no signup or install required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All tools are client-side web apps that run directly in your browser tab, so there is nothing to download or configure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this replace testing on a real physical device?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It covers the majority of day-to-day checks — layout, touch behavior, and network conditions — but a final pass on a real device is still recommended before shipping critical releases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data or code sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The tools process everything locally in your browser using JavaScript, so nothing you test is uploaded or stored remotely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these tools on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the site itself is fully responsive, though for viewport and breakpoint tools you'll get the most value working from a desktop browser."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Header component mounts here (js/header.js) -->
+<header id="site-header"></header>
+
+<main>
+
+  <!-- 1. HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal is-visible">
+        <span class="eyebrow">12 tools · client-side · free</span>
+        <h1>Test your site on <span class="accent">every mobile device</span>,<br>without owning one.</h1>
+        <p class="hero-lede">A browser-based toolkit built for developers: simulate viewports, watch touch events fire, inspect breakpoints, and throttle networks — all before you ship.</p>
+
+        <div class="hero-actions">
+          <a href="#tools" class="btn btn-primary">Browse the tools</a>
+          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><span class="dot"></span> No install</span>
+          <span><span class="dot"></span> No signup</span>
+          <span><span class="dot"></span> Runs 100% in-browser</span>
+        </div>
+      </div>
+
+      <div class="reveal is-visible">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">mobiledevice — zsh</span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice <span id="termLine1"></span></div>
+            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
+          </div>
+        </div>
+
+        <div class="device-readout">
+          <div>
+            <div class="label">Simulating</div>
+            <div class="value" id="readoutDevice">iPhone 15 Pro</div>
+          </div>
+          <div>
+            <div class="label">Viewport</div>
+            <div class="value" id="readoutViewport">393 × 852 px</div>
+          </div>
+          <div class="device-frame-mini" id="frameMini"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STATS STRIP -->
+  <section class="stats-strip">
+    <div class="container stats-grid">
+      <div class="stat reveal">
+        <div class="num"><span class="accent" id="toolsCount">12</span>+</div>
+        <div class="lbl">testing tools</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">6</div>
+        <div class="lbl">tool categories</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">0ms</div>
+        <div class="lbl">server round-trip</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">$0</div>
+        <div class="lbl">cost, always</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MOBILE TESTING TOOLS (component: js/tools-section.js) -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">the toolkit</span>
+        <h2>Mobile testing tools</h2>
+        <p>Each tool focuses on one job and does it well. Pick one below, or filter by category to find what you need.</p>
+      </div>
+
+      <div class="tools-toolbar reveal">
+        <div class="filter-pills" id="toolsFilters" role="tablist" aria-label="Filter tools by category"></div>
+      </div>
+
+      <div class="tools-grid" id="toolsGrid" role="list">
+        <div class="tools-empty">Loading tools…</div>
+      </div>
+    </div>
+  </section>
+  <!-- tools-section.js mounts filters + cards into #toolsFilters and #toolsGrid above -->
+  <div id="tools-container" hidden></div>
+
+  <!-- 4. HOW IT WORKS -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">workflow</span>
+        <h2>How it works</h2>
+        <p>No accounts, no extensions to install. Open a tool, point it at your page, and read the results.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Pick a tool</h3>
+          <p>Choose the test you need — viewport, touch, network, or layout.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">02</span>
+          <h3>Point it at your page</h3>
+          <p>Paste a URL or run it against your local dev server.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">03</span>
+          <h3>Read the results</h3>
+          <p>See exactly how your layout, gestures, or load times behave.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">04</span>
+          <h3>Fix and re-run</h3>
+          <p>Adjust your CSS or JS, then re-test in seconds — right in the tab.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHY THIS PLATFORM -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">why developers use it</span>
+        <h2>Built the way developers actually test</h2>
+        <p>No bloated dashboards or paywalled features — just focused tools that answer one question at a time.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon blue">⚡</div>
+          <h3>Zero setup</h3>
+          <p>Every tool loads instantly in a browser tab. Nothing to install or configure.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon purple">🔒</div>
+          <h3>Privacy-first</h3>
+          <p>Testing happens client-side. Your URLs and code never touch a server.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon green">🧩</div>
+          <h3>Single-purpose tools</h3>
+          <p>Each tool does one job well, so you spend less time hunting through menus.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon blue">📱</div>
+          <h3>Real device specs</h3>
+          <p>Viewport, DPR, and safe-area data pulled from actual shipping devices.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon purple">🆓</div>
+          <h3>Actually free</h3>
+          <p>No tiers, trials, or feature walls. The full toolkit is free to use.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon green">🌐</div>
+          <h3>Works anywhere</h3>
+          <p>Any modern browser on desktop or mobile — no platform lock-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. USE CASES -->
+  <section class="section section-alt" id="use-cases">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">real scenarios</span>
+        <h2>Where these tools fit into your day</h2>
+        <p>Common moments where a quick check saves you from a bad release.</p>
+      </div>
+
+      <div class="usecase-grid">
+        <div class="usecase-card reveal">
+          <span class="tag mono">Before a launch</span>
+          <h3>Pre-release QA pass</h3>
+          <p>Run through breakpoints, safe areas, and touch targets before you tag a release.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <span class="tag mono">Debugging a report</span>
+          <h3>"It's broken on my phone"</h3>
+          <p>Reproduce a customer's exact device and viewport without owning that hardware.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <span class="tag mono">Slow connections</span>
+          <h3>Testing on a bad network</h3>
+          <p>Throttle to 3G to see how your loading states actually feel in the field.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <span class="tag mono">Design handoff</span>
+          <h3>Checking a new component</h3>
+          <p>Confirm a new UI holds up across device sizes before it reaches review.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <span class="tag mono">PWA work</span>
+          <h3>Install and manifest checks</h3>
+          <p>Verify your app is installable and behaves correctly once added to a home screen.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <span class="tag mono">Content marketing</span>
+          <h3>Screenshots for docs</h3>
+          <p>Generate clean, framed device screenshots for changelogs and presentations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COMPARISON -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">the alternative</span>
+        <h2>Versus manual device testing</h2>
+        <p>Owning a device lab is the gold standard, but it isn't always practical.</p>
+      </div>
+
+      <div class="reveal" style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>Physical device lab</th>
+              <th>mobiledevice.tools</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Setup time</td>
+              <td>Hours to days</td>
+              <td class="check">Seconds</td>
+            </tr>
+            <tr>
+              <td>Cost</td>
+              <td>Hardware + upkeep</td>
+              <td class="check">Free</td>
+            </tr>
+            <tr>
+              <td>Viewport coverage</td>
+              <td>Limited to owned devices</td>
+              <td class="check">Dozens of presets</td>
+            </tr>
+            <tr>
+              <td>Network throttling</td>
+              <td>Manual, inconsistent</td>
+              <td class="check">One click</td>
+            </tr>
+            <tr>
+              <td>Physical touch fidelity</td>
+              <td class="check">Exact</td>
+              <td class="cross">Emulated</td>
+            </tr>
+            <tr>
+              <td>Final release sign-off</td>
+              <td class="check">Recommended</td>
+              <td class="cross">Use alongside a real device</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Is Mobile Device Testing Tools free to use?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Yes. Every tool runs entirely in your browser and is free to use, with no signup or install required.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Do I need to install anything?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>No. All tools are client-side web apps that run directly in your browser tab, so there's nothing to download or configure.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Does this replace testing on a real physical device?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>It covers most day-to-day checks — layout, touch behavior, and network conditions — but a final pass on a real device is still recommended before shipping critical releases.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Is my data or code sent to a server?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>No. The tools process everything locally in your browser using JavaScript, so nothing you test is uploaded or stored remotely.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Can I use these tools on my phone?<span class="faq-icon mono">+</span></button>
+          <div class="faq-answer"><p>Yes, the site itself is fully responsive, though for viewport and breakpoint tools you'll get the most value working from a desktop browser.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CTA -->
+  <section class="section" style="border-bottom:none;">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Pick a tool. Test in seconds.</h2>
+        <p>No account, no download — just open a tool and start testing your site the way real users will see it.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="#tools" class="btn btn-primary">Browse the tools</a>
+          <a href="#how-it-works" class="btn btn-ghost">How it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer component mounts here (js/footer.js) -->
+<footer id="site-footer"></footer>
+
+<!-- Component scripts -->
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/tools-section.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

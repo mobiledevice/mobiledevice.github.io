@@ -1,0 +1,17 @@
+# Mobile Device Testing Tools — data source
+# Format: id|name|icon|category|description|url|status
+# status: live | soon
+# Lines starting with # are ignored by the parser.
+
+viewport-simulator|Viewport Simulator|📐|Layout|Preview any page across real device viewport sizes side by side.|tools/viewport-simulator/|soon
+user-agent-switcher|User Agent Switcher|🔀|Network|Spoof user agent strings for iOS, Android, and tablet browsers.|tools/user-agent-switcher/|soon
+touch-event-tester|Touch Event Tester|👆|Interaction|Watch tap, swipe, pinch, and multi-touch events fire in real time.|tools/touch-event-tester/|soon
+breakpoint-inspector|Breakpoint Inspector|📏|Layout|Find and debug CSS breakpoints on a live, resizable preview frame.|tools/breakpoint-inspector/|soon
+device-frame-generator|Device Frame Generator|🖼️|Design|Wrap screenshots in accurate device bezels for docs and decks.|tools/device-frame-generator/|soon
+network-throttle-simulator|Network Throttle Simulator|📶|Network|Simulate 3G, 4G, and offline conditions to test load performance.|tools/network-throttle-simulator/|soon
+safe-area-inspector|Safe Area Inspector|🛡️|Layout|Check notch, home indicator, and safe-area-inset handling.|tools/safe-area-inspector/|soon
+orientation-tester|Orientation Tester|🔄|Interaction|Test how layouts react to portrait and landscape changes.|tools/orientation-tester/|soon
+pwa-install-tester|PWA Install Tester|📲|Performance|Audit manifest, service worker, and installability of your app.|tools/pwa-install-tester/|soon
+mobile-seo-checker|Mobile SEO Checker|🔍|SEO|Scan for mobile-friendliness signals like tap targets and viewport tags.|tools/mobile-seo-checker/|soon
+font-scaling-checker|Font Scaling Checker|🔤|Design|Preview text legibility across device font sizes and zoom levels.|tools/font-scaling-checker/|soon
+pixel-ratio-checker|Pixel Ratio Checker|🎯|Design|Inspect device pixel ratio and retina asset rendering side by side.|tools/pixel-ratio-checker/|soon
