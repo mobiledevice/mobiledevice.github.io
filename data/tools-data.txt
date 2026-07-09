@@ -13,7 +13,4 @@ sensor-test|Motion Sensor Test|🧭|Sensors|Tilt and rotate your phone to verify
 battery-test|Battery Health Check|🔋|Battery|Check charge level, charging status, and estimated battery health.|/battery-test|live
 gps-test|GPS &amp; Location Test|📍|Connectivity|Confirm your device can get an accurate GPS fix and location lock.|/gps-test|live
 bluetooth-test|Bluetooth Test|📡|Connectivity|Scan for nearby Bluetooth devices to confirm your radio is working.|/bluetooth-test|live
-flashlight-test|Flashlight &amp; Light Sensor Test|🔦|Sensors|Toggle the flash and check how the ambient light sensor reacts.|/flashlight-test|live
-keyboard-test|On-Screen Keyboard Test|⌨️|Input|Type across every key to confirm your on-screen keyboard registers input.|/keyboard-test|live
-button-test|Physical Button Test|🔘|Input|Press volume, power, and home buttons to confirm each one still works.|/button-test|live
 network-speed-test|Network Speed Test|📶|Connectivity|Measure your current Wi-Fi or mobile data download and upload speed.|/network-speed-test|live
