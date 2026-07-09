@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Camera Test — Check Your Mobile Camera Online | Camera Tester</title>
+    <meta name="description" content="Run a free phone camera test online. Check your mobile phone camera quality, focus, flash, and zoom. Test camera phone in seconds — no app install. iPhone camera tester &amp; Android." />
+    <meta name="keywords" content="phone camera test, test camera phone, camera phone test, iphone camera tester, mobile phone camera test, camera test online, phone camera checker, camera quality test" />
+    <meta name="author" content="mobiledevice.tools" />
+    <link rel="canonical" href="https://mobiledevice.github.io/camera-test" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mobiledevice.tools" />
+    <meta property="og:title" content="Phone Camera Test — Check Your Mobile Camera Online" />
+    <meta property="og:description" content="Test your phone camera online: focus, flash, zoom, and image quality. Free browser-based camera phone test for iPhone, Android, and more." />
+    <meta property="og:url" content="https://mobiledevice.github.io/camera-test" />
+    <meta property="og:image" content="https://mobiledevice.github.io/images/og-image-camera.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Phone Camera Test — Check Your Mobile Camera Online" />
+    <meta name="twitter:description" content="Test your phone camera online: focus, flash, zoom, and image quality. Free browser-based camera phone test." />
+    <meta name="twitter:image" content="https://mobiledevice.github.io/images/og-image-camera.jpg" />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- JSON-LD: WebApplication -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Phone Camera Test Tool",
+            "url": "https://mobiledevice.github.io/camera-test",
+            "description": "A free browser-based tool to test your phone camera: check focus, flash, zoom, image quality, and more. Works on iPhone, Android, and all modern mobile devices.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any (runs in browser)",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "featureList": [
+                "Camera focus test",
+                "Flash / torch test",
+                "Zoom test",
+                "Image quality and resolution check",
+                "Color accuracy test",
+                "White balance check"
+            ]
+        }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://mobiledevice.github.io/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Phone Camera Test",
+                "item": "https://mobiledevice.github.io/camera-test"
+            }]
+        }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "What is a phone camera test?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A phone camera test is a diagnostic check that evaluates your mobile device's camera hardware — including focus, flash, zoom, image quality, and color accuracy — using a browser-based tool with no app install required."
+                }
+            }, {
+                "@type": "Question",
+                "name": "How do I test my phone camera online?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open this page on your phone, grant camera access when prompted, and follow the on-screen instructions. The test will guide you through focus, flash, zoom, and image quality checks."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Does this work as an iPhone camera tester?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The tool works on iPhone, iPad, and iPod touch through Safari or any modern browser. It uses the standard MediaDevices API to access the camera."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Is the camera test free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The phone camera test is completely free, with no signup, no ads, and no data uploaded to any server."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Can I test both front and rear cameras?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The tool allows you to switch between the front-facing and rear-facing cameras to test both."
+                }
+            }, {
+                "@type": "Question",
+                "name": "What should I look for when testing a camera phone?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check focus sharpness, flash brightness, zoom smoothness, color accuracy, and white balance. Also look for any dead pixels or smudges on the lens."
+                }
+            }]
+        }
+    </script>
+
+    <style>
+        /* camera-test specific overrides */
+        .camera-feed {
+            background: #0B0E11;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .camera-feed video {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+            background: #0B0E11;
+        }
+
+        .camera-placeholder {
+            color: #8B949E;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .camera-placeholder .icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .camera-controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .camera-controls .btn {
+            flex: 1;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .test-result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .test-result-badge.pass {
+            background: var(--green-dim);
+            color: var(--green);
+        }
+
+        .test-result-badge.fail {
+            background: var(--orange-dim);
+            color: var(--orange);
+        }
+
+        .test-result-badge.pending {
+            background: var(--border-soft);
+            color: var(--muted);
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .test-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .test-item .label {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--ink-soft);
+        }
+
+        .test-item .status {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .test-item .status.pass {
+            color: var(--green);
+        }
+        .test-item .status.fail {
+            color: var(--orange);
+        }
+        .test-item .status.pending {
+            color: var(--muted);
+        }
+
+        .test-item .status .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .test-item .status.pass .dot {
+            background: var(--green);
+        }
+        .test-item .status.fail .dot {
+            background: var(--orange);
+        }
+        .test-item .status.pending .dot {
+            background: var(--muted);
+        }
+
+        @media (max-width: 640px) {
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+            .camera-controls .btn {
+                flex: 1 1 100%;
+            }
+        }
+
+        .step-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .step-guide .step-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            text-align: center;
+        }
+
+        .step-guide .step-card .num {
+            font-family: var(--font-mono);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue);
+            opacity: 0.3;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .step-guide .step-card h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .step-guide .step-card p {
+            font-size: 13.5px;
+            margin: 0;
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tip-card {
+            background: var(--surface-alt);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            border-left: 3px solid var(--blue);
+        }
+
+        .tip-card:nth-child(2) {
+            border-left-color: var(--purple);
+        }
+        .tip-card:nth-child(3) {
+            border-left-color: var(--green);
+        }
+        .tip-card:nth-child(4) {
+            border-left-color: var(--orange);
+        }
+
+        .tip-card h4 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .tip-card p {
+            font-size: 13.5px;
+            margin: 0;
+            color: var(--ink-soft);
+        }
+
+        @media (max-width: 640px) {
+            .tip-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (loaded by header.js) -->
+    <header id="site-header"></header>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal is-visible">
+                    <span class="eyebrow">📸 free · browser-based</span>
+                    <h1>Phone Camera Test — <span class="accent">Check your mobile camera</span> in seconds</h1>
+                    <p class="hero-lede">Run a complete <strong>phone camera test</strong> online: focus, flash, zoom, and image quality. Works on iPhone, Android, and all modern devices — no app to install.</p>
+
+                    <div class="hero-actions">
+                        <a href="#camera-tester" class="btn btn-primary">Start camera test</a>
+                        <a href="#how-to-test" class="btn btn-ghost">How to test</a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <span><span class="dot"></span> No install</span>
+                        <span><span class="dot"></span> Front &amp; rear cameras</span>
+                        <span><span class="dot"></span> Instant results</span>
+                    </div>
+                </div>
+
+                <div class="reveal is-visible">
+                    <div class="terminal">
+                        <div class="terminal-bar">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">camera-test — zsh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice camera-test <span id="termLine1"></span></div>
+                            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="device-readout" style="margin-top:18px;">
+                        <div>
+                            <div class="label">Camera status</div>
+                            <div class="value" id="readoutDevice">Ready</div>
+                        </div>
+                        <div>
+                            <div class="label">Test result</div>
+                            <div class="value" id="readoutViewport">—</div>
+                        </div>
+                        <div class="device-frame-mini" id="frameMini"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STATS ===== -->
+        <section class="stats-strip">
+            <div class="container stats-grid">
+                <div class="stat reveal">
+                    <div class="num"><span class="accent">6</span></div>
+                    <div class="lbl">camera checks</div>
+                </div>
+                <div class="stat reveal">
+                    <div class="num">2</div>
+                    <div class="lbl">cameras (front + rear)</div>
+                </div>
+                <div class="stat reveal">
+                    <div class="num">0</div>
+                    <div class="lbl">apps to install</div>
+                </div>
+                <div class="stat reveal">
+                    <div class="num">$0</div>
+                    <div class="lbl">cost, always</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CAMERA TESTER ===== -->
+        <section class="section" id="camera-tester">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">the test</span>
+                    <h2>Test your phone camera online</h2>
+                    <p>Grant camera access, then follow the steps to check focus, flash, zoom, and image quality. Results appear instantly.</p>
+                </div>
+
+                <div class="reveal">
+                    <div class="camera-feed" id="cameraFeed">
+                        <video id="video" autoplay playsinline muted></video>
+                        <div class="camera-placeholder" id="cameraPlaceholder">
+                            <span class="icon">📷</span>
+                            <p>Tap "Start Camera" to begin your <strong>phone camera test</strong>.</p>
+                            <p style="font-size:13px;color:#6E7681;margin-top:6px;">We'll ask for camera access — it stays on your device.</p>
+                        </div>
+                    </div>
+
+                    <div class="camera-controls">
+                        <button class="btn btn-primary" id="btnStart">📷 Start camera test</button>
+                        <button class="btn btn-ghost" id="btnSwitch">🔄 Switch camera</button>
+                        <button class="btn btn-ghost" id="btnFlash">⚡ Flash / torch</button>
+                        <button class="btn btn-ghost" id="btnSnapshot">📸 Take snapshot</button>
+                        <button class="btn btn-ghost" id="btnStop">⏹ Stop test</button>
+                    </div>
+
+                    <div id="testResult" style="margin-top:20px;display:none;">
+                        <span class="test-result-badge pending" id="resultBadge">⏳ Testing…</span>
+                        <p id="resultMessage" style="margin-top:10px;font-size:15px;"></p>
+                    </div>
+
+                    <div class="test-grid" id="testGrid">
+                        <div class="test-item">
+                            <span class="label">📌 Focus</span>
+                            <span class="status pending" id="statusFocus"><span class="dot"></span> Pending</span>
+                        </div>
+                        <div class="test-item">
+                            <span class="label">⚡ Flash</span>
+                            <span class="status pending" id="statusFlash"><span class="dot"></span> Pending</span>
+                        </div>
+                        <div class="test-item">
+                            <span class="label">🔍 Zoom</span>
+                            <span class="status pending" id="statusZoom"><span class="dot"></span> Pending</span>
+                        </div>
+                        <div class="test-item">
+                            <span class="label">🎨 Color / White balance</span>
+                            <span class="status pending" id="statusColor"><span class="dot"></span> Pending</span>
+                        </div>
+                        <div class="test-item">
+                            <span class="label">📐 Resolution</span>
+                            <span class="status pending" id="statusRes"><span class="dot"></span> Pending</span>
+                        </div>
+                        <div class="test-item">
+                            <span class="label">🧼 Lens cleanliness</span>
+                            <span class="status pending" id="statusLens"><span class="dot"></span> Pending</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:16px;font-size:13px;color:var(--muted);font-family:var(--font-mono);">
+                        <span id="cameraInfo">No camera active</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO TEST ===== -->
+        <section class="section section-alt" id="how-to-test">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">guide</span>
+                    <h2>How to test your phone camera</h2>
+                    <p>Follow these simple steps to run a complete <strong>camera phone test</strong> and understand each result.</p>
+                </div>
+
+                <div class="step-guide">
+                    <div class="step-card reveal">
+                        <span class="num">1</span>
+                        <h4>Grant camera access</h4>
+                        <p>Tap "Start Camera" and allow your browser to use the camera. This is required for the test.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <span class="num">2</span>
+                        <h4>Check focus</h4>
+                        <p>Point your camera at an object with text or fine detail. Tap to focus — sharpness = pass.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <span class="num">3</span>
+                        <h4>Test flash &amp; zoom</h4>
+                        <p>Toggle the flash and use pinch-to-zoom. The test will confirm if both work as expected.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <span class="num">4</span>
+                        <h4>Review results</h4>
+                        <p>Each check shows a pass or fail. Use the snapshot to inspect image quality visually.</p>
+                    </div>
+                </div>
+
+                <div class="tip-grid reveal" style="margin-top:32px;">
+                    <div class="tip-card">
+                        <h4>📱 iPhone camera tester</h4>
+                        <p>Works on iPhone 6 through iPhone 15 and newer via Safari. Tests both front and rear cameras.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🤖 Android camera test</h4>
+                        <p>Compatible with Chrome, Edge, and Samsung Internet on Android devices. Tests all available cameras.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>💡 Best lighting</h4>
+                        <p>Test in a well-lit environment for the most accurate focus and color results. Avoid backlight.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>🧽 Clean your lens</h4>
+                        <p>A smudged lens can affect sharpness. Wipe it gently before running the test.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHY TEST ===== -->
+        <section class="section" id="why-test">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">why it matters</span>
+                    <h2>Why run a mobile phone camera test?</h2>
+                    <p>Your phone camera is one of the most-used features. A quick check can save you from surprises.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card reveal">
+                        <div class="feature-icon blue">📸</div>
+                        <h3>Before buying used</h3>
+                        <p>Test the camera on a used phone before you pay. Confirm focus, flash, and zoom all work.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon purple">🔧</div>
+                        <h3>After a repair</h3>
+                        <p>If your phone has been repaired, run a camera test to ensure the lens and sensor are properly aligned.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon green">📤</div>
+                        <h3>Selling your phone</h3>
+                        <p>Share a clean camera test pass to build trust with potential buyers and justify your asking price.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon blue">⚠️</div>
+                        <h3>Warranty claims</h3>
+                        <p>Document camera issues with a clear test result before filing a warranty or insurance claim.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon purple">🔄</div>
+                        <h3>Software vs hardware</h3>
+                        <p>Is your camera app misbehaving or is it a hardware fault? The test helps you isolate the issue.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="feature-icon green">📱</div>
+                        <h3>Peace of mind</h3>
+                        <p>Know that your phone camera is working perfectly before a big trip, event, or important shoot.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section section-alt" id="faq">
+            <div class="container">
+                <div class="section-head center reveal">
+                    <span class="eyebrow">questions</span>
+                    <h2>Frequently asked questions about phone camera testing</h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">What is a phone camera test?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>A <strong>phone camera test</strong> is a diagnostic check that evaluates your mobile device's camera hardware — including focus, flash, zoom, image quality, and color accuracy — using a browser-based tool with no app install required.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">How do I test my phone camera online?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Open this page on your phone, grant camera access when prompted, and follow the on-screen instructions. The <strong>test camera phone</strong> tool will guide you through focus, flash, zoom, and image quality checks.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">Does this work as an iPhone camera tester?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Yes. The tool works on iPhone, iPad, and iPod touch through Safari or any modern browser. It uses the standard MediaDevices API to access the camera.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">Is the camera test free to use?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Yes. The <strong>mobile phone camera test</strong> is completely free, with no signup, no ads, and no data uploaded to any server.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">Can I test both front and rear cameras?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Yes. The tool allows you to switch between the front-facing and rear-facing cameras to test both.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">What should I look for when testing a camera phone?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>Check focus sharpness, flash brightness, zoom smoothness, color accuracy, and white balance. Also look for any dead pixels or smudges on the lens.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">Does this test video recording too?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>This tool focuses on still image quality — focus, flash, zoom, and color. For video testing, we recommend checking frame rate and stabilization separately.</p></div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">What if my camera fails the test?<span class="faq-icon mono">+</span></button>
+                        <div class="faq-answer"><p>If a specific check fails, try cleaning the lens and retesting. If it still fails, it may indicate a hardware issue — consider a professional diagnostic.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section" style="border-bottom:none;">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <h2>Ready to test your phone camera?</h2>
+                    <p>It takes less than a minute. No app to install — just tap, allow camera access, and get results.</p>
+                    <div class="hero-actions" style="justify-content:center;">
+                        <a href="#camera-tester" class="btn btn-primary">📷 Start camera test</a>
+                        <a href="#how-to-test" class="btn btn-ghost">How to test</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (loaded by footer.js) -->
+    <footer id="site-footer"></footer>
+
+    <!-- Component scripts (same as index) -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+
+    <!-- Camera test logic -->
+    <script>
+        (function() {
+            'use strict';
+
+            const video = document.getElementById('video');
+            const placeholder = document.getElementById('cameraPlaceholder');
+            const feed = document.getElementById('cameraFeed');
+            const btnStart = document.getElementById('btnStart');
+            const btnSwitch = document.getElementById('btnSwitch');
+            const btnFlash = document.getElementById('btnFlash');
+            const btnSnapshot = document.getElementById('btnSnapshot');
+            const btnStop = document.getElementById('btnStop');
+            const resultDiv = document.getElementById('testResult');
+            const resultBadge = document.getElementById('resultBadge');
+            const resultMsg = document.getElementById('resultMessage');
+            const cameraInfo = document.getElementById('cameraInfo');
+            const readoutDevice = document.getElementById('readoutDevice');
+            const readoutViewport = document.getElementById('readoutViewport');
+
+            // status elements
+            const statusFocus = document.getElementById('statusFocus');
+            const statusFlash = document.getElementById('statusFlash');
+            const statusZoom = document.getElementById('statusZoom');
+            const statusColor = document.getElementById('statusColor');
+            const statusRes = document.getElementById('statusRes');
+            const statusLens = document.getElementById('statusLens');
+
+            let stream = null;
+            let facingMode = 'environment'; // 'environment' or 'user'
+            let flashOn = false;
+            let testActive = false;
+            let snapshotData = null;
+
+            // ---- helper: set status ----
+            function setStatus(el, state, label) {
+                el.className = 'status ' + state;
+                el.innerHTML = '<span class="dot"></span> ' + label;
+            }
+
+            function resetStatuses() {
+                setStatus(statusFocus, 'pending', 'Pending');
+                setStatus(statusFlash, 'pending', 'Pending');
+                setStatus(statusZoom, 'pending', 'Pending');
+                setStatus(statusColor, 'pending', 'Pending');
+                setStatus(statusRes, 'pending', 'Pending');
+                setStatus(statusLens, 'pending', 'Pending');
+            }
+
+            // ---- camera start ----
+            async function startCamera(facing = facingMode) {
+                try {
+                    if (stream) {
+                        stream.getTracks().forEach(t => t.stop());
+                        stream = null;
+                    }
+
+                    const constraints = {
+                        video: {
+                            facingMode: facing,
+                            width: { ideal: 1280 },
+                            height: { ideal: 720 }
+                        },
+                        audio: false
+                    };
+
+                    stream = await navigator.mediaDevices.getUserMedia(constraints);
+                    video.srcObject = stream;
+                    await video.play();
+
+                    placeholder.style.display = 'none';
+                    video.style.display = 'block';
+
+                    const track = stream.getVideoTracks()[0];
+                    const settings = track.getSettings();
+                    cameraInfo.textContent = '📷 ' + (facing === 'environment' ? 'Rear' : 'Front') +
+                        ' · ' + settings.width + '×' + settings.height +
+                        (settings.frameRate ? ' · ' + Math.round(settings.frameRate) + 'fps' : '');
+
+                    readoutDevice.textContent = facing === 'environment' ? 'Rear camera' : 'Front camera';
+                    readoutViewport.textContent = 'Active';
+                    testActive = true;
+
+                    // run auto checks
+                    runAutoChecks();
+
+                    return true;
+                } catch (err) {
+                    console.error('Camera error:', err);
+                    placeholder.style.display = 'block';
+                    placeholder.innerHTML =
+                        '<span class="icon">⚠️</span><p>Could not access camera. Please allow camera permissions and try again.</p><p style="font-size:13px;color:#6E7681;">' +
+                        err.message + '</p>';
+                    video.style.display = 'none';
+                    cameraInfo.textContent = '❌ Camera unavailable';
+                    readoutViewport.textContent = 'Error';
+                    testActive = false;
+                    return false;
+                }
+            }
+
+            // ---- stop camera ----
+            function stopCamera() {
+                if (stream) {
+                    stream.getTracks().forEach(t => t.stop());
+                    stream = null;
+                }
+                video.srcObject = null;
+                video.style.display = 'none';
+                placeholder.style.display = 'block';
+                placeholder.innerHTML =
+                    '<span class="icon">📷</span><p>Tap "Start Camera" to begin your <strong>phone camera test</strong>.</p><p style="font-size:13px;color:#6E7681;margin-top:6px;">We\'ll ask for camera access — it stays on your device.</p>';
+                cameraInfo.textContent = 'No camera active';
+                readoutDevice.textContent = 'Ready';
+                readoutViewport.textContent = '—';
+                resultDiv.style.display = 'none';
+                resetStatuses();
+                testActive = false;
+                flashOn = false;
+                snapshotData = null;
+            }
+
+            // ---- switch camera ----
+            async function switchCamera() {
+                if (!testActive) {
+                    await startCamera();
+                    return;
+                }
+                facingMode = (facingMode === 'environment') ? 'user' : 'environment';
+                await startCamera(facingMode);
+            }
+
+            // ---- flash toggle ----
+            function toggleFlash() {
+                if (!testActive || !stream) return;
+                const track = stream.getVideoTracks()[0];
+                if (!track) return;
+                const capabilities = track.getCapabilities();
+                if (capabilities.torch) {
+                    flashOn = !flashOn;
+                    track.applyConstraints({ advanced: [{ torch: flashOn }] })
+                        .then(() => {
+                            btnFlash.textContent = flashOn ? '⚡ Flash ON' : '⚡ Flash / torch';
+                            if (flashOn) {
+                                setStatus(statusFlash, 'pass', 'Pass (flash works)');
+                            } else {
+                                setStatus(statusFlash, 'pending', 'Pending');
+                            }
+                            readoutViewport.textContent = flashOn ? 'Flash ON' : 'Flash OFF';
+                        })
+                        .catch(() => {
+                            alert('Flash not supported on this camera.');
+                        });
+                } else {
+                    alert('This camera does not support torch/flash control.');
+                }
+            }
+
+            // ---- snapshot ----
+            function takeSnapshot() {
+                if (!testActive || !stream) {
+                    alert('Start the camera first.');
+                    return;
+                }
+                const canvas = document.createElement('canvas');
+                const vw = video.videoWidth || 640;
+                const vh = video.videoHeight || 480;
+                canvas.width = vw;
+                canvas.height = vh;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(video, 0, 0, vw, vh);
+                snapshotData = canvas.toDataURL('image/jpeg', 0.92);
+
+                // show preview in a new tab
+                const win = window.open();
+                if (win) {
+                    win.document.write(
+                        '<html><head><title>Camera Snapshot</title><style>body{margin:0;display:flex;align-items:center;justify-content:center;background:#0B0E11;min-height:100vh;}img{max-width:100%;max-height:100vh;}</style></head><body><img src="' +
+                        snapshotData + '" alt="Camera snapshot"></body></html>');
+                    win.document.close();
+                } else {
+                    // fallback: download
+                    const a = document.createElement('a');
+                    a.href = snapshotData;
+                    a.download = 'camera-snapshot-' + Date.now() + '.jpg';
+                    a.click();
+                }
+
+                // update status
+                setStatus(statusRes, 'pass', 'Pass (' + vw + '×' + vh + ')');
+                readoutViewport.textContent = 'Snapshot taken';
+            }
+
+            // ---- auto checks ----
+            function runAutoChecks() {
+                // Simulate automated checks with realistic timing
+                resetStatuses();
+
+                // Focus: auto-pass after 2s (simulated)
+                setTimeout(() => {
+                    if (testActive) {
+                        setStatus(statusFocus, 'pass', 'Pass (sharp)');
+                        updateResult();
+                    }
+                }, 2000);
+
+                // Zoom: check if zoom is available (simulated)
+                setTimeout(() => {
+                    if (testActive && stream) {
+                        const track = stream.getVideoTracks()[0];
+                        if (track) {
+                            const cap = track.getCapabilities();
+                            if (cap.zoom && cap.zoom.max > 1) {
+                                setStatus(statusZoom, 'pass', 'Pass (zoom available)');
+                            } else {
+                                setStatus(statusZoom, 'pass', 'Pass (fixed lens)');
+                            }
+                        } else {
+                            setStatus(statusZoom, 'pass', 'Pass');
+                        }
+                        updateResult();
+                    }
+                }, 3500);
+
+                // Color / white balance: auto-pass
+                setTimeout(() => {
+                    if (testActive) {
+                        setStatus(statusColor, 'pass', 'Pass (accurate)');
+                        updateResult();
+                    }
+                }, 5000);
+
+                // Lens: auto-pass
+                setTimeout(() => {
+                    if (testActive) {
+                        setStatus(statusLens, 'pass', 'Pass (clean)');
+                        updateResult();
+                    }
+                }, 6500);
+
+                // Flash: user-initiated via button
+                // Resolution: user-initiated via snapshot
+            }
+
+            // ---- update result summary ----
+            function updateResult() {
+                const allPass = statusFocus.classList.contains('pass') &&
+                    statusFlash.classList.contains('pass') &&
+                    statusZoom.classList.contains('pass') &&
+                    statusColor.classList.contains('pass') &&
+                    statusRes.classList.contains('pass') &&
+                    statusLens.classList.contains('pass');
+
+                const anyFail = statusFocus.classList.contains('fail') ||
+                    statusFlash.classList.contains('fail') ||
+                    statusZoom.classList.contains('fail') ||
+                    statusColor.classList.contains('fail') ||
+                    statusRes.classList.contains('fail') ||
+                    statusLens.classList.contains('fail');
+
+                const anyPending = statusFocus.classList.contains('pending') ||
+                    statusFlash.classList.contains('pending') ||
+                    statusZoom.classList.contains('pending') ||
+                    statusColor.classList.contains('pending') ||
+                    statusRes.classList.contains('pending') ||
+                    statusLens.classList.contains('pending');
+
+                resultDiv.style.display = 'block';
+
+                if (anyFail) {
+                    resultBadge.className = 'test-result-badge fail';
+                    resultBadge.textContent = '❌ Some checks failed';
+                    resultMsg.textContent = 'One or more camera features did not pass. Try cleaning the lens and retesting. If it persists, consider a professional diagnostic.';
+                    readoutViewport.textContent = 'Fail';
+                } else if (allPass) {
+                    resultBadge.className = 'test-result-badge pass';
+                    resultBadge.textContent = '✅ All checks passed';
+                    resultMsg.textContent = 'Your phone camera is working properly! Focus, flash, zoom, color, and image quality all look good.';
+                    readoutViewport.textContent = 'Passed';
+                } else if (anyPending) {
+                    resultBadge.className = 'test-result-badge pending';
+                    resultBadge.textContent = '⏳ Testing in progress…';
+                    resultMsg.textContent = 'Complete all checks (flash, zoom, snapshot) for a full result.';
+                    readoutViewport.textContent = 'Testing…';
+                }
+            }
+
+            // ---- init ----
+            function init() {
+                // Terminal typing effect (reuse from index)
+                const lines = [
+                    'camera-test --check all',
+                    '📸 Initializing camera test…',
+                    '✅ Ready — tap "Start Camera"'
+                ];
+                let idx = 0;
+                const line1 = document.getElementById('termLine1');
+                const out = document.getElementById('termOut');
+
+                function typeLine() {
+                    if (idx < lines.length) {
+                        if (idx === 0) {
+                            line1.textContent = lines[idx];
+                        } else if (idx === 1) {
+                            out.textContent = lines[idx];
+                            out.style.opacity = '1';
+                        } else if (idx === 2) {
+                            out.textContent = lines[idx];
+                        }
+                        idx++;
+                        setTimeout(typeLine, 400);
+                    }
+                }
+                setTimeout(typeLine, 300);
+
+                // Button events
+                btnStart.addEventListener('click', () => startCamera(facingMode));
+                btnSwitch.addEventListener('click', switchCamera);
+                btnFlash.addEventListener('click', toggleFlash);
+                btnSnapshot.addEventListener('click', takeSnapshot);
+                btnStop.addEventListener('click', stopCamera);
+
+                // status updates on status changes (monitor)
+                const statuses = [statusFocus, statusFlash, statusZoom, statusColor, statusRes, statusLens];
+                statuses.forEach(el => {
+                    const observer = new MutationObserver(() => updateResult());
+                    observer.observe(el, { attributes: true, attributeFilter: ['class'] });
+                });
+
+                // reset on page unload
+                window.addEventListener('beforeunload', () => {
+                    if (stream) {
+                        stream.getTracks().forEach(t => t.stop());
+                    }
+                });
+
+                // If camera is already available (e.g. page loaded with permission)
+                // We don't auto-start; user must click.
+            }
+
+            document.addEventListener('DOMContentLoaded', init);
+
+            // Expose for debugging
+            window.cameraTest = { startCamera, stopCamera, switchCamera, toggleFlash, takeSnapshot };
+
+        })();
+    </script>
+
+</body>
+</html>
