@@ -195,11 +195,11 @@
       grid.innerHTML = posts.map(post => `
         <div class="blog-card reveal is-visible">
           <span class="tag">${post.category}</span>
-          <h3><a href="/blog/${post.slug}">${post.title}</a></h3>
+          <h3><a href="/${post.slug}">${post.title}</a></h3>
           <p>${post.excerpt}</p>
           <div class="meta">
             <span class="date">📅 ${post.date}</span>
-            <a href="/blog/${post.slug}" class="read-mono read-more">Read →</a>
+            <a href="/${post.slug}" class="read-mono read-more">Read →</a>
           </div>
         </div>
       `).join('');
