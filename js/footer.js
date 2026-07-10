@@ -32,10 +32,10 @@
           <div class="footer-col">
             <h4>Site</h4>
             <ul>
-              <li><a href="#how-it-works">How it works</a></li>
-              <li><a href="#why">Why this platform</a></li>
-              <li><a href="#use-cases">Use cases</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="/#how-it-works">How it works</a></li>
+              <li><a href="/#why">Why this platform</a></li>
+              <li><a href="/#use-cases">Use cases</a></li>
+              <li><a href="/#faq">FAQ</a></li>
             </ul>
           </div>
 
