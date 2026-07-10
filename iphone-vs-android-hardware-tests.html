@@ -7,21 +7,22 @@
 <meta name="description" content="iPhone and Android fail differently. Here's which hardware tests matter most on each platform, and why detection accuracy itself differs between the two.">
 <meta name="keywords" content="iphone vs android testing, iphone hardware test, android hardware test, which phone tests matter, ios vs android reliability">
 <meta name="author" content="mobiledevice.tools">
-<link rel="canonical" href="https://mobiledevice.github.io/blog/iphone-vs-android-hardware-tests.html">
+<link rel="canonical" href="https://mobiledevice.github.io/iphone-vs-android-hardware-tests">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mobiledevice.tools">
 <meta property="og:title" content="iPhone vs Android: Which Hardware Tests Matter Most in 2026?">
 <meta property="og:description" content="iPhone and Android fail differently. Here's which hardware tests matter most on each platform, and why detection accuracy itself differs between the two.">
-<meta property="og:url" content="https://mobiledevice.github.io/blog/iphone-vs-android-hardware-tests.html">
-<meta property="og:image" content="https://mobiledevice.github.io/blog/assets/iphone-vs-android-hardware-tests.svg">
+<meta property="og:url" content="https://mobiledevice.github.io/iphone-vs-android-hardware-tests">
+<meta property="og:image" content="https://mobiledevice.github.io/assets/iphone-vs-android-hardware-tests.svg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="iPhone vs Android: Which Hardware Tests Matter Most in 2026?">
 <meta name="twitter:description" content="iPhone and Android fail differently. Here's which hardware tests matter most on each platform, and why detection accuracy itself differs between the two.">
-<meta name="twitter:image" content="https://mobiledevice.github.io/blog/assets/iphone-vs-android-hardware-tests.svg">
+<meta name="twitter:image" content="https://mobiledevice.github.io/assets/iphone-vs-android-hardware-tests.svg">
 
 <meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
@@ -30,8 +31,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="../css/blog.css">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/blog.css">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH0NXE4ME3"></script>
@@ -53,16 +54,16 @@
   "@type": "BlogPosting",
   "headline": "iPhone vs Android: Which Hardware Tests Matter Most in 2026?",
   "description": "iPhone and Android fail differently. Here's which hardware tests matter most on each platform, and why detection accuracy itself differs between the two.",
-  "image": "https://mobiledevice.github.io/blog/assets/iphone-vs-android-hardware-tests.svg",
+  "image": "https://mobiledevice.github.io/assets/iphone-vs-android-hardware-tests.svg",
   "author": { "@type": "Organization", "name": "mobiledevice.tools" },
   "publisher": {
     "@type": "Organization",
     "name": "mobiledevice.tools",
-    "logo": { "@type": "ImageObject", "url": "https://mobiledevice.github.io/blog/assets/iphone-vs-android-hardware-tests.svg" }
+    "logo": { "@type": "ImageObject", "url": "https://mobiledevice.github.io/assets/iphone-vs-android-hardware-tests.svg" }
   },
   "datePublished": "2026-07-14",
   "dateModified": "2026-07-14",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mobiledevice.github.io/blog/iphone-vs-android-hardware-tests.html" }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mobiledevice.github.io/iphone-vs-android-hardware-tests" }
 }
 </script>
 
@@ -73,7 +74,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mobiledevice.github.io/" },
-    { "@type": "ListItem", "position": 2, "name": "iPhone vs Android: Which Hardware Tests Matter Most in 2026?", "item": "https://mobiledevice.github.io/blog/iphone-vs-android-hardware-tests.html" }
+    { "@type": "ListItem", "position": 2, "name": "iPhone vs Android: Which Hardware Tests Matter Most in 2026?", "item": "https://mobiledevice.github.io/iphone-vs-android-hardware-tests" }
   ]
 }
 </script>
@@ -111,7 +112,7 @@
   <article class="blog-post">
     <div class="container">
       <nav class="blog-breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a><span class="sep">/</span><span>iPhone vs Android: Which Hardware Tests Matter Most in 2026?</span>
+        <a href="/">Home</a><span class="sep">/</span><span>iPhone vs Android: Which Hardware Tests Matter Most in 2026?</span>
       </nav>
 
       <div class="article-header">
@@ -132,19 +133,30 @@
         <img src="assets/iphone-vs-android-hardware-tests.svg" alt="iPhone vs Android — which hardware tests matter most in 2026" width="1200" height="630" loading="eager">
       </figure>
 
-      <div class="article-layout">
+      <div class="article-layout has-toc">
+        <aside class="article-toc" aria-label="Table of contents">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#same">What's the same on both platforms</a></li>
+            <li><a href="#iphone">What matters more on iPhone</a></li>
+            <li><a href="#android">What matters more on Android</a></li>
+            <li><a href="#side-by-side">Side-by-side: what to prioritize</a></li>
+            <li><a href="#faq">Frequently asked questions</a></li>
+          </ol>
+        </aside>
+
         <div class="article-body">
           <p>"iPhone or Android" usually comes up as a buying preference. It matters just as much once you're testing a phone you already own or are about to buy, because the two platforms don't fail — or reveal information about themselves — in quite the same way.</p>
 
-          <h2>What's the same on both platforms</h2>
-          <p>Most of the core hardware tests apply equally, regardless of which phone you're holding. Camera focus and flash, touch screen responsiveness, dead pixels, speaker quality, and motion sensors all fail in the same ways and get tested the same way. If you only run one set of checks, our <a href="hardware-tests-before-buying-used-phone.html">10-test buying guide</a> covers the ground that's common to both.</p>
+          <h2 id="same">What's the same on both platforms</h2>
+          <p>Most of the core hardware tests apply equally, regardless of which phone you're holding. Camera focus and flash, touch screen responsiveness, dead pixels, speaker quality, and motion sensors all fail in the same ways and get tested the same way. If you only run one set of checks, our <a href="hardware-tests-before-buying-used-phone">10-test buying guide</a> covers the ground that's common to both.</p>
 
-          <h2>What matters more on iPhone</h2>
-          <p><strong>Model detection is an estimate, not a fact.</strong> Apple deliberately leaves the exact iPhone model out of Safari's browser data, for privacy reasons. Any browser-based tool — including our own <a href="../detector.html">device detector</a> — can only narrow it down using screen size and pixel ratio, and several iPhone generations share identical specs. If you need to confirm the exact model with certainty, Settings &gt; General &gt; About is the only fully reliable source.</p>
+          <h2 id="iphone">What matters more on iPhone</h2>
+          <p><strong>Model detection is an estimate, not a fact.</strong> Apple deliberately leaves the exact iPhone model out of Safari's browser data, for privacy reasons. Any browser-based tool — including our own <a href="/detector">device detector</a> — can only narrow it down using screen size and pixel ratio, and several iPhone generations share identical specs. If you need to confirm the exact model with certainty, Settings &gt; General &gt; About is the only fully reliable source.</p>
           <p><strong>Battery health has an official number.</strong> iOS reports a specific battery health percentage in Settings &gt; Battery &gt; Battery Health, which is worth checking directly alongside any browser-based estimate — it's the ground truth Apple itself provides.</p>
           <p><strong>Face ID and the Taptic Engine sit behind extra security.</strong> Face ID can't be tested through a browser at all. The Taptic Engine (Apple's vibration hardware) can be tested like any other vibration motor, but it's worth knowing it's a more advanced, and more expensive-to-repair, component than a standard vibration motor.</p>
 
-          <h2>What matters more on Android</h2>
+          <h2 id="android">What matters more on Android</h2>
           <p><strong>Model detection is usually more precise.</strong> Most Android phones run a Chromium-based browser that supports the Client Hints API, which can report the exact marketing model — something Apple's ecosystem doesn't allow. This is one case where Android testing is genuinely more reliable than iPhone testing.</p>
           <p><strong>Hardware variance is much wider.</strong> "Android" covers everything from budget phones missing a barometer or a second speaker to flagships with more sensors than an iPhone. Don't assume a test result — or even which sensors exist — carries over from one Android phone to another.</p>
           <p><strong>Under-display fingerprint sensors are common and untestable.</strong> Many Android phones use an in-screen fingerprint reader, which — like Face ID — can't be checked through a browser. If unlock feels unreliable, re-registering the fingerprint in settings is the first thing to try.</p>
@@ -155,10 +167,10 @@
               <h4>Mobile Device Detector</h4>
               <p>See exactly how confident the model detection is for your specific phone.</p>
             </div>
-            <a href="../detector.html" class="btn btn-primary btn-sm">Run detector</a>
+            <a href="/detector" class="btn btn-primary btn-sm">Run detector</a>
           </div>
 
-          <h2>Side-by-side: what to prioritize</h2>
+          <h2 id="side-by-side">Side-by-side: what to prioritize</h2>
           <table>
             <thead>
               <tr><th>Test</th><th>iPhone note</th><th>Android note</th></tr>
@@ -173,7 +185,7 @@
             </tbody>
           </table>
 
-          <h2>Frequently asked questions</h2>
+          <h2 id="faq">Frequently asked questions</h2>
           <p><strong>Why can't browser tools detect the exact iPhone model?</strong><br>Apple deliberately excludes the specific model from Safari's user agent string for privacy reasons. Detection tools can only estimate the model based on screen size and pixel ratio, which several iPhone generations share.</p>
           <p><strong>Is Android easier to test than iPhone?</strong><br>Model detection is generally easier on Android, since many Chromium-based Android browsers support the Client Hints API and can report the exact marketing name. Hardware testing itself is equally reliable on both platforms.</p>
           <p><strong>Do iPhone and Android have the same failure points?</strong><br>Mostly yes — camera, battery, touch screen, and speakers fail at similar rates across both platforms. The differences are in the details, like how battery health is reported and how much hardware varies between models.</p>
@@ -185,7 +197,7 @@
           <div class="author-avatar">MD</div>
           <div class="author-meta"><strong>mobiledevice.tools team</strong>Buying guides &amp; hardware testing</div>
         </div>
-        <a href="../detector.html" class="btn btn-ghost btn-sm">Check your device model →</a>
+        <a href="/detector" class="btn btn-ghost btn-sm">Check your device model →</a>
       </div>
 
       <section class="related-section">
@@ -194,15 +206,15 @@
           <h2>Related reading</h2>
         </div>
         <div class="related-grid">
-          <a class="related-card reveal" href="hardware-tests-before-buying-used-phone.html">
+          <a class="related-card reveal" href="hardware-tests-before-buying-used-phone">
             <span class="tag mono">Pillar guide</span>
             <h3>10 must-do hardware tests before buying a used phone</h3>
           </a>
-          <a class="related-card reveal" href="hidden-phone-sensors-to-test.html">
+          <a class="related-card reveal" href="hidden-phone-sensors-to-test">
             <span class="tag mono">Sensors</span>
             <h3>Top 7 hidden phone sensors you should test right now</h3>
           </a>
-          <a class="related-card reveal" href="../detector.html">
+          <a class="related-card reveal" href="/detector">
             <span class="tag mono">Device Detector</span>
             <h3>Find out exactly what phone you're using right now</h3>
           </a>
@@ -214,9 +226,9 @@
 
 <footer id="site-footer"></footer>
 
-<script src="../js/header.js"></script>
-<script src="../js/footer.js"></script>
-<script src="../js/main.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
