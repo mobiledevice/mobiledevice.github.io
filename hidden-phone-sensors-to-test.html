@@ -16,21 +16,22 @@
 <meta name="description" content="Your phone has more sensors than you think. Here's what each one does, how it fails, and how to test the ones your browser can actually reach.">
 <meta name="keywords" content="hidden phone sensors, test phone sensors, accelerometer test, gyroscope test, proximity sensor, phone sensors explained">
 <meta name="author" content="mobiledevice.tools">
-<link rel="canonical" href="https://mobiledevice.github.io/blog/hidden-phone-sensors-to-test">
+<link rel="canonical" href="https://mobiledevice.github.io/hidden-phone-sensors-to-test">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mobiledevice.tools">
 <meta property="og:title" content="Top 7 Hidden Phone Sensors You Should Test Right Now">
 <meta property="og:description" content="Your phone has more sensors than you think. Here's what each one does, how it fails, and how to test the ones your browser can actually reach.">
-<meta property="og:url" content="https://mobiledevice.github.io/blog/hidden-phone-sensors-to-test">
-<meta property="og:image" content="https://mobiledevice.github.io/blog/assets/hidden-phone-sensors-to-test.svg">
+<meta property="og:url" content="https://mobiledevice.github.io/hidden-phone-sensors-to-test">
+<meta property="og:image" content="https://mobiledevice.github.io/assets/hidden-phone-sensors-to-test.svg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Top 7 Hidden Phone Sensors You Should Test Right Now">
 <meta name="twitter:description" content="Your phone has more sensors than you think. Here's what each one does, how it fails, and how to test the ones your browser can actually reach.">
-<meta name="twitter:image" content="https://mobiledevice.github.io/blog/assets/hidden-phone-sensors-to-test.svg">
+<meta name="twitter:image" content="https://mobiledevice.github.io/assets/hidden-phone-sensors-to-test.svg">
 
 <meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
@@ -62,16 +63,16 @@
   "@type": "BlogPosting",
   "headline": "Top 7 Hidden Phone Sensors You Should Test Right Now",
   "description": "Your phone has more sensors than you think. Here's what each one does, how it fails, and how to test the ones your browser can actually reach.",
-  "image": "https://mobiledevice.github.io/blog/assets/hidden-phone-sensors-to-test.svg",
+  "image": "https://mobiledevice.github.io/assets/hidden-phone-sensors-to-test.svg",
   "author": { "@type": "Organization", "name": "mobiledevice.tools" },
   "publisher": {
     "@type": "Organization",
     "name": "mobiledevice.tools",
-    "logo": { "@type": "ImageObject", "url": "https://mobiledevice.github.io/blog/assets/hidden-phone-sensors-to-test.svg" }
+    "logo": { "@type": "ImageObject", "url": "https://mobiledevice.github.io/assets/hidden-phone-sensors-to-test.svg" }
   },
   "datePublished": "2026-07-13",
   "dateModified": "2026-07-13",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mobiledevice.github.io/blog/hidden-phone-sensors-to-test" }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mobiledevice.github.io/hidden-phone-sensors-to-test" }
 }
 </script>
 
@@ -82,7 +83,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mobiledevice.github.io/" },
-    { "@type": "ListItem", "position": 2, "name": "Top 7 Hidden Phone Sensors You Should Test Right Now", "item": "https://mobiledevice.github.io/blog/hidden-phone-sensors-to-test" }
+    { "@type": "ListItem", "position": 2, "name": "Top 7 Hidden Phone Sensors You Should Test Right Now", "item": "https://mobiledevice.github.io/hidden-phone-sensors-to-test" }
   ]
 }
 </script>
@@ -141,14 +142,29 @@
         <img src="assets/hidden-phone-sensors-to-test.svg" alt="Top 7 hidden phone sensors you should test right now" width="1200" height="630" loading="eager">
       </figure>
 
-      <div class="article-layout">
+      <div class="article-layout has-toc">
+        <aside class="article-toc" aria-label="Table of contents">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#accelerometer">1. Accelerometer</a></li>
+            <li><a href="#gyroscope">2. Gyroscope</a></li>
+            <li><a href="#proximity">3. Proximity sensor</a></li>
+            <li><a href="#ambient-light">4. Ambient light sensor</a></li>
+            <li><a href="#compass">5. Digital compass (magnetometer)</a></li>
+            <li><a href="#barometer">6. Barometer</a></li>
+            <li><a href="#fingerprint">7. Fingerprint &amp; biometric sensor</a></li>
+            <li><a href="#browser-vs-sensor">What you can and can't test from a browser</a></li>
+            <li><a href="#faq">Frequently asked questions</a></li>
+          </ol>
+        </aside>
+
         <div class="article-body">
           <p>Screen rotates when you turn the phone sideways. Display dims when you hold it to your ear. Compass points north in a maps app. None of that happens by magic — it's a small cluster of sensors working in the background, and like any hardware, they can drift, degrade, or fail outright. Here are the seven worth knowing about, and how to check each one.</p>
 
-          <h2>1. Accelerometer</h2>
+          <h2 id="accelerometer">1. Accelerometer</h2>
           <p>The accelerometer measures motion and tilt along three axes. It's what rotates your screen, counts your steps, and detects when the phone is face-down on a table. A failing accelerometer usually shows up as screen rotation that's slow, stuck, or triggers randomly with the phone sitting still.</p>
 
-          <h2>2. Gyroscope</h2>
+          <h2 id="gyroscope">2. Gyroscope</h2>
           <p>Where the accelerometer measures movement, the gyroscope measures rotation — the exact orientation of the phone in 3D space. It's what makes augmented reality apps and racing games that use tilt-steering feel responsive. A drifting gyroscope feels laggy or jumpy in exactly those kinds of apps, even when the accelerometer seems fine.</p>
 
           <div class="tool-inline-cta">
@@ -160,10 +176,10 @@
             <a href="/sensor-test" class="btn btn-primary btn-sm">Run test</a>
           </div>
 
-          <h2>3. Proximity sensor</h2>
+          <h2 id="proximity">3. Proximity sensor</h2>
           <p>This is the small sensor near the earpiece that turns your screen off when you hold the phone to your ear during a call, so your cheek doesn't hang up on you or open another app. A failing proximity sensor causes exactly that: your screen stays lit during calls, or it goes dark and won't come back on. Browsers restrict direct access to this sensor for privacy reasons, so the most reliable check is simply making a call and watching what the screen does.</p>
 
-          <h2>4. Ambient light sensor</h2>
+          <h2 id="ambient-light">4. Ambient light sensor</h2>
           <p>This sensor reads how bright your surroundings are and adjusts screen brightness automatically. If auto-brightness feels stuck, too dim indoors, or blindingly bright in a dark room, this sensor — or the software reading it — is worth checking first.</p>
 
           <div class="tool-inline-cta">
@@ -175,16 +191,16 @@
             <a href="/flashlight-test" class="btn btn-primary btn-sm">Run test</a>
           </div>
 
-          <h2>5. Digital compass (magnetometer)</h2>
+          <h2 id="compass">5. Digital compass (magnetometer)</h2>
           <p>The magnetometer detects Earth's magnetic field to provide a compass heading, which mapping and navigation apps rely on for direction. It's notoriously easy to throw off — a magnetic phone case, a car mount with a magnet, or being near speakers can all cause a compass to read incorrectly. If a map app shows you facing the wrong direction while stationary, try removing any magnetic accessories before assuming it's broken.</p>
 
-          <h2>6. Barometer</h2>
+          <h2 id="barometer">6. Barometer</h2>
           <p>Found mostly on flagship phones, the barometer measures air pressure, which is used to estimate elevation for fitness apps (like counting floors climbed) and can slightly speed up GPS accuracy. It's a "nice to have" sensor rather than a critical one — if your phone doesn't report elevation data in a fitness app, it may simply not include this sensor at all.</p>
 
-          <h2>7. Fingerprint &amp; biometric sensor</h2>
+          <h2 id="fingerprint">7. Fingerprint &amp; biometric sensor</h2>
           <p>Fingerprint and face-unlock sensors are deliberately walled off from browsers and most apps for security reasons — there's no web-based way to test them, and that's by design. If unlocking feels unreliable, the fix usually lives in your phone's biometric settings: re-registering your fingerprint or face data resolves the vast majority of these issues without pointing to a hardware fault.</p>
 
-          <h2>What you can and can't test from a browser</h2>
+          <h2 id="browser-vs-sensor">What you can and can't test from a browser</h2>
           <table>
             <thead>
               <tr><th>Sensor</th><th>Browser-testable?</th></tr>
@@ -200,7 +216,7 @@
             </tbody>
           </table>
 
-          <h2>Frequently asked questions</h2>
+          <h2 id="faq">Frequently asked questions</h2>
           <p><strong>Can a browser test every sensor in my phone?</strong><br>No. Browsers can reliably reach the accelerometer, gyroscope, and ambient light sensor. Proximity, compass, barometer, and fingerprint sensors are either restricted for privacy reasons or inconsistently exposed, so those are best checked through your phone's own settings or a quick manual test.</p>
           <p><strong>Why would a sensor stop working without any visible damage?</strong><br>Sensors are small mechanical or MEMS components that can drift out of calibration over time, especially after a drop, even when there's no visible damage to the phone.</p>
           <p><strong>Does every phone have all 7 of these sensors?</strong><br>No. The accelerometer, gyroscope, proximity sensor, and ambient light sensor are nearly universal. The barometer and a dedicated compass chip are more common on flagship phones and sometimes missing on budget models.</p>
