@@ -17,6 +17,7 @@
 <meta name="keywords" content="check if phone camera is working, phone camera not working, test phone camera, camera test no app, is my camera broken">
 <meta name="author" content="mobiledevice.tools">
 <link rel="canonical" href="https://mobiledevice.github.io/check-phone-camera-working">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
@@ -141,11 +142,23 @@
         <img src="assets/check-phone-camera-working.svg" alt="How to check if your phone camera is actually working — no apps needed" width="1200" height="630" loading="eager">
       </figure>
 
-      <div class="article-layout">
+      <div class="article-layout has-toc">
+        <aside class="article-toc" aria-label="Table of contents">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#signs">Signs your camera might not be working</a></li>
+            <li><a href="#why-browser">Test in the browser, not just your camera app</a></li>
+            <li><a href="#what-to-look-for">What to look for during the test</a></li>
+            <li><a href="#common-problems">Common camera problems and what they mean</a></li>
+            <li><a href="#software-vs-hardware">When it's software, and when it's hardware</a></li>
+            <li><a href="#faq">Frequently asked questions</a></li>
+          </ol>
+        </aside>
+
         <div class="article-body">
           <p>The camera is the part of a phone that gets used the most and explained the least. When something's off — a soft focus, a flash that won't fire, a preview that stays black — most people either live with it or assume the whole camera is dead. Neither is usually the right move. Here's how to actually find out, in under two minutes, without installing anything.</p>
 
-          <h2>Signs your camera might not be working properly</h2>
+          <h2 id="signs">Signs your camera might not be working properly</h2>
           <p>A few symptoms come up again and again, and each one points toward a different cause:</p>
           <ul>
             <li><strong>Black or frozen preview</strong> — usually a permissions or software issue, not a broken sensor</li>
@@ -155,7 +168,7 @@
             <li><strong>Front camera works, rear doesn't (or vice versa)</strong> — narrows the problem to one specific module</li>
           </ul>
 
-          <h2>Test your camera in the browser, not just your camera app</h2>
+          <h2 id="why-browser">Test your camera in the browser, not just your camera app</h2>
           <p>Your phone's built-in camera app applies its own processing — stabilization, auto-exposure, sometimes AI sharpening — which can mask a hardware issue or, just as often, make a software glitch look like a hardware one. Testing straight from the browser gives you a more direct read on what the camera hardware is actually capturing.</p>
 
           <div class="tool-inline-cta">
@@ -167,7 +180,7 @@
             <a href="/camera-test" class="btn btn-primary btn-sm">Run test</a>
           </div>
 
-          <h2>What to look for during the test</h2>
+          <h2 id="what-to-look-for">What to look for during the test</h2>
           <p>Once the preview loads, don't just glance at it — actually check these four things:</p>
           <ul class="checklist">
             <li>Preview loads within a second or two, without freezing</li>
@@ -176,7 +189,7 @@
             <li>Switching between front and rear cameras works both ways</li>
           </ul>
 
-          <h2>Common camera problems and what they usually mean</h2>
+          <h2 id="common-problems">Common camera problems and what they usually mean</h2>
           <table>
             <thead>
               <tr><th>Symptom</th><th>Likely cause</th></tr>
@@ -191,10 +204,10 @@
             </tbody>
           </table>
 
-          <h2>When it's software, and when it's hardware</h2>
+          <h2 id="software-vs-hardware">When it's software, and when it's hardware</h2>
           <p>The fastest way to tell them apart: if the camera behaves the same way in your browser as it does in your regular camera app, the issue is very likely hardware. If it works fine in one but not the other, it's almost always software — a stuck permission, a corrupted cache, or a bug introduced by a recent update. Restarting the phone fixes a surprising number of "software" camera issues before you need to dig any further.</p>
 
-          <h2>Frequently asked questions</h2>
+          <h2 id="faq">Frequently asked questions</h2>
           <p><strong>Why is my phone camera showing a black screen?</strong><br>A black screen almost always means an app doesn't have camera permission, or another app is already using the camera in the background. Close other camera apps and check your browser's site permissions before assuming it's a hardware fault.</p>
           <p><strong>Can a software update break my camera?</strong><br>Yes. A buggy OS or app update can cause focus issues, crashes, or a black preview without any hardware damage at all. Testing in a browser, outside of your regular camera app, helps you tell the two apart.</p>
           <p><strong>How do I know if my camera problem is hardware or software?</strong><br>If the camera fails the same way in your browser as it does in your regular camera app, it points to hardware. If it works fine in one but not the other, the problem is almost always software or a permissions setting.</p>
@@ -241,3 +254,4 @@
 
 </body>
 </html>
+[file content end]
