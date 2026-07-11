@@ -143,7 +143,7 @@
   <script src="/js/header.js"></script>
   <script src="/js/footer.js"></script>
   <script>
-    // Blog data
+    // Blog data – extended with 5 new posts (duplicate "Touchscreen Issues?" removed, only one kept)
     const posts = [
       {
         slug: "battery-health-check-phone-dying-fast",
@@ -186,7 +186,37 @@
         excerpt: "Ensure your mic is crisp and clear — test voice recording, noise cancellation, and call quality.",
         category: "Microphone",
         date: "2026-07-10"
+      },
+      // ----- 5 new posts added below (duplicate touchscreen removed) -----
+      {
+        slug: "browser-diagnostics-vs-repair-shops",
+        title: "Why Browser-Based Phone Diagnostics Beat Repair Shops",
+        excerpt: "Discover the speed, privacy, and accuracy of in-browser hardware tests compared to traditional repair shop diagnostics.",
+        category: "Diagnostics",
+        date: "2026-07-12"
+      },
+      {
+        slug: "touchscreen-issues-browser-tests",
+        title: "Touchscreen Issues? Run These Quick Browser Tests",
+        excerpt: "Is your screen unresponsive or glitchy? Use these simple browser-based tests to pinpoint touchscreen problems in minutes.",
+        category: "Touchscreen",
+        date: "2026-07-12"
+      },
+      {
+        slug: "phone-hardware-failures-after-drops",
+        title: "Common Phone Hardware Failures After Drops",
+        excerpt: "From cracked displays to loose charging ports — learn which components are most vulnerable and how to check for damage.",
+        category: "Repair",
+        date: "2026-07-11"
+      },
+      {
+        slug: "refurbished-smartphone-checklist",
+        title: "Ultimate Pre-Purchase Checklist for Refurbished Smartphones",
+        excerpt: "A complete checklist covering battery, display, cameras, sensors, and more — so you can buy a refurbished phone with confidence.",
+        category: "Used Phone",
+        date: "2026-07-13"
       }
+      // (Note: the duplicate "Touchscreen Issues?" was intentionally omitted)
     ];
 
     function renderBlog() {
