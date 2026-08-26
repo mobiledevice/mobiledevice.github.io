@@ -52,7 +52,7 @@
         </div>
 
         <div class="footer-bottom">
-          <span>&copy; ${currentYear()} mobiledevice.tools &mdash; built for developers, in the browser.</span>
+          <span>&copy; ${currentYear()} mobiledevice.github.io &mdash; mobile device testing, made for everyone.</span>
           <span><a href="/sitemap.xml">Sitemap</a> &middot; <a href="/privacy">Privacy</a></span>
         </div>
       </div>
