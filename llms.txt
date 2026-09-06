@@ -5,23 +5,22 @@
 ## Website Overview
 This is a client-side web application that provides 14+ hardware diagnostic tests for mobile devices. All tests run locally in the browser with no app installation, no account creation, and no cost.
 
-## Quick Links
-- Homepage: https://mobiledevice.github.io/
-- All Tests Index: https://mobiledevice.github.io/
+## Main Pages
+- [Homepage](https://mobiledevice.github.io/): Main entry point for all hardware tests.
 
-## Individual Test Tools
-- Camera Test: https://mobiledevice.github.io/camera-test
-- Microphone Test: https://mobiledevice.github.io/mic-test
-- Speaker Test: https://mobiledevice.github.io/speaker-test
-- Touch Screen Test: https://mobiledevice.github.io/swipe-test
-- Display & Dead Pixel Test: https://mobiledevice.github.io/display-test
-- Vibration Motor Test: https://mobiledevice.github.io/vibration-test
-- Motion Sensor Test: https://mobiledevice.github.io/sensor-test
-- Battery Health Check: https://mobiledevice.github.io/battery-test
-- GPS & Location Test: https://mobiledevice.github.io/gps-test
-- Bluetooth Test: https://mobiledevice.github.io/bluetooth-test
-- Network Speed Test: https://mobiledevice.github.io/network-speed-test
-- Mobile Device Detector: https://mobiledevice.github.io/detector
+## Diagnostic Tools
+- [Camera Test](https://mobiledevice.github.io/camera-test): Front and rear camera inspection.
+- [Microphone Test](https://mobiledevice.github.io/mic-test): Audio input and microphone check.
+- [Speaker Test](https://mobiledevice.github.io/speaker-test): Audio output and frequency response testing.
+- [Touch Screen Test](https://mobiledevice.github.io/swipe-test): Multi-touch and screen gesture calibration.
+- [Display & Dead Pixel Test](https://mobiledevice.github.io/display-test): Screen pattern, color, and pixel diagnostics.
+- [Vibration Motor Test](https://mobiledevice.github.io/vibration-test): Haptic motor response check.
+- [Motion Sensor Test](https://mobiledevice.github.io/sensor-test): Accelerometer and gyroscope diagnostic.
+- [Battery Health Check](https://mobiledevice.github.io/battery-test): Battery status and charge indicator.
+- [GPS & Location Test](https://mobiledevice.github.io/gps-test): Geolocation accuracy test.
+- [Bluetooth Test](https://mobiledevice.github.io/bluetooth-test): Web Bluetooth connectivity test.
+- [Network Speed Test](https://mobiledevice.github.io/network-speed-test): Connection speed diagnostic.
+- [Mobile Device Detector](https://mobiledevice.github.io/detector): User-agent and hardware feature detection.
 
 ## Key Features
 - **Zero Setup**: No app installation required - https://mobiledevice.github.io/
