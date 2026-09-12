@@ -1,24 +1,30 @@
 /**
  * Header component
  * Injects site navigation into #site-header and wires up the mobile menu toggle.
- * Tools dropdown is desktop-only; on mobile a plain "Tools" link is used instead.
+ * Includes a "Tools" dropdown that works as:
+ *   - a floating panel on desktop
+ *   - an inline accordion inside the mobile hamburger menu
  */
 (function () {
+  // ---------------------------------------------------------------------------
+  // Tool list used for the dropdown menu.
+  // Keep in sync with data/tools-data.txt
+  // ---------------------------------------------------------------------------
   const TOOLS = [
-    { name: 'Camera Test',      url: '/tools/camera-test',      icon: '📷' },
-    { name: 'Microphone Test',  url: '/tools/microphone-test',  icon: '🎤' },
-    { name: 'Touch Screen Test',url: '/tools/touch-test',       icon: '👆' },
-    { name: 'Dead Pixel Test',  url: '/tools/dead-pixel-test',  icon: '🖥️' },
-    { name: 'Speaker Test',     url: '/tools/speaker-test',     icon: '🔊' },
-    { name: 'Vibration Test',   url: '/tools/vibration-test',   icon: '📳' },
-    { name: 'Accelerometer',    url: '/tools/accelerometer-test',icon: '📐' },
-    { name: 'Gyroscope Test',   url: '/tools/gyroscope-test',   icon: '🌀' },
-    { name: 'Battery Health',   url: '/tools/battery-test',     icon: '🔋' },
-    { name: 'GPS Test',         url: '/tools/gps-test',         icon: '📍' },
-    { name: 'Bluetooth Test',   url: '/tools/bluetooth-test',   icon: '📶' },
-    { name: 'Network Speed',    url: '/tools/network-test',     icon: '⚡' },
-    { name: 'Flashlight Test',  url: '/tools/flashlight-test',  icon: '🔦' },
-    { name: 'Fingerprint Test', url: '/tools/fingerprint-test', icon: '🔐' },
+    { name: 'Camera Test',       url: '/tools/camera-test',       icon: '📷' },
+    { name: 'Microphone Test',   url: '/tools/microphone-test',   icon: '🎤' },
+    { name: 'Touch Screen Test', url: '/tools/touch-test',        icon: '👆' },
+    { name: 'Dead Pixel Test',   url: '/tools/dead-pixel-test',   icon: '🖥️' },
+    { name: 'Speaker Test',      url: '/tools/speaker-test',      icon: '🔊' },
+    { name: 'Vibration Test',    url: '/tools/vibration-test',    icon: '📳' },
+    { name: 'Accelerometer',     url: '/tools/accelerometer-test',icon: '📐' },
+    { name: 'Gyroscope Test',    url: '/tools/gyroscope-test',    icon: '🌀' },
+    { name: 'Battery Health',    url: '/tools/battery-test',      icon: '🔋' },
+    { name: 'GPS Test',          url: '/tools/gps-test',          icon: '📍' },
+    { name: 'Bluetooth Test',    url: '/tools/bluetooth-test',    icon: '📶' },
+    { name: 'Network Speed',     url: '/tools/network-test',      icon: '⚡' },
+    { name: 'Flashlight Test',   url: '/tools/flashlight-test',   icon: '🔦' },
+    { name: 'Fingerprint Test',  url: '/tools/fingerprint-test',  icon: '🔐' },
   ];
 
   const dropdownItems = TOOLS.map(function (tool) {
@@ -42,10 +48,10 @@
         <li><a href="/">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
 
-        <!-- Desktop-only dropdown -->
-        <li class="nav-dropdown nav-desktop-only" id="toolsDropdown">
+        <!-- Tools dropdown (desktop panel / mobile accordion) -->
+        <li class="nav-dropdown" id="toolsDropdown">
           <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            Tools
+            <span>Tools</span>
             <svg class="dropdown-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -63,8 +69,7 @@
           </div>
         </li>
 
-        <!-- Mobile-only flat link -->
-        <li class="nav-mobile-only"><a href="/#tools">All Tools</a></li>        
+        <li><a href="/#why">Why us</a></li>
         <li><a href="/#use-cases">Use cases</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -95,7 +100,7 @@
       });
     }
 
-    // ----- Tools dropdown (desktop only) -----
+    // ----- Tools dropdown -----
     const dropdown = document.getElementById('toolsDropdown');
     if (dropdown) {
       const dropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
@@ -108,6 +113,7 @@
         dropdownToggle.setAttribute('aria-expanded', String(isOpen));
       });
 
+      // Close when clicking outside (desktop only — harmless on mobile)
       document.addEventListener('click', function (e) {
         if (!dropdown.contains(e.target)) {
           dropdown.classList.remove('open');
@@ -115,6 +121,7 @@
         }
       });
 
+      // Close on Escape
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && dropdown.classList.contains('open')) {
           dropdown.classList.remove('open');
@@ -123,6 +130,7 @@
         }
       });
 
+      // Keyboard nav inside the dropdown links
       dropdownMenu.addEventListener('keydown', function (e) {
         const items = Array.from(dropdownMenu.querySelectorAll('.dropdown-link'));
         const currentIndex = items.indexOf(document.activeElement);
