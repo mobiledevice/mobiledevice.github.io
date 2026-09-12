@@ -1,13 +1,9 @@
 /**
  * Header component
  * Injects site navigation into #site-header and wires up the mobile menu toggle.
- * Now includes a "Tools" dropdown with the full list of available tests.
+ * Tools dropdown is desktop-only; on mobile a plain "Tools" link is used instead.
  */
 (function () {
-  // ---------------------------------------------------------------------------
-  // Tool list used for the dropdown menu.
-  // Keep in sync with data/tools-data.txt (id|name|icon|category|description|url|status)
-  // ---------------------------------------------------------------------------
   const TOOLS = [
     { name: 'Camera Test',      url: '/tools/camera-test',      icon: '📷' },
     { name: 'Microphone Test',  url: '/tools/microphone-test',  icon: '🎤' },
@@ -25,7 +21,6 @@
     { name: 'Fingerprint Test', url: '/tools/fingerprint-test', icon: '🔐' },
   ];
 
-  // Build dropdown items HTML
   const dropdownItems = TOOLS.map(function (tool) {
     return `
       <li>
@@ -47,8 +42,8 @@
         <li><a href="/">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
 
-        <!-- Tools dropdown -->
-        <li class="nav-dropdown" id="toolsDropdown">
+        <!-- Desktop-only dropdown -->
+        <li class="nav-dropdown nav-desktop-only" id="toolsDropdown">
           <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             Tools
             <svg class="dropdown-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -68,6 +63,10 @@
           </div>
         </li>
 
+        <!-- Mobile-only flat link -->
+        <li class="nav-mobile-only"><a href="/#tools">All Tools</a></li>
+
+        <li><a href="/#why">Why us</a></li>
         <li><a href="/#use-cases">Use cases</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -98,7 +97,7 @@
       });
     }
 
-    // ----- Tools dropdown toggle -----
+    // ----- Tools dropdown (desktop only) -----
     const dropdown = document.getElementById('toolsDropdown');
     if (dropdown) {
       const dropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
@@ -111,7 +110,6 @@
         dropdownToggle.setAttribute('aria-expanded', String(isOpen));
       });
 
-      // Close when clicking outside
       document.addEventListener('click', function (e) {
         if (!dropdown.contains(e.target)) {
           dropdown.classList.remove('open');
@@ -119,7 +117,6 @@
         }
       });
 
-      // Close on Escape key
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && dropdown.classList.contains('open')) {
           dropdown.classList.remove('open');
@@ -128,7 +125,6 @@
         }
       });
 
-      // Keyboard navigation inside dropdown
       dropdownMenu.addEventListener('keydown', function (e) {
         const items = Array.from(dropdownMenu.querySelectorAll('.dropdown-link'));
         const currentIndex = items.indexOf(document.activeElement);
@@ -141,9 +137,6 @@
           e.preventDefault();
           const prev = currentIndex > 0 ? currentIndex - 1 : items.length - 1;
           items[prev].focus();
-        } else if (e.key === 'Tab' && !e.shiftKey && currentIndex === items.length - 1) {
-          dropdown.classList.remove('open');
-          dropdownToggle.setAttribute('aria-expanded', 'false');
         }
       });
     }
