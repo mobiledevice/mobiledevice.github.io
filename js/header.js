@@ -64,9 +64,7 @@
         </li>
 
         <!-- Mobile-only flat link -->
-        <li class="nav-mobile-only"><a href="/#tools">All Tools</a></li>
-
-        <li><a href="/#why">Why us</a></li>
+        <li class="nav-mobile-only"><a href="/#tools">All Tools</a></li>        
         <li><a href="/#use-cases">Use cases</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="#faq">FAQ</a></li>
