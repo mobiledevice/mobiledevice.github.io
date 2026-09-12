@@ -809,7 +809,7 @@ img, svg { max-width: 100%; display: block; }
   .hero-actions .btn { justify-content: center; }
 }
 /* ==========================================================================
-   Header — Tools Dropdown
+   Header — Tools Dropdown (desktop only)
    ========================================================================== */
 .nav-dropdown {
   position: relative;
@@ -946,44 +946,12 @@ img, svg { max-width: 100%; display: block; }
 }
 
 /* ==========================================================================
-   Mobile — dropdown becomes an inline expanding list
+   Visibility helpers — dropdown is desktop only,
+   mobile falls back to a plain "All Tools" link
    ========================================================================== */
+.nav-mobile-only { display: none; }
+
 @media (max-width: 720px) {
-  .nav-dropdown { width: 100%; }
-
-  .nav-dropdown-toggle {
-    width: 100%;
-    justify-content: space-between;
-    font-size: 16px;
-    padding: 4px 0;
-  }
-
-  .nav-dropdown-menu {
-    position: static;
-    transform: none;
-    width: 100%;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease, margin 0.25s ease;
-    margin-top: 0;
-  }
-  .nav-dropdown.open .nav-dropdown-menu {
-    max-height: 500px;
-    margin-top: 8px;
-  }
-  .nav-dropdown-menu::before { display: none; }
-
-  .dropdown-header { padding-left: 0; padding-right: 0; }
-
-  .dropdown-list {
-    grid-template-columns: 1fr;
-    max-height: none;
-  }
+  .nav-desktop-only { display: none !important; }
+  .nav-mobile-only  { display: block; }
 }
