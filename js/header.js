@@ -1,8 +1,41 @@
 /**
  * Header component
  * Injects site navigation into #site-header and wires up the mobile menu toggle.
+ * Now includes a "Tools" dropdown with the full list of available tests.
  */
 (function () {
+  // ---------------------------------------------------------------------------
+  // Tool list used for the dropdown menu.
+  // Keep in sync with data/tools-data.txt (id|name|icon|category|description|url|status)
+  // ---------------------------------------------------------------------------
+  const TOOLS = [
+    { name: 'Camera Test',      url: '/tools/camera-test',      icon: '📷' },
+    { name: 'Microphone Test',  url: '/tools/microphone-test',  icon: '🎤' },
+    { name: 'Touch Screen Test',url: '/tools/touch-test',       icon: '👆' },
+    { name: 'Dead Pixel Test',  url: '/tools/dead-pixel-test',  icon: '🖥️' },
+    { name: 'Speaker Test',     url: '/tools/speaker-test',     icon: '🔊' },
+    { name: 'Vibration Test',   url: '/tools/vibration-test',   icon: '📳' },
+    { name: 'Accelerometer',    url: '/tools/accelerometer-test',icon: '📐' },
+    { name: 'Gyroscope Test',   url: '/tools/gyroscope-test',   icon: '🌀' },
+    { name: 'Battery Health',   url: '/tools/battery-test',     icon: '🔋' },
+    { name: 'GPS Test',         url: '/tools/gps-test',         icon: '📍' },
+    { name: 'Bluetooth Test',   url: '/tools/bluetooth-test',   icon: '📶' },
+    { name: 'Network Speed',    url: '/tools/network-test',     icon: '⚡' },
+    { name: 'Flashlight Test',  url: '/tools/flashlight-test',  icon: '🔦' },
+    { name: 'Fingerprint Test', url: '/tools/fingerprint-test', icon: '🔐' },
+  ];
+
+  // Build dropdown items HTML
+  const dropdownItems = TOOLS.map(function (tool) {
+    return `
+      <li>
+        <a href="${tool.url}" class="dropdown-link" role="menuitem">
+          <span class="dropdown-icon">${tool.icon}</span>
+          <span class="dropdown-label">${tool.name}</span>
+        </a>
+      </li>`;
+  }).join('');
+
   const HEADER_HTML = `
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Mobile Device Testing Tools home">
@@ -13,6 +46,28 @@
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
+
+        <!-- Tools dropdown -->
+        <li class="nav-dropdown" id="toolsDropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Tools
+            <svg class="dropdown-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu" aria-label="All testing tools">
+            <div class="dropdown-header">
+              <span class="mono">// all tools</span>
+              <a href="/#tools" class="dropdown-see-all">View all →</a>
+            </div>
+            <ul class="dropdown-list">
+              ${dropdownItems}
+            </ul>
+          </div>
+        </li>
+
         <li><a href="/#why">Why us</a></li>
         <li><a href="/#use-cases">Use cases</a></li>
         <li><a href="/blog">Blog</a></li>
@@ -35,6 +90,7 @@
     mount.innerHTML = HEADER_HTML;
     mount.classList.add('site-header');
 
+    // ----- Mobile menu toggle -----
     const toggle = document.getElementById('navToggle');
     if (toggle) {
       toggle.addEventListener('click', function () {
@@ -43,7 +99,57 @@
       });
     }
 
-    // Close mobile menu after a nav link is tapped
+    // ----- Tools dropdown toggle -----
+    const dropdown = document.getElementById('toolsDropdown');
+    if (dropdown) {
+      const dropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
+      const dropdownMenu = dropdown.querySelector('.nav-dropdown-menu');
+
+      dropdownToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        dropdownToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      // Close when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+          dropdown.classList.remove('open');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          dropdownToggle.focus();
+        }
+      });
+
+      // Keyboard navigation inside dropdown
+      dropdownMenu.addEventListener('keydown', function (e) {
+        const items = Array.from(dropdownMenu.querySelectorAll('.dropdown-link'));
+        const currentIndex = items.indexOf(document.activeElement);
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = currentIndex < items.length - 1 ? currentIndex + 1 : 0;
+          items[next].focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = currentIndex > 0 ? currentIndex - 1 : items.length - 1;
+          items[prev].focus();
+        } else if (e.key === 'Tab' && !e.shiftKey && currentIndex === items.length - 1) {
+          dropdown.classList.remove('open');
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ----- Close mobile menu after a nav link is tapped -----
     mount.querySelectorAll('.nav-links a').forEach(function (link) {
       link.addEventListener('click', function () {
         mount.classList.remove('nav-open');
