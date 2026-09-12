@@ -808,3 +808,182 @@ img, svg { max-width: 100%; display: block; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
 }
+/* ==========================================================================
+   Header — Tools Dropdown
+   ========================================================================== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown.open .nav-dropdown-toggle {
+  color: var(--ink);
+}
+
+.dropdown-caret {
+  transition: transform 0.2s ease;
+  margin-top: 1px;
+}
+.nav-dropdown.open .dropdown-caret {
+  transform: rotate(180deg);
+}
+
+/* The dropdown panel */
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  width: 320px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 12px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 200;
+}
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Little arrow pointer on top of the panel */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+}
+
+/* Dropdown header row */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 10px;
+  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 8px;
+}
+.dropdown-header .mono {
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.dropdown-see-all {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+}
+.dropdown-see-all:hover { text-decoration: underline; }
+
+/* Two-column tool list */
+.dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.dropdown-list li { margin: 0; }
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.dropdown-link:hover,
+.dropdown-link:focus-visible {
+  background: var(--surface-alt);
+  color: var(--ink);
+  outline: none;
+}
+.dropdown-icon {
+  font-size: 15px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+}
+.dropdown-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   Mobile — dropdown becomes an inline expanding list
+   ========================================================================== */
+@media (max-width: 720px) {
+  .nav-dropdown { width: 100%; }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 4px 0;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, margin 0.25s ease;
+    margin-top: 0;
+  }
+  .nav-dropdown.open .nav-dropdown-menu {
+    max-height: 500px;
+    margin-top: 8px;
+  }
+  .nav-dropdown-menu::before { display: none; }
+
+  .dropdown-header { padding-left: 0; padding-right: 0; }
+
+  .dropdown-list {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+}
