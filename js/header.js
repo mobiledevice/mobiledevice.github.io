@@ -17,11 +17,7 @@
     { name: "GPS Test", icon: "📍", url: "/gps-test", desc: "Location accuracy and GPS functionality." },
     { name: "Bluetooth Test", icon: "📶", url: "/bluetooth-test", desc: "Bluetooth connectivity and device scanning." },
     { name: "Network Speed Test", icon: "🌐", url: "/network-speed-test", desc: "Internet speed, latency, and connection quality." },
-    { name: "Vibration Test", icon: "📳", url: "/vibration-test", desc: "Test device vibration motor." },
-    { name: "About", icon: "ℹ️", url: "/about", desc: "Learn more about Mobile Device Testing Tools." },
-    { name: "Contact", icon: "✉️", url: "/contact", desc: "Get in touch with the team." },
-    { name: "Privacy", icon: "🔒", url: "/privacy", desc: "How we protect your data and privacy." },
-    { name: "Terms", icon: "📋", url: "/terms", desc: "Read our terms and conditions." }
+    { name: "Vibration Test", icon: "📳", url: "/vibration-test", desc: "Test device vibration motor." }    
   ];
 
   // Header Dropdown CSS Styles
