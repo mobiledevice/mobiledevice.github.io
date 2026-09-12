@@ -11,20 +11,20 @@
   // Keep in sync with data/tools-data.txt
   // ---------------------------------------------------------------------------
   const TOOLS = [
-    { name: 'Camera Test',       url: '/tools/camera-test',       icon: '📷' },
-    { name: 'Microphone Test',   url: '/tools/microphone-test',   icon: '🎤' },
-    { name: 'Touch Screen Test', url: '/tools/touch-test',        icon: '👆' },
-    { name: 'Dead Pixel Test',   url: '/tools/dead-pixel-test',   icon: '🖥️' },
-    { name: 'Speaker Test',      url: '/tools/speaker-test',      icon: '🔊' },
-    { name: 'Vibration Test',    url: '/tools/vibration-test',    icon: '📳' },
-    { name: 'Accelerometer',     url: '/tools/accelerometer-test',icon: '📐' },
-    { name: 'Gyroscope Test',    url: '/tools/gyroscope-test',    icon: '🌀' },
-    { name: 'Battery Health',    url: '/tools/battery-test',      icon: '🔋' },
-    { name: 'GPS Test',          url: '/tools/gps-test',          icon: '📍' },
-    { name: 'Bluetooth Test',    url: '/tools/bluetooth-test',    icon: '📶' },
-    { name: 'Network Speed',     url: '/tools/network-test',      icon: '⚡' },
-    { name: 'Flashlight Test',   url: '/tools/flashlight-test',   icon: '🔦' },
-    { name: 'Fingerprint Test',  url: '/tools/fingerprint-test',  icon: '🔐' },
+    { name: 'Camera Test',       url: '/camera-test',       icon: '📷' },
+    { name: 'Microphone Test',   url: '/microphone-test',   icon: '🎤' },
+    { name: 'Touch Screen Test', url: '/touch-test',        icon: '👆' },
+    { name: 'Dead Pixel Test',   url: '/dead-pixel-test',   icon: '🖥️' },
+    { name: 'Speaker Test',      url: '/speaker-test',      icon: '🔊' },
+    { name: 'Vibration Test',    url: '/vibration-test',    icon: '📳' },
+    { name: 'Accelerometer',     url: '/accelerometer-test',icon: '📐' },
+    { name: 'Gyroscope Test',    url: '/gyroscope-test',    icon: '🌀' },
+    { name: 'Battery Health',    url: '/battery-test',      icon: '🔋' },
+    { name: 'GPS Test',          url: '/gps-test',          icon: '📍' },
+    { name: 'Bluetooth Test',    url: '/bluetooth-test',    icon: '📶' },
+    { name: 'Network Speed',     url: '/network-test',      icon: '⚡' },
+    { name: 'Flashlight Test',   url: '/flashlight-test',   icon: '🔦' },
+    { name: 'Fingerprint Test',  url: '/fingerprint-test',  icon: '🔐' },
   ];
 
   const dropdownItems = TOOLS.map(function (tool) {
