@@ -5,6 +5,17 @@
  *   - a floating panel on desktop
  *   - an inline accordion inside the mobile hamburger menu
  */
+
+(function loadHeaderStyles() {
+  if (document.getElementById('header-styles')) return;
+  const link = document.createElement('link');
+  link.id = 'header-styles';
+  link.rel = 'stylesheet';
+  link.href = '/css/header.css';
+  document.head.appendChild(link);
+})();
+
+
 (function () {
   // ---------------------------------------------------------------------------
   // Tool list used for the dropdown menu.
