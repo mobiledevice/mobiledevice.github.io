@@ -143,6 +143,63 @@
       background: #e0d5c5;
     }
 
+    /* ── Ad slot at the top of the sidebar ─────────────── */
+    .tools-sb-ad {
+      padding: 12px 16px 4px;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--paper-edge, #e0d5c5);
+      background: var(--paper-warm, #f5efe6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .tools-sb-ad-label {
+      font-family: 'Space Mono', monospace, monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7f8c8d;
+      align-self: flex-start;
+    }
+    .tools-sb-ad-slot {
+      width: 300px;
+      height: 250px;
+      max-width: 100%;
+      background: #eef3f9;
+      border: 1px solid var(--paper-edge, #e0d5c5);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .tools-sb-ad-slot::before {
+      content: 'Advertisement';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b0b8c0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .tools-sb-ad-slot iframe {
+      position: relative;
+      z-index: 1;
+      width: 300px;
+      height: 250px;
+      border: none;
+      display: block;
+      background: #ffffff;
+    }
+
     /* Scrollable items menu wrapper */
     .tools-sb-body {
       flex: 1;
@@ -240,7 +297,7 @@
   styleEl.textContent = cssStyles;
   document.head.appendChild(styleEl);
 
-  // 4. Render sidebar UI
+  // 4. Render sidebar UI (with ad slot at the top)
   const rootContainer = document.getElementById("tools-sidebar-root");
   if (!rootContainer) return;
 
@@ -252,6 +309,10 @@
         <h2>Mobile <em>Device</em></h2>
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
+      <div class="tools-sb-ad">
+        <span class="tools-sb-ad-label">Advertisement</span>
+        <div class="tools-sb-ad-slot" id="toolsSbAdSlot" aria-label="Advertisement"></div>
+      </div>
       <div class="tools-sb-body" id="toolsSidebarBody"></div>
     </aside>
   `;
@@ -261,6 +322,7 @@
   const trigger = document.getElementById("toolsSidebarTrigger");
   const overlay = document.getElementById("toolsSidebarOverlay");
   const closeBtn = document.getElementById("toolsSidebarClose");
+  const adSlot = document.getElementById("toolsSbAdSlot");
 
   // 5. Populate tools
   toolsList.forEach((tool, idx) => {
@@ -279,12 +341,38 @@
     sidebarBody.appendChild(itemA);
   });
 
-  // 6. Controls
+  // 6. Lazy-load the 300x250 ad the first time the sidebar opens
+  let adInjected = false;
+  function injectSidebarAd() {
+    if (adInjected || !adSlot) return;
+    adInjected = true;
+
+    const optionsScript = document.createElement("script");
+    optionsScript.type = "text/javascript";
+    optionsScript.text = `
+      atOptions = {
+        'key' : '81443cd2b70e4089345fae478ec5b90a',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    `;
+    adSlot.appendChild(optionsScript);
+
+    const invokeScript = document.createElement("script");
+    invokeScript.src = "https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js";
+    invokeScript.async = true;
+    adSlot.appendChild(invokeScript);
+  }
+
+  // 7. Controls
   function toggleSidebar() {
     const isOpen = sidebar.classList.toggle("open");
     trigger.classList.toggle("active", isOpen);
     overlay.classList.toggle("visible", isOpen);
     trigger.innerHTML = isOpen ? "✕" : "🛠️";
+    if (isOpen) injectSidebarAd(); // lazy-load ad on first open
   }
 
   function closeSidebar() {
