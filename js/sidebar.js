@@ -351,7 +351,7 @@
     optionsScript.type = "text/javascript";
     optionsScript.text = `
       atOptions = {
-        'key' : '81443cd2b70e4089345fae478ec5b90a',
+        'key' : 'b94bf2ee2a3d311677165bb0801d5091',
         'format' : 'iframe',
         'height' : 250,
         'width' : 300,
@@ -361,7 +361,7 @@
     adSlot.appendChild(optionsScript);
 
     const invokeScript = document.createElement("script");
-    invokeScript.src = "https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js";
+    invokeScript.src = "https://www.highrevenueformat.com/b94bf2ee2a3d311677165bb0801d5091/invoke.js";
     invokeScript.async = true;
     adSlot.appendChild(invokeScript);
   }
