@@ -1280,7 +1280,7 @@
                     <h1>Battery Health Check — <span class="accent">Test your phone battery</span> in seconds</h1>
                     <p class="hero-lede">Run a complete <strong>battery health check</strong> online: check charge level, charging status, and estimated battery health. Works on iPhone, Android, and all modern devices — no app to install.</p>
                     <div class="hero-actions">
-                        <a href="#battery-tester" class="btn btn-primary">Check battery</a>
+                        <button type="button" id="heroCheckBtn" class="btn btn-primary">Check battery</button>
                         <a href="#how-to-test" class="btn btn-ghost">How to test</a>
                     </div>
                     <div class="hero-meta">
@@ -1584,6 +1584,7 @@
 
             const btnCheck = document.getElementById('btnCheck');
             const btnRefresh = document.getElementById('btnRefresh');
+            const heroCheckBtn = document.getElementById('heroCheckBtn');
 
             // State
             let lastUpdate = null;
@@ -1669,7 +1670,6 @@
 
                 // Inject the ad script directly via innerHTML so the script
                 // executes INSIDE the container and appends its iframe here.
-                // This is the reliable way to render the HighRevenueFormat ad.
                 adContainer.innerHTML = `
                     <script type="text/javascript">
                         atOptions = {
@@ -1875,6 +1875,19 @@
 
                 btnCheck.addEventListener('click', checkBattery);
                 btnRefresh.addEventListener('click', refreshBattery);
+
+                // Hero "Check battery" button — scroll to the tester, then run
+                // the same checkBattery() flow (which shows the ad popup).
+                if (heroCheckBtn) {
+                    heroCheckBtn.addEventListener('click', () => {
+                        const tester = document.getElementById('battery-tester');
+                        if (tester) {
+                            tester.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        // Small delay so the smooth-scroll has time to begin
+                        setTimeout(() => { checkBattery(); }, 350);
+                    });
+                }
 
                 // Silent initial read (no ad popup)
                 setTimeout(async () => {
