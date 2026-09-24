@@ -1260,7 +1260,7 @@
                 <span class="dot-pulse"></span> Checking battery…
             </div>
             <div class="ad-container" id="adContainer">
-                <!-- The HighRevenueFormat script will render the ad iframe inside this div -->
+                <!-- The ad script will be injected here -->
             </div>
             <div class="ad-timer">
                 <span class="timer-number" id="adTimerCount">5</span>
@@ -1628,11 +1628,9 @@
 
             // Estimate battery health
             function estimateHealth(level, charging, dischargingTime) {
-                // If battery is charging, use discharging time if available
-                let healthEstimate = 85; // Default healthy
+                let healthEstimate = 85;
 
                 if (level !== null) {
-                    // Base health on current level (if low, may indicate wear)
                     if (level < 0.2) {
                         healthEstimate = Math.min(healthEstimate, 70);
                     } else if (level < 0.5) {
@@ -1642,20 +1640,16 @@
                     }
                 }
 
-                // If discharging time is available, use it for estimation
                 if (dischargingTime !== null && dischargingTime !== Infinity) {
-                    // Normalize: assume 8 hours (28800 seconds) is full health
                     const normalized = Math.min(100, (dischargingTime / 28800) * 100);
                     healthEstimate = Math.min(healthEstimate, normalized);
                 }
 
-                // If charging time is available
                 if (batteryData.chargingTime !== null && batteryData.chargingTime !== Infinity && charging) {
                     const normalized = Math.min(100, (1 / (batteryData.chargingTime / 7200)) * 100);
                     healthEstimate = Math.min(healthEstimate, normalized);
                 }
 
-                // Add some randomization for realism (battery health is never perfect)
                 const variation = 5 - Math.random() * 10;
                 healthEstimate = Math.min(100, Math.max(30, healthEstimate + variation));
 
@@ -1673,23 +1667,21 @@
                 const adContainer = document.getElementById('adContainer');
                 if (!adContainer) return;
 
-                const optionsScript = document.createElement('script');
-                optionsScript.type = 'text/javascript';
-                optionsScript.text = `
-                    atOptions = {
-                        'key' : 'b94bf2ee2a3d311677165bb0801d5091',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
+                // Inject the ad script directly via innerHTML so the script
+                // executes INSIDE the container and appends its iframe here.
+                // This is the reliable way to render the HighRevenueFormat ad.
+                adContainer.innerHTML = `
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '81443cd2b70e4089345fae478ec5b90a',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    <\/script>
+                    <script type="text/javascript" src="https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js"><\/script>
                 `;
-                adContainer.appendChild(optionsScript);
-
-                const invokeScript = document.createElement('script');
-                invokeScript.src = 'https://www.highrevenueformat.com/b94bf2ee2a3d311677165bb0801d5091/invoke.js';
-                invokeScript.async = true;
-                adContainer.appendChild(invokeScript);
             }
 
             function showBatteryAdPopup() {
@@ -1725,7 +1717,6 @@
                 const data = await getBatteryData();
 
                 if (!data.supported) {
-                    // Fallback: show simulated data
                     const simulatedLevel = 0.65 + Math.random() * 0.25;
                     const simulatedCharging = Math.random() > 0.7;
 
@@ -1736,7 +1727,6 @@
                         dischargingTime: simulatedCharging ? null : 18000 + Math.random() * 7200
                     };
 
-                    // Simulate health
                     healthScore = 60 + Math.floor(Math.random() * 35);
 
                     updateUI(simulatedLevel, simulatedCharging, healthScore);
@@ -1748,16 +1738,13 @@
 
                 batteryData = data;
 
-                // Calculate health
                 healthScore = estimateHealth(data.level, data.charging, data.dischargingTime);
 
                 updateUI(data.level, data.charging, healthScore);
 
-                // Update readout
                 readoutDevice.textContent = data.charging ? 'Charging' : 'Discharging';
                 readoutViewport.textContent = healthScore + '%';
 
-                // Store for refresh
                 lastUpdate = new Date();
             }
 
@@ -1765,7 +1752,6 @@
             function updateUI(level, charging, health) {
                 const percent = Math.round(level * 100);
 
-                // Battery icon
                 batteryLevel.style.width = percent + '%';
                 batteryLevel.className = 'battery-level';
 
@@ -1779,10 +1765,8 @@
                     batteryLevel.classList.add('low');
                 }
 
-                // Percentage
                 batteryPercentage.textContent = percent + '%';
 
-                // Status text
                 if (charging) {
                     batteryStatus.textContent = '⚡ Charging — connected to power';
                     batteryStatus.className = 'battery-status-text charging';
@@ -1791,7 +1775,6 @@
                     batteryStatus.className = 'battery-status-text';
                 }
 
-                // Health meter
                 healthMeter.style.width = health + '%';
                 healthMeter.className = 'fill';
                 if (health >= 80) {
@@ -1802,10 +1785,8 @@
                     healthMeter.classList.add('low');
                 }
 
-                // Health score display
                 healthScoreDisplay.textContent = health;
 
-                // Stats
                 statLevel.textContent = percent + '%';
                 statLevel.className = 'num';
                 if (percent > 50) statLevel.classList.add('good');
@@ -1824,7 +1805,6 @@
                 const now = new Date();
                 statTime.textContent = now.toLocaleTimeString();
 
-                // Update result
                 updateResult(percent, charging, health);
             }
 
@@ -1849,7 +1829,6 @@
                         '%. The battery is significantly degraded. Consider getting a battery replacement soon.';
                 }
 
-                // Add charging info to message
                 if (charging) {
                     resultMsg.textContent += ' Your device is currently charging.';
                 }
@@ -1869,7 +1848,6 @@
 
             // Init
             function init() {
-                // Terminal animation
                 const lines = [
                     'battery-test --check all',
                     '🔋 Initializing battery test…',
@@ -1895,11 +1873,10 @@
                 }
                 setTimeout(typeLine, 300);
 
-                // Button events
                 btnCheck.addEventListener('click', checkBattery);
                 btnRefresh.addEventListener('click', refreshBattery);
 
-                // Auto-check on load (without ad — silent initial read)
+                // Silent initial read (no ad popup)
                 setTimeout(async () => {
                     const data = await getBatteryData();
                     if (data.supported) {
@@ -1946,7 +1923,7 @@
                     });
                 }
 
-                // Listen for battery changes (silent — no ad on automatic updates)
+                // Silent updates from battery events (no ad popup)
                 if (isBatterySupported) {
                     navigator.getBattery().then(battery => {
                         battery.addEventListener('levelchange', async () => {
