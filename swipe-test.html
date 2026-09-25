@@ -940,6 +940,112 @@
                 flex: 1 1 100%;
             }
         }
+
+        /* ==========================================================================
+           Ad popup overlay (added — does not affect existing styles)
+           ========================================================================== */
+        #adPopup {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        #adPopup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .ad-popup-inner {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 2rem 1.5rem 1.75rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 30px 60px rgba(27, 31, 35, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+            text-align: center;
+            font-family: var(--font-body);
+        }
+        .ad-popup-inner .ad-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+        .ad-container {
+            width: 300px;
+            height: 250px;
+            background: var(--surface-alt);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .ad-container iframe {
+            width: 300px;
+            height: 250px;
+            border: none;
+            display: block;
+            background: #ffffff;
+        }
+        .ad-timer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        .ad-timer .timer-number {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--blue);
+            min-width: 2rem;
+        }
+        .ad-timer .timer-label {
+            font-size: 0.8rem;
+        }
+        .ad-close-hint {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
+        }
+        .ad-scan-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--blue);
+            font-family: var(--font-mono);
+        }
+        .ad-scan-indicator .dot-pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--blue);
+            border-radius: 50%;
+            animation: pulse-dot 1.2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
     </style>
 
     <!-- JSON-LD -->
@@ -1032,6 +1138,24 @@
     <!-- Header component mounts here (js/header.js) -->
   
   <header id="site-header"></header>
+
+  <!-- ── AD POPUP (shown when starting the swipe test) ── -->
+  <div id="adPopup" role="dialog" aria-modal="true" aria-label="Advertisement and swipe test progress">
+      <div class="ad-popup-inner">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-scan-indicator">
+              <span class="dot-pulse"></span> Preparing swipe test…
+          </div>
+          <div class="ad-container" id="adContainer">
+              <!-- The ad script will be injected here -->
+          </div>
+          <div class="ad-timer">
+              <span class="timer-number" id="adTimerCount">5</span>
+              <span class="timer-label">seconds</span>
+          </div>
+          <div class="ad-close-hint">Please wait, starting your swipe test…</div>
+      </div>
+  </div>
 
     <main>
 
@@ -1682,6 +1806,67 @@
                 updateResult();
             }
 
+            // ── Ad popup (shown when starting the swipe test) ─────────────
+            const AD_DURATION = 5; // seconds
+            let adTimerInterval = null;
+            let adInjected = false;
+
+            function injectSwipeAd() {
+                if (adInjected) return;
+                adInjected = true;
+                const adContainer = document.getElementById('adContainer');
+                if (!adContainer) return;
+
+                // Inject the ad script directly via innerHTML so the script
+                // executes INSIDE the container and appends its iframe here.
+                adContainer.innerHTML = `
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '81443cd2b70e4089345fae478ec5b90a',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    <\/script>
+                    <script type="text/javascript" src="https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js"><\/script>
+                `;
+            }
+
+            function showSwipeAdPopup() {
+                return new Promise((resolve) => {
+                    const popup = document.getElementById('adPopup');
+                    const timerCount = document.getElementById('adTimerCount');
+                    if (!popup || !timerCount) { resolve(); return; }
+
+                    let remaining = AD_DURATION;
+                    timerCount.textContent = remaining;
+                    popup.classList.add('active');
+                    injectSwipeAd();
+
+                    if (adTimerInterval) clearInterval(adTimerInterval);
+                    adTimerInterval = setInterval(() => {
+                        remaining -= 1;
+                        timerCount.textContent = remaining;
+                        if (remaining <= 0) {
+                            clearInterval(adTimerInterval);
+                            adTimerInterval = null;
+                            popup.classList.remove('active');
+                            resolve();
+                        }
+                    }, 1000);
+                });
+            }
+
+            // Show the ad popup only when turning the swipe test ON,
+            // then start it once the popup closes. Turning it off stays instant.
+            async function beginSwipeTest() {
+                if (!isSwipeTest) {
+                    await showSwipeAdPopup();
+                }
+                startSwipeTest();
+            }
+
             function startSwipeTest() {
                 isSwipeTest = !isSwipeTest;
                 isMultiTest = false;
@@ -1738,7 +1923,7 @@
                 // Buttons
                 btnClear.addEventListener('click', clearTraces);
                 btnMultiTest.addEventListener('click', startMultiTest);
-                btnSwipeTest.addEventListener('click', startSwipeTest);
+                btnSwipeTest.addEventListener('click', beginSwipeTest);
                 btnDeadZone.addEventListener('click', toggleDeadZone);
 
                 window.addEventListener('resize', resizeCanvas);
