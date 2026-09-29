@@ -1397,10 +1397,16 @@
                         <div class="battery-percentage" id="batteryPercentage">--%</div>
                         <div class="battery-status-text" id="batteryStatus">Tap "Check Battery" to start</div>
                         <div class="battery-health-meter">
-                            <div class="fill" id="healthMeter" style="width:0%;"></div>
+                        <div class="fill" id="healthMeter" style="width:0%;"></div>
                         </div>
                         <div style="font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-top:4px;">
                             Health Score: <span id="healthScoreDisplay">--</span>%
+                        </div>
+
+                        <!-- Ad shown inside the battery test results, right after the health score bar -->
+                        <div class="battery-ad-slot" id="batteryResultAd" aria-label="Advertisement">
+                            <span class="battery-ad-label">Advertisement</span>
+                            <!-- The HighRevenueFormat ad script will be injected here -->
                         </div>
                     </div>
 
@@ -1431,13 +1437,7 @@
                             <span class="num" id="statTime">--</span>
                             <span class="lbl">Last updated</span>
                         </div>
-                    </div>
-
-                    <!-- Ad shown inside the battery test results -->
-                    <div class="battery-ad-slot" id="batteryResultAd" aria-label="Advertisement">
-                        <span class="battery-ad-label">Advertisement</span>
-                        <!-- The HighRevenueFormat ad script will be injected here -->
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </section>
