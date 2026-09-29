@@ -726,6 +726,41 @@
             color: var(--muted);
         }
 
+        /* ── Ad inside battery test results ── */
+        .battery-ad-slot {
+            margin: 24px auto 0;
+            width: 100%;
+            max-width: 320px;
+            padding: 12px 12px 8px;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            display: none;                /* hidden until user runs the test */
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .battery-ad-slot.visible {
+            display: flex;
+        }
+        .battery-ad-label {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            align-self: flex-start;
+        }
+        .battery-ad-slot iframe {
+            width: 300px;
+            height: 250px;
+            max-width: 100%;
+            border: none;
+            display: block;
+            background: #fff;
+            border-radius: 6px;
+        }
+
         /* Feature grid, FAQ, etc */
         .feature-grid {
             display: grid;
@@ -1052,6 +1087,10 @@
             }
             .battery-percentage {
                 font-size: 28px;
+            }
+            .battery-ad-slot {
+                max-width: 100%;
+                padding: 10px;
             }
         }
 
@@ -1393,6 +1432,12 @@
                             <span class="lbl">Last updated</span>
                         </div>
                     </div>
+
+                    <!-- Ad shown inside the battery test results -->
+                    <div class="battery-ad-slot" id="batteryResultAd" aria-label="Advertisement">
+                        <span class="battery-ad-label">Advertisement</span>
+                        <!-- The HighRevenueFormat ad script will be injected here -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -1707,6 +1752,38 @@
                 });
             }
 
+            // ── Results-area ad (injected once, lazily) ────────────
+            let resultsAdInjected = false;
+            function injectBatteryResultAd() {
+                if (resultsAdInjected) return;
+                resultsAdInjected = true;
+                const slot = document.getElementById('batteryResultAd');
+                if (!slot) return;
+
+                // Reveal the slot
+                slot.classList.add('visible');
+
+                // Build the ad script via a temporary wrapper element.
+                // Using a wrapper ensures the <script> tags execute in the
+                // correct DOM context so the iframe renders inside the slot.
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML =
+                    '<script type="text/javascript">' +
+                    'atOptions = {' +
+                    "'key' : '81443cd2b70e4089345fae478ec5b90a'," +
+                    "'format' : 'iframe'," +
+                    "'height' : 250," +
+                    "'width' : 300," +
+                    "'params' : {}" +
+                    '};' +
+                    '<\/script>' +
+                    '<script type="text/javascript" src="https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js"><\/script>';
+
+                while (wrapper.firstChild) {
+                    slot.appendChild(wrapper.firstChild);
+                }
+            }
+
             // Update UI with battery data
             async function checkBattery() {
                 // Show ad popup before reading battery data (user-initiated)
@@ -1731,6 +1808,7 @@
                     readoutDevice.textContent = 'Simulated data';
                     readoutViewport.textContent = healthScore + '%';
 
+                    injectBatteryResultAd();
                     return;
                 }
 
@@ -1744,6 +1822,9 @@
                 readoutViewport.textContent = healthScore + '%';
 
                 lastUpdate = new Date();
+
+                // Show the results-area ad once the user has run the test
+                injectBatteryResultAd();
             }
 
             // Update UI
@@ -1887,8 +1968,8 @@
                     });
                 }
 
-                // NOTE: The silent auto-read on page load has been removed.
-                // The page now waits for the user to click "Check Battery"
+                // NOTE: No silent auto-read on page load.
+                // The page waits for the user to click "Check Battery"
                 // (hero button or main button) before showing any results.
 
                 // FAQ accordion
