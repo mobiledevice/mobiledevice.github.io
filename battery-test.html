@@ -726,7 +726,7 @@
             color: var(--muted);
         }
 
-        /* ── Ad inside battery test results ── */
+        /* ── Ad shown inside .battery-display (after health-score line) ── */
         .battery-ad-slot {
             margin: 18px auto 4px;
             width: 100%;
@@ -1397,13 +1397,13 @@
                         <div class="battery-percentage" id="batteryPercentage">--%</div>
                         <div class="battery-status-text" id="batteryStatus">Tap "Check Battery" to start</div>
                         <div class="battery-health-meter">
-                        <div class="fill" id="healthMeter" style="width:0%;"></div>
+                            <div class="fill" id="healthMeter" style="width:0%;"></div>
                         </div>
                         <div style="font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-top:4px;">
                             Health Score: <span id="healthScoreDisplay">--</span>%
                         </div>
 
-                        <!-- Ad shown inside the battery test results, right after the health score bar -->
+                        <!-- Ad shown inside the battery results, right after the health score bar -->
                         <div class="battery-ad-slot" id="batteryResultAd" aria-label="Advertisement">
                             <span class="battery-ad-label">Advertisement</span>
                             <!-- The HighRevenueFormat ad script will be injected here -->
@@ -1437,7 +1437,7 @@
                             <span class="num" id="statTime">--</span>
                             <span class="lbl">Last updated</span>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </section>
@@ -1713,17 +1713,18 @@
                 const adContainer = document.getElementById('adContainer');
                 if (!adContainer) return;
 
+                // Popup ad — same key as the results ad
                 adContainer.innerHTML = `
                     <script type="text/javascript">
                         atOptions = {
-                            'key' : '81443cd2b70e4089345fae478ec5b90a',
+                            'key' : 'b94bf2ee2a3d311677165bb0801d5091',
                             'format' : 'iframe',
                             'height' : 250,
                             'width' : 300,
                             'params' : {}
                         };
                     <\/script>
-                    <script type="text/javascript" src="https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js"><\/script>
+                    <script type="text/javascript" src="https://www.highrevenueformat.com/b94bf2ee2a3d311677165bb0801d5091/invoke.js"><\/script>
                 `;
             }
 
@@ -1770,14 +1771,14 @@
                 wrapper.innerHTML =
                     '<script type="text/javascript">' +
                     'atOptions = {' +
-                    "'key' : '81443cd2b70e4089345fae478ec5b90a'," +
+                    "'key' : 'b94bf2ee2a3d311677165bb0801d5091'," +
                     "'format' : 'iframe'," +
                     "'height' : 250," +
                     "'width' : 300," +
                     "'params' : {}" +
                     '};' +
                     '<\/script>' +
-                    '<script type="text/javascript" src="https://www.highrevenueformat.com/81443cd2b70e4089345fae478ec5b90a/invoke.js"><\/script>';
+                    '<script type="text/javascript" src="https://www.highrevenueformat.com/b94bf2ee2a3d311677165bb0801d5091/invoke.js"><\/script>';
 
                 while (wrapper.firstChild) {
                     slot.appendChild(wrapper.firstChild);
