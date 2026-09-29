@@ -727,7 +727,7 @@
         }
 
         /* ── Ad shown inside .battery-display (after health-score line) ── */
-        .battery-ad-slot {
+                .battery-ad-slot {
             margin: 18px auto 4px;
             width: 100%;
             max-width: 320px;
@@ -735,13 +735,14 @@
             background: var(--surface-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            display: none;                /* hidden until user runs the test */
+            display: flex;                /* visible from the start so the ad script can render */
             flex-direction: column;
             align-items: center;
             gap: 6px;
+            min-height: 250px;            /* reserve space so layout doesn't jump */
         }
-        .battery-ad-slot.visible {
-            display: flex;
+        .battery-ad-slot:empty {
+            display: none;                /* hide the empty slot until the ad loads */
         }
         .battery-ad-label {
             font-family: var(--font-mono);
