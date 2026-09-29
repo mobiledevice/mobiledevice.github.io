@@ -1640,6 +1640,11 @@
             // Battery API check
             const isBatterySupported = 'getBattery' in navigator;
 
+            // Shared ad config
+            const AD_KEY = 'b94bf2ee2a3d311677165bb0801d5091';
+            const AD_WIDTH = 300;
+            const AD_HEIGHT = 250;
+
             // Get battery data
             async function getBatteryData() {
                 if (!isBatterySupported) {
@@ -1708,25 +1713,36 @@
             let adTimerInterval = null;
             let adInjected = false;
 
+            // Generic ad injector: sets global atOptions, then loads invoke.js
+            // via createElement so the browser actually executes it.
+            function loadInvokeAd(container) {
+                if (!container) return;
+
+                // The HighRevenueFormat script reads these from the global scope
+                window.atOptions = {
+                    'key' : AD_KEY,
+                    'format' : 'iframe',
+                    'height' : AD_HEIGHT,
+                    'width' : AD_WIDTH,
+                    'params' : {}
+                };
+
+                const script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = 'https://www.highrevenueformat.com/' + AD_KEY + '/invoke.js';
+                container.appendChild(script);
+            }
+
             function injectBatteryAd() {
                 if (adInjected) return;
                 adInjected = true;
                 const adContainer = document.getElementById('adContainer');
                 if (!adContainer) return;
 
-                // Popup ad — same key as the results ad
-                adContainer.innerHTML = `
-                    <script type="text/javascript">
-                        atOptions = {
-                            'key' : 'b94bf2ee2a3d311677165bb0801d5091',
-                            'format' : 'iframe',
-                            'height' : 250,
-                            'width' : 300,
-                            'params' : {}
-                        };
-                    <\/script>
-                    <script type="text/javascript" src="https://www.highrevenueformat.com/b94bf2ee2a3d311677165bb0801d5091/invoke.js"><\/script>
-                `;
+                // Make sure the popup ad slot is visible before loading the ad
+                adContainer.style.display = 'flex';
+                loadInvokeAd(adContainer);
             }
 
             function showBatteryAdPopup() {
@@ -1762,28 +1778,14 @@
                 const slot = document.getElementById('batteryResultAd');
                 if (!slot) return;
 
-                // Reveal the slot
-                slot.classList.add('visible');
+                // Make sure the slot is visible with a reserved height
+                // BEFORE we load the ad script. If it's hidden or has zero
+                // height at injection time, the ad script often bails out.
+                slot.style.display = 'flex';
+                slot.style.minHeight = AD_HEIGHT + 'px';
 
-                // Build the ad script via a temporary wrapper element.
-                // Using a wrapper ensures the <script> tags execute in the
-                // correct DOM context so the iframe renders inside the slot.
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML =
-                    '<script type="text/javascript">' +
-                    'atOptions = {' +
-                    "'key' : 'b94bf2ee2a3d311677165bb0801d5091'," +
-                    "'format' : 'iframe'," +
-                    "'height' : 250," +
-                    "'width' : 300," +
-                    "'params' : {}" +
-                    '};' +
-                    '<\/script>' +
-                    '<script type="text/javascript" src="https://www.highrevenueformat.com/b94bf2ee2a3d311677165bb0801d5091/invoke.js"><\/script>';
-
-                while (wrapper.firstChild) {
-                    slot.appendChild(wrapper.firstChild);
-                }
+                // Load the ad using the same reliable createElement method
+                loadInvokeAd(slot);
             }
 
             // Update UI with battery data
@@ -1810,7 +1812,8 @@
                     readoutDevice.textContent = 'Simulated data';
                     readoutViewport.textContent = healthScore + '%';
 
-                    injectBatteryResultAd();
+                    // Small delay so the slot has a chance to lay out
+                    setTimeout(injectBatteryResultAd, 50);
                     return;
                 }
 
@@ -1826,7 +1829,7 @@
                 lastUpdate = new Date();
 
                 // Show the results-area ad once the user has run the test
-                injectBatteryResultAd();
+                setTimeout(injectBatteryResultAd, 50);
             }
 
             // Update UI
