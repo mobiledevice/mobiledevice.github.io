@@ -1668,8 +1668,6 @@
                 const adContainer = document.getElementById('adContainer');
                 if (!adContainer) return;
 
-                // Inject the ad script directly via innerHTML so the script
-                // executes INSIDE the container and appends its iframe here.
                 adContainer.innerHTML = `
                     <script type="text/javascript">
                         atOptions = {
@@ -1889,18 +1887,9 @@
                     });
                 }
 
-                // Silent initial read (no ad popup)
-                setTimeout(async () => {
-                    const data = await getBatteryData();
-                    if (data.supported) {
-                        batteryData = data;
-                        healthScore = estimateHealth(data.level, data.charging, data.dischargingTime);
-                        updateUI(data.level, data.charging, healthScore);
-                        readoutDevice.textContent = data.charging ? 'Charging' : 'Discharging';
-                        readoutViewport.textContent = healthScore + '%';
-                        lastUpdate = new Date();
-                    }
-                }, 500);
+                // NOTE: The silent auto-read on page load has been removed.
+                // The page now waits for the user to click "Check Battery"
+                // (hero button or main button) before showing any results.
 
                 // FAQ accordion
                 document.querySelectorAll('.faq-question').forEach(btn => {
