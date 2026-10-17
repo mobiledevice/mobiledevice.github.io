@@ -36,14 +36,15 @@
 <meta name="twitter:image" content="https://mobiledevice.github.io/images/og-image.png">
 
 <meta name="robots" content="index, follow">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563EB%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230969DA%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/css/styles.css">
+
 
 <!-- JSON-LD: WebApplication -->
 <script type="application/ld+json">
@@ -156,55 +157,43 @@
     <div class="container hero-grid">
       <div class="reveal is-visible">
         <span class="eyebrow">14 tests · runs on your phone · free</span>
-        <h1>Check every feature on <span class="accent">your own phone</span>, in seconds.</h1>
-        <p class="hero-lede">A gorgeous, browser-based diagnostic suite: test your camera, microphone, touch screen, sensors, and battery — no app to install, no technician needed.</p>
+        <h1>Check every feature on <span class="accent">your own phone</span>,<br>in a few taps.</h1>
+        <p class="hero-lede">A browser-based diagnostic suite: test your camera, microphone, touch screen, sensors, and battery — no app to install, no technician needed.</p>
 
         <div class="hero-actions">
-          <a href="#tools" class="btn btn-primary">Run a test <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#tools" class="btn btn-primary">Run a test</a>
           <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
         </div>
 
         <div class="hero-meta">
-          <span><span class="dot"></span> No install required</span>
-          <span><span class="dot"></span> 100% Private</span>
-          <span><span class="dot"></span> Client-side diagnostics</span>
+          <span><span class="dot"></span> No install</span>
+          <span><span class="dot"></span> No signup</span>
+          <span><span class="dot"></span> Runs on your own device</span>
         </div>
       </div>
 
       <div class="reveal is-visible">
-        <div class="hero-visual-card">
-          <div class="card-top-bar">
-            <div class="window-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <span class="file-path">~/diagnostics/active-scan.sys</span>
-            <span class="live-badge"><span class="pulse-dot"></span> Live</span>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">mobiledevice — zsh</span>
           </div>
-          <div class="card-content-area">
-            <div class="scan-row">
-              <span class="scan-label">Target Module:</span>
-              <span class="scan-val" id="termLine1">Camera & Sensor Grid</span>
-            </div>
-            <div class="scan-row">
-              <span class="scan-label">Execution:</span>
-              <span class="scan-val text-green" id="termOut">Passed (0ms latency)</span>
-            </div>
-            <div class="progress-track">
-              <div class="progress-fill"></div>
-            </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice <span id="termLine1"></span></div>
+            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
           </div>
         </div>
 
         <div class="device-readout">
           <div>
-            <div class="label">Hardware State</div>
-            <div class="value" id="readoutDevice">Fully Functional</div>
+            <div class="label">Now checking</div>
+            <div class="value" id="readoutDevice">Camera</div>
           </div>
           <div>
-            <div class="label">Diagnostics</div>
-            <div class="value text-blue" id="readoutViewport">Ready</div>
+            <div class="label">Result</div>
+            <div class="value" id="readoutViewport">Passed</div>
           </div>
           <div class="device-frame-mini" id="frameMini"></div>
         </div>
@@ -229,12 +218,12 @@
       </div>
       <div class="stat reveal">
         <div class="num">$0</div>
-        <div class="lbl">cost, always free</div>
+        <div class="lbl">cost, always</div>
       </div>
     </div>
   </section>
 
-  <!-- 3. MOBILE TESTING TOOLS -->
+  <!-- 3. MOBILE TESTING TOOLS (component: js/tools-section.js) -->
   <section class="section" id="tools">
     <div class="container">
       <div class="section-head reveal">
@@ -252,6 +241,7 @@
       </div>
     </div>
   </section>
+  <!-- tools-section.js mounts filters + cards into #toolsFilters and #toolsGrid above -->
   <div id="tools-container" hidden></div>
 
   <!-- 4. HOW IT WORKS -->
@@ -288,7 +278,7 @@
     </div>
   </section>
 
-  <!-- 5. WHY THIS PLATFORM -->
+ <!-- 5. WHY THIS PLATFORM -->
   <section class="section" id="why">
     <div class="container">
       <div class="section-head reveal">
@@ -300,42 +290,42 @@
       <div class="feature-grid">
         <div class="feature-card reveal">
           <div class="feature-icon blue">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
           <h3>Zero setup</h3>
           <p>Every test loads instantly in a browser tab. Nothing to install or configure.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon purple">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </div>
           <h3>Privacy-first</h3>
           <p>Camera, mic, and location access is used only for the test you run, and never leaves your device.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon green">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
           </div>
           <h3>Single-purpose tests</h3>
           <p>Each test checks one feature well, so you get a clear answer fast.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon blue">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><circle cx="12" cy="12" r="1"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><circle cx="12" cy="12" r="1"/></svg>
           </div>
           <h3>Uses real hardware</h3>
           <p>Tests talk directly to your browser's camera, mic, and sensor APIs — not a simulation.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon purple">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h3>Actually free</h3>
           <p>No tiers, trials, or feature walls. The full test suite is free to use.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon green">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3>Works on any phone</h3>
           <p>Any modern mobile browser — no app store, no account, no platform lock-in.</p>
@@ -483,7 +473,7 @@
         <h2>Pick a test. Know in seconds.</h2>
         <p>No account, no download — just open a test and find out if that feature actually works.</p>
         <div class="hero-actions" style="justify-content:center;">
-          <a href="#tools" class="btn btn-primary">Run a test <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#tools" class="btn btn-primary">Run a test</a>
           <a href="#how-it-works" class="btn btn-ghost">How it works</a>
         </div>
       </div>
