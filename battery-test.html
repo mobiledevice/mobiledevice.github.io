@@ -345,32 +345,37 @@
 
         /* Hero */
         .hero {
-            padding: 88px 0 80px;
+            padding: 40px 0 36px;
             border-bottom: 1px dashed var(--border);
             overflow: hidden;
         }
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 56px;
+            grid-template-columns: 1fr;
+            gap: 32px;
             align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
         .hero h1 {
-            font-size: clamp(34px, 4.6vw, 54px);
-            margin-bottom: 20px;
+            font-size: clamp(28px, 3.8vw, 42px);
+            margin-bottom: 16px;
         }
         .hero h1 .accent {
             color: var(--blue);
         }
         .hero-lede {
-            font-size: 18px;
-            max-width: 520px;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .hero-actions {
             display: flex;
             gap: 14px;
-            margin: 28px 0 34px;
+            margin: 20px 0 24px;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .hero-meta {
             display: flex;
@@ -379,6 +384,7 @@
             font-family: var(--font-mono);
             font-size: 13px;
             color: var(--muted);
+            justify-content: center;
         }
         .hero-meta span {
             display: flex;
@@ -399,8 +405,11 @@
             box-shadow: var(--shadow-lg);
             overflow: hidden;
             font-family: var(--font-mono);
-            transform: rotate(1deg);
+            transform: rotate(0deg);
             transition: transform 0.4s ease;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
         }
         .terminal:hover {
             transform: rotate(0deg);
@@ -434,7 +443,7 @@
         }
         .terminal-body {
             padding: 20px 18px 26px;
-            min-height: 220px;
+            min-height: 180px;
             color: #C9D1D9;
             font-size: 13.5px;
             line-height: 1.9;
@@ -460,6 +469,9 @@
             border-radius: var(--radius);
             padding: 14px 18px;
             box-shadow: var(--shadow-sm);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .device-readout .label {
             font-family: var(--font-mono);
@@ -1329,31 +1341,6 @@
                         <span><span class="dot"></span> Health estimate</span>
                     </div>
                 </div>
-                <div class="reveal is-visible">
-                    <div class="terminal">
-                        <div class="terminal-bar">
-                            <span class="terminal-dot red"></span>
-                            <span class="terminal-dot yellow"></span>
-                            <span class="terminal-dot green"></span>
-                            <span class="terminal-title">battery-test — zsh</span>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice battery-test <span id="termLine1"></span></div>
-                            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
-                        </div>
-                    </div>
-                    <div class="device-readout" style="margin-top:18px;">
-                        <div>
-                            <div class="label">Battery status</div>
-                            <div class="value" id="readoutDevice">Ready</div>
-                        </div>
-                        <div>
-                            <div class="label">Health score</div>
-                            <div class="value" id="readoutViewport">—</div>
-                        </div>
-                        <div class="device-frame-mini" id="frameMini"></div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -1443,8 +1430,44 @@
             </div>
         </section>
 
+        <!-- ===== ANIMATED TERMINAL / READOUT MOVED BELOW TESTER FOR SEO ===== -->
+        <section class="section section-alt" id="terminal-section">
+            <div class="container">
+                <div class="section-head center reveal is-visible">
+                    <span class="eyebrow">system diagnostic</span>
+                    <h2>Live Device Readout</h2>
+                    <p>Real-time terminal output and hardware diagnostic preview.</p>
+                </div>
+                <div class="reveal is-visible">
+                    <div class="terminal">
+                        <div class="terminal-bar">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">battery-test — zsh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice battery-test <span id="termLine1"></span></div>
+                            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
+                        </div>
+                    </div>
+                    <div class="device-readout">
+                        <div>
+                            <div class="label">Battery status</div>
+                            <div class="value" id="readoutDevice">Ready</div>
+                        </div>
+                        <div>
+                            <div class="label">Health score</div>
+                            <div class="value" id="readoutViewport">—</div>
+                        </div>
+                        <div class="device-frame-mini" id="frameMini"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== HOW TO TEST ===== -->
-        <section class="section section-alt" id="how-to-test">
+        <section class="section" id="how-to-test">
             <div class="container">
                 <div class="section-head reveal is-visible">
                     <span class="eyebrow">guide</span>
@@ -1495,7 +1518,7 @@
         </section>
 
         <!-- ===== WHY TEST ===== -->
-        <section class="section" id="why-test">
+        <section class="section section-alt" id="why-test">
             <div class="container">
                 <div class="section-head reveal is-visible">
                     <span class="eyebrow">why it matters</span>
@@ -1538,7 +1561,7 @@
         </section>
 
         <!-- ===== FAQ ===== -->
-        <section class="section section-alt" id="faq">
+        <section class="section" id="faq">
             <div class="container">
                 <div class="section-head center reveal is-visible">
                     <span class="eyebrow">questions</span>
@@ -1582,7 +1605,7 @@
         </section>
 
         <!-- ===== CTA ===== -->
-        <section class="section" style="border-bottom:none;">
+        <section class="section section-alt" style="border-bottom:none;">
             <div class="container">
                 <div class="cta-band reveal is-visible">
                     <h2>Ready to check your phone battery health?</h2>
