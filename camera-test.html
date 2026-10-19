@@ -1102,34 +1102,6 @@
                     <p>Grant camera access, then follow the steps to check focus, flash, zoom, and image quality. Results appear instantly.</p>
                 </div>
 
-                <!-- terminal + device readout moved here from hero -->
-                <div class="reveal is-visible" style="margin-bottom:24px;">
-                    <div class="terminal">
-                        <div class="terminal-bar">
-                            <span class="terminal-dot red"></span>
-                            <span class="terminal-dot yellow"></span>
-                            <span class="terminal-dot green"></span>
-                            <span class="terminal-title">camera-test — zsh</span>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice camera-test <span id="termLine1"></span></div>
-                            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
-                        </div>
-                    </div>
-
-                    <div class="device-readout" style="margin-top:18px;">
-                        <div>
-                            <div class="label">Camera status</div>
-                            <div class="value" id="readoutDevice">Ready</div>
-                        </div>
-                        <div>
-                            <div class="label">Test result</div>
-                            <div class="value" id="readoutViewport">—</div>
-                        </div>
-                        <div class="device-frame-mini" id="frameMini"></div>
-                    </div>
-                </div>
-
                 <div class="reveal is-visible">
                     <div class="camera-feed" id="cameraFeed">
                         <video id="video" autoplay playsinline muted></video>
@@ -1182,6 +1154,34 @@
 
                     <div style="margin-top:16px;font-size:13px;color:var(--muted);font-family:var(--font-mono);">
                         <span id="cameraInfo">No camera active</span>
+                    </div>
+                </div>
+
+                <!-- terminal + device readout (animation) now at the end of the camera app -->
+                <div class="reveal is-visible" style="margin-top:24px;">
+                    <div class="terminal">
+                        <div class="terminal-bar">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">camera-test — zsh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">$</span> mobiledevice camera-test <span id="termLine1"></span></div>
+                            <div class="terminal-line terminal-out" id="termOut" style="opacity:0; transition:opacity .3s ease; margin-top:10px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="device-readout" style="margin-top:18px;">
+                        <div>
+                            <div class="label">Camera status</div>
+                            <div class="value" id="readoutDevice">Ready</div>
+                        </div>
+                        <div>
+                            <div class="label">Test result</div>
+                            <div class="value" id="readoutViewport">—</div>
+                        </div>
+                        <div class="device-frame-mini" id="frameMini"></div>
                     </div>
                 </div>
             </div>
