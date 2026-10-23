@@ -739,7 +739,7 @@
         }
 
         /* ── Ad shown inside .battery-display (after health-score line) ── */
-                .battery-ad-slot {
+        .battery-ad-slot {
             margin: 18px auto 4px;
             width: 100%;
             max-width: 320px;
@@ -764,14 +764,9 @@
             color: var(--muted);
             align-self: flex-start;
         }
-        .battery-ad-slot iframe {
-            width: 300px;
-            height: 250px;
-            max-width: 100%;
-            border: none;
-            display: block;
-            background: #fff;
-            border-radius: 6px;
+        .battery-ad-slot .adsbygoogle {
+            width: 100%;
+            min-height: 250px;
         }
 
         /* Feature grid, FAQ, etc */
@@ -1106,112 +1101,6 @@
                 padding: 10px;
             }
         }
-
-        /* ==========================================================================
-           Ad popup overlay (added — does not affect existing styles)
-           ========================================================================== */
-        #adPopup {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.25s ease, visibility 0.25s ease;
-        }
-        #adPopup.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .ad-popup-inner {
-            background: var(--surface);
-            border-radius: 20px;
-            padding: 2rem 1.5rem 1.75rem;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 30px 60px rgba(27, 31, 35, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-            text-align: center;
-            font-family: var(--font-body);
-        }
-        .ad-popup-inner .ad-label {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--muted);
-            margin-bottom: 0.25rem;
-        }
-        .ad-container {
-            width: 300px;
-            height: 250px;
-            background: var(--surface-alt);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .ad-container iframe {
-            width: 300px;
-            height: 250px;
-            border: none;
-            display: block;
-            background: #ffffff;
-        }
-        .ad-timer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            width: 100%;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-        .ad-timer .timer-number {
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--blue);
-            min-width: 2rem;
-        }
-        .ad-timer .timer-label {
-            font-size: 0.8rem;
-        }
-        .ad-close-hint {
-            font-size: 0.7rem;
-            color: var(--muted);
-            font-family: var(--font-mono);
-            letter-spacing: 0.02em;
-        }
-        .ad-scan-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            color: var(--blue);
-            font-family: var(--font-mono);
-        }
-        .ad-scan-indicator .dot-pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--blue);
-            border-radius: 50%;
-            animation: pulse-dot 1.2s infinite;
-        }
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 0.4; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
     </style>
 
     <!-- JSON-LD -->
@@ -1304,24 +1193,6 @@
     <!-- Header component mounts here (js/header.js) -->
 <header id="site-header"></header>
 
-    <!-- ── AD POPUP (shown when clicking Check Battery) ── -->
-    <div id="adPopup" role="dialog" aria-modal="true" aria-label="Advertisement and battery check progress">
-        <div class="ad-popup-inner">
-            <div class="ad-label">Advertisement</div>
-            <div class="ad-scan-indicator">
-                <span class="dot-pulse"></span> Checking battery…
-            </div>
-            <div class="ad-container" id="adContainer">
-                <!-- The ad script will be injected here -->
-            </div>
-            <div class="ad-timer">
-                <span class="timer-number" id="adTimerCount">5</span>
-                <span class="timer-label">seconds</span>
-            </div>
-            <div class="ad-close-hint">Please wait, running your battery health check…</div>
-        </div>
-    </div>
-
     <main>
 
         <!-- ===== HERO ===== -->
@@ -1372,7 +1243,13 @@
                         <!-- Ad shown inside the battery results, right after the health score bar -->
                         <div class="battery-ad-slot" id="batteryResultAd" aria-label="Advertisement">
                             <span class="battery-ad-label">Advertisement</span>
-                            <!-- The HighRevenueFormat ad script will be injected here -->
+                            <!-- MD Sq -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-8148292690390336"
+                                 data-ad-slot="4904648710"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
                         </div>
                     </div>
 
@@ -1641,11 +1518,6 @@
             // Battery API check
             const isBatterySupported = 'getBattery' in navigator;
 
-            // Shared ad config
-            const AD_KEY = 'b94bf2ee2a3d311677165bb0801d5091';
-            const AD_WIDTH = 300;
-            const AD_HEIGHT = 250;
-
             // Get battery data
             async function getBatteryData() {
                 if (!isBatterySupported) {
@@ -1709,91 +1581,20 @@
                 return Math.round(healthEstimate);
             }
 
-            // ── Ad popup (shown when checking battery) ─────────────
-            const AD_DURATION = 5; // seconds
-            let adTimerInterval = null;
-            let adInjected = false;
-
-            // Generic ad injector: sets global atOptions, then loads invoke.js
-            // via createElement so the browser actually executes it.
-            function loadInvokeAd(container) {
-                if (!container) return;
-
-                // The HighRevenueFormat script reads these from the global scope
-                window.atOptions = {
-                    'key' : AD_KEY,
-                    'format' : 'iframe',
-                    'height' : AD_HEIGHT,
-                    'width' : AD_WIDTH,
-                    'params' : {}
-                };
-
-                const script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.async = true;
-                script.src = 'https://www.highrevenueformat.com/' + AD_KEY + '/invoke.js';
-                container.appendChild(script);
-            }
-
-            function injectBatteryAd() {
-                if (adInjected) return;
-                adInjected = true;
-                const adContainer = document.getElementById('adContainer');
-                if (!adContainer) return;
-
-                // Make sure the popup ad slot is visible before loading the ad
-                adContainer.style.display = 'flex';
-                loadInvokeAd(adContainer);
-            }
-
-            function showBatteryAdPopup() {
-                return new Promise((resolve) => {
-                    const popup = document.getElementById('adPopup');
-                    const timerCount = document.getElementById('adTimerCount');
-                    if (!popup || !timerCount) { resolve(); return; }
-
-                    let remaining = AD_DURATION;
-                    timerCount.textContent = remaining;
-                    popup.classList.add('active');
-                    injectBatteryAd();
-
-                    if (adTimerInterval) clearInterval(adTimerInterval);
-                    adTimerInterval = setInterval(() => {
-                        remaining -= 1;
-                        timerCount.textContent = remaining;
-                        if (remaining <= 0) {
-                            clearInterval(adTimerInterval);
-                            adTimerInterval = null;
-                            popup.classList.remove('active');
-                            resolve();
-                        }
-                    }, 1000);
-                });
-            }
-
-            // ── Results-area ad (injected once, lazily) ────────────
-            let resultsAdInjected = false;
-            function injectBatteryResultAd() {
-                if (resultsAdInjected) return;
-                resultsAdInjected = true;
-                const slot = document.getElementById('batteryResultAd');
-                if (!slot) return;
-
-                // Make sure the slot is visible with a reserved height
-                // BEFORE we load the ad script. If it's hidden or has zero
-                // height at injection time, the ad script often bails out.
-                slot.style.display = 'flex';
-                slot.style.minHeight = AD_HEIGHT + 'px';
-
-                // Load the ad using the same reliable createElement method
-                loadInvokeAd(slot);
+            // ── Results-area ad (pushed once, lazily) ──────────────
+            let resultsAdPushed = false;
+            function pushBatteryResultAd() {
+                if (resultsAdPushed) return;
+                resultsAdPushed = true;
+                try {
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.warn('AdSense push error:', e);
+                }
             }
 
             // Update UI with battery data
             async function checkBattery() {
-                // Show ad popup before reading battery data (user-initiated)
-                await showBatteryAdPopup();
-
                 const data = await getBatteryData();
 
                 if (!data.supported) {
@@ -1814,7 +1615,7 @@
                     readoutViewport.textContent = healthScore + '%';
 
                     // Small delay so the slot has a chance to lay out
-                    setTimeout(injectBatteryResultAd, 50);
+                    setTimeout(pushBatteryResultAd, 50);
                     return;
                 }
 
@@ -1830,7 +1631,7 @@
                 lastUpdate = new Date();
 
                 // Show the results-area ad once the user has run the test
-                setTimeout(injectBatteryResultAd, 50);
+                setTimeout(pushBatteryResultAd, 50);
             }
 
             // Update UI
@@ -1962,7 +1763,7 @@
                 btnRefresh.addEventListener('click', refreshBattery);
 
                 // Hero "Check battery" button — scroll to the tester, then run
-                // the same checkBattery() flow (which shows the ad popup).
+                // the same checkBattery() flow.
                 if (heroCheckBtn) {
                     heroCheckBtn.addEventListener('click', () => {
                         const tester = document.getElementById('battery-tester');
